@@ -55,3 +55,12 @@
 ```
 ./setup.cc.dxbot.sh ... help | less
 ```
+
+  * successful result of every above command are generated trading strategies and corresponding firejail run scripts:
+    * all files stored in DEXBOT root directory at `/<DEXBOT root>/`
+    * trading strategies as `./git.src/strategy_<maker ticker>_<taker ticker>_<strategy name>.py`
+    * trading run script 1 `run.firejail.<maker ticker>.<taker ticker>.<strategy name>.sh`
+    * trading run script 2 `run.firejail.<maker ticker as taker>.<taker ticker ad maker>.<strategy name>.sh`
+    * for example `run.firejail.BLOCK.LTC.strategy1.sh` and `run.firejail.LTC.BLOCK.strategy1.sh`
+  * **it is recommended to not execute generated scripts directly, rather using them with screen setup of this tutorial**
+    * screen setup is used to generate user friendly whole ecosystem startup script
