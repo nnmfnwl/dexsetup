@@ -1,5 +1,7 @@
 ### 5. Wallets firejail sandbox setup
-
+  * it is recommended to not execute build binary files directly, rather using them with this firejail setup
+  * firejail setup is used to generate security profile and script which isolate wallet from other user files and also from other wallets because of security reasons
+  
 **To generate or update firejail sandboxing run scripts:**
   * estimated time on very slow machine 1 minute
   * basic usage:
