@@ -23,7 +23,7 @@
     * for example `~/Downloads/ccwallets/blocknet/`
   * **it is recommended to not execute build binary files directly, rather using it with firejail and screen setup of this tutorial**
     * firejail setup is used to generate security profile and script which isolate wallet from other user files and also from other wallets because of security reasons
-    * screen setup is used to generate script for user friendly easy startup
+    * screen setup is used to generate user friendly whole ecosystem startup script
 
 **Help tips**
   * in certain cases download error could happen, because of used proxychains
