@@ -3,7 +3,7 @@
 **ABOUT**
   * Whole ecosystem startup screen script setup
   * Starting up manually all wallets and trading scripts could take some time...and effort...
-  * `setup.cc.screen.sh` script automatically generate screen startup script based on previously used DEXSETUP commands
+  * `setup.screen.sh` script automatically generate screen startup script based on previously used DEXSETUP commands
   * It also support custom instances, so you could have two or more ecosystem instances at once.
 
 **Default Usage**
@@ -11,7 +11,7 @@
   * setup generates two startup scripts, one for QT another one for CLI
   * default usage is
 ```
-./setup.cc.screen.sh
+./setup.screen.sh
 ```
 
 **Output**
@@ -32,5 +32,5 @@
 **More Help**
   * for all information about screen setup script and how to use optional arguments, please read help
 ```
-./setup.cc.screen.sh help | less
+./setup.screen.sh help | less
 ```
