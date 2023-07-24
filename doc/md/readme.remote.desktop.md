@@ -55,9 +55,9 @@ while :; do ssh user@hostname "arecord -f cd" | aplay; done
 
 #### Recommendations
 
-  * anyway it is recommended to start also GUI wallets inside GNU Screen because:
-  *  if remote network connection slows down, it could be still managed by CLI
-  *  All logs are easy to read with GNU screen
-  *  It is more easy to automatize CLI commands with GNU screen
-  *    [see Remote console management tips with Gnu Screen](./readme.remote.console.md)
-  *    [see Semi/automatization startup](./readme.auto.md)
+  * it is recommended to start also GUI wallets inside GNU Screen because:
+    * if remote network connection slows down, it could be still managed by CLI
+    * All logs are easy to read with GNU screen
+    * It is more easy to automatize CLI commands with GNU screen
+    * [see 2. Remote console management tips with Gnu Screen](./readme.remote.console.md)
+    * [see 7. Start script with GNU Screen terminal multiplexer setup](./readme.screen.md)
