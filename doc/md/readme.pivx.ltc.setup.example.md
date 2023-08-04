@@ -5,13 +5,17 @@
   * it setup PIVX/LTC trading with DEXBOT
   * at first we need to check system is up to date and install git first.
 ```
-su - -c "apt update; apt full-upgrade; apt install git; exit"
+su - -c "apt update; apt full-upgrade; apt install git proxychains4 tor torsocks; exit"
+```
+  * Update user permissions for ability to use tor and logout and login again after command execution
+```
+su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
   * main directory create and copy installation files
 ```
 mkdir -p ~/Downloads/ccwallets/dexsetup
 cd ~/Downloads/ccwallets/dexsetup
-git clone https://github.com/nnmfnwl/dexsetup.git ./
+&& proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
   * switch to experimental branch
 ```
@@ -28,10 +32,6 @@ chmod 755 setup.cc.dexbot.sh setup.cc.firejail.sh setup.cc.wallet.sh setup.cfg.p
   * proxychains user file reconfigure
 ```
 ./setup.cfg.proxychains.sh install
-```
-  * add user to be able to use tor, please don't forget to logout and login after
-```
-su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
   * download and build blocknet, litecoin and pivx wallets securely from official sources
   * using QA version of blocknet to support also partial orders
