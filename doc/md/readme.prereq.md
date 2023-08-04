@@ -1,18 +1,25 @@
 ### 1. Operating system dependencies setup and dexsetup files download
 
-**Update system and install git:**
+**Update system and install git and proxychains for privacy:**
   * estimated time on very slow machine few minutes
   * system upgrade will be prompted for root password
 ```
-su - -c "apt update; apt full-upgrade; apt install git; exit"
+su - -c "apt update; apt full-upgrade; apt install git proxychains4 tor torsocks; exit"
+```
+
+**Update user permissions for ability to use tor**
+  * user permissions must be updated for ability to use tor network anonymity layer
+  * user logout and login is needed after this step
+```
+su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
 
 **Create root directory(~/Downloads/ccwallets) and download all dexsetup files**
-  * estimated time on very slow machine 1 minute
+  * estimated time on very slow machine 1 minute, depending on connection speed
 ```
 mkdir -p ~/Downloads/ccwallets/dexsetup \
 && cd ~/Downloads/ccwallets/dexsetup \
-&& git clone https://github.com/nnmfnwl/dexsetup.git ./
+&& proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
 
 **Software dependencies installation**
@@ -39,11 +46,4 @@ mkdir -p ~/Downloads/ccwallets/dexsetup \
   * it is recommended step
 ```
 ./setup.cfg.proxychains.sh install
-```
-
-**Update user permissions to use tor**
-  * user permissions must be updated for ability to use tor network anonymity layer
-  * it is recommended step
-```
-su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
