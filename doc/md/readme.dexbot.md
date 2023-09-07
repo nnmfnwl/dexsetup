@@ -51,6 +51,10 @@
 ```
 ./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pocketcoin.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pkoin.ltc.sh test1    pocketcoin01 litecoin08
 ```
+  * Particl / Litecoin
+```
+./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.particl.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.part.ltc.sh test1    particl01 litecoin08
+```
   * for more information about dexbot script and how to use optional arguments, please read help
 ```
 ./setup.cc.dexbot.sh ... help | less
