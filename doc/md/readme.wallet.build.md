@@ -15,6 +15,7 @@
 ./setup.cc.wallet.sh ./src/cfg.cc.lbrycrd.leveldb.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.lbrycrd.sqlite.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.pocketcoin.sh install
+./setup.cc.wallet.sh ./src/cfg.cc.particl.sh install
 ```
 
   * successful result of every above command is
