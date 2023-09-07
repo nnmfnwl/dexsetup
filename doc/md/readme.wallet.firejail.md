@@ -16,6 +16,7 @@
 ./setup.cc.firejail.sh ./src/cfg.cc.lbrycrd.leveldb.sh
 ./setup.cc.firejail.sh ./src/cfg.cc.lbrycrd.sqlite.sh
 ./setup.cc.firejail.sh ./src/cfg.cc.pocketcoin.sh
+./setup.cc.firejail.sh ./src/cfg.cc.particl.sh
 ```
   * successful result of every above command are generated firejail profiles and run scripts:
     * all files stored in wallet root directories at `/<DEXSETUP root>/../<coin name>/`
