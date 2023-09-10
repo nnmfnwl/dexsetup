@@ -53,7 +53,7 @@
 ```
   * Particl / Litecoin
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.particl.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.part.ltc.sh test1    particl01 litecoin08
+./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.particl.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.part.ltc.sh test1    particl01 litecoin09
 ```
   * for more information about dexbot script and how to use optional arguments, please read help
 ```
