@@ -50,11 +50,11 @@ cd ~/Downloads/ccwallets/dexsetup
   * generate PIVX/LTC trading strategy scripts
   * command could be repeated later with `yourpivxaddress` and `yourlitecoinaddress` replaced with real wallet addresses
 ```
-./setup.cc.dxbot.sh ./src/cfg.cc.blocknet.qa.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dxbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy1 yourpivxaddress1 yourlitecoinaddress1
+./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.qa.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy1 yourpivxaddress1 yourlitecoinaddress1
 ```
   * could be also another PIVX/LTC strategy running at same time, lets name it `strategy2` and using another addresses for funds `yourpivxaddress2` and `yourlitecoinaddress2`
 ```
-./setup.cc.dxbot.sh ./src/cfg.cc.blocknet.qa.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dxbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy2 yourpivxaddress2 yourlitecoinaddress2
+./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.qa.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy2 yourpivxaddress2 yourlitecoinaddress2
 ```
   * now we need to generate whole ecosystem startup script
 ```
@@ -80,9 +80,9 @@ CTRL + a + d
 ```
   * time to time check for update. this command should be done out of screen environment
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./setup.update.sh system dexsetup walletauto firejail dxbot screen once
+cd ~/Downloads/ccwallets/dexsetup/ && ./setup.update.sh system dexsetup walletauto firejail dexbot screen once
 ```
   * or updater could be running in separated special screen as daemon as automatic updater
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./setup.update.sh system dexsetup walletauto firejail dxbot screen daemon yes
+cd ~/Downloads/ccwallets/dexsetup/ && ./setup.update.sh system dexsetup walletauto firejail dexbot screen daemon yes
 ```
