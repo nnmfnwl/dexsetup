@@ -4,9 +4,9 @@
   * estimated time on very slow machine 1 minute
   * blocknet/maker/taker wallet configuration will be automatically updated if needed
   * blocknet xbridge configuration will be automatically updated if needed
-  * dxmakerbot will be automatically downloaded if needed
-  * dependencies for running dxmakerbot will be automatically installed if needed
-  * finally dxmakerbot custom strategy and run scripts will be created
+  * dexbot will be automatically downloaded if needed
+  * dependencies for running dexbot will be automatically installed if needed
+  * finally dexbot custom strategy and run scripts will be created
   
   * following first command: is to setup `blocknet` with `litecoin` trading pair on top of `Blocknet.QA` and `dexbot alfa` version with predefined strategy for `block.ltc` named as `test1` strategy set up on addresses `blocknet01` and `litecoin01`
   * `./setup.cc.dexbot.sh` is script itself
