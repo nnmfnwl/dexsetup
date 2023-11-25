@@ -11,7 +11,7 @@ su - -c "apt update; apt full-upgrade; apt install git proxychains4 tor torsocks
   * user permissions must be updated for ability to use tor network anonymity layer
   * user logout and login is needed after this step
 ```
-su - -c "usermod -a -G debian-tor ${USER}; exit"
+groups | grep debian-tor || su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
 
 **Create root directory(~/Downloads/ccwallets) and download all dexsetup files**
