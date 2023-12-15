@@ -53,17 +53,15 @@ so here this project comes:
 
 [6. DEXBOT trading strategies setup](./doc/md/readme.dexbot.md)
 
-[7. Start script with GNU Screen terminal multiplexer setup](./doc/md/readme.screen.md)
+[7. Start/stop/update scripts with GNU Screen terminal multiplexer setup](./doc/md/readme.screen.md)
 
-[8. System update script as onetime or daemon](./doc/md/readme.update.md)
+[8. Environment usage](./doc/md/readme.usage.md)
 
-[9. Environment usage](./doc/md/readme.usage.md)
+[9. How start it all up automatically right after restart](./doc/md/readme.howto.auto.md)
 
-[10. How start it all up automatically right after restart](./doc/md/readme.howto.auto.md)
+[10. Advanced examples](./doc/md/readme.advanced.examples.md)
 
-[11. Advanced examples](./doc/md/readme.advanced.examples.md)
-
-[12. full PIVX/LTC setup example](./doc/md/readme.pivx.ltc.setup.example.md)
+[11. full PIVX/LTC setup example](./doc/md/readme.pivx.ltc.setup.example.md)
 
 ### Video for educational purposes
   * Decentralized exchange setup overview:  
