@@ -1,4 +1,4 @@
-### 9. Environment usage
+### 8. Environment usage
 
 **Basic Files Structure navigation**
   * By default of this tutorial root directory where all files are stored is `~/Downloads/ccwallets/`
@@ -11,7 +11,11 @@
       * wallet firejail QT run script `./firejail.<cc>.<wallet name>.qt.bin.sh` ie `./firejail.blocknet.wallet_block.cli.qt.sh`
     * custom wallet build directories `./<crypto name>/<crypto name.version>` ie `~/Downloads/ccwallets/blocknet/blocknet.qa`
     * DEXSETUP directory`./dexsetup/` ie `~/Downloads/ccwallets/dexsetup`
-      * generated whole ecosystem start screen script `./run.instance_default.qt.sh` and `run.instance_default.d.sh`
+      * generated ecosystem management screen scripts
+        * `./start.screen.instance_default.cli.sh/`
+        * `./start.screen.instance_default.gui.sh/`
+        * `./stop.screen.instance_default.sh/`
+        * `./update.screen.instance_default.sh/`
     * DEXBOT files `./dexbot/` ie `~/Downloads/ccwallets/dexbot`
       * generated DEXBOT strategies `./git.src/strategy_<cc ticker>_<cc ticker>_<strategy name>.py` ie `./git.src/strategy_BLOCK_LTC_strategy1.py` and `./git.src/strategy_LTC_BLOCK_strategy1.py`
       * generated DEXBOT strategies run scripts `./run.firejail.<cc ticker>.<cc ticker>.<strategy name>.sh` ie `./run.firejail.BLOCK.LTC.strategy1.sh` and `run.firejail.LTC.BLOCK.strategy1.sh`

@@ -1,4 +1,4 @@
-### 12. full PIVX/LTC setup example
+### 11. full PIVX/LTC setup example
 
 **full PIVX/LTC setup example:**
   * this example works even from freshly installed debian operating system
@@ -9,7 +9,7 @@ su - -c "apt update; apt full-upgrade; apt install git proxychains4 tor torsocks
 ```
   * Update user permissions for ability to use tor and logout and login again after command execution
 ```
-su - -c "usermod -a -G debian-tor ${USER}; exit"
+groups | grep debian-tor || su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
   * main directory create and copy installation files
 ```
@@ -37,13 +37,13 @@ chmod 755 setup.cc.dexbot.sh setup.cc.firejail.sh setup.cc.wallet.sh setup.cfg.p
   * using QA version of blocknet to support also partial orders
 ```
 cd ~/Downloads/ccwallets/dexsetup
-./setup.cc.wallet.sh ./src/cfg.cc.blocknet.qa.sh install
+./setup.cc.wallet.sh ./src/cfg.cc.blocknet.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.litecoin.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.pivx.sh install
 ```
   * generate sandboxing start scripts with default wallet names and default chain directories
 ```
-./setup.cc.firejail.sh ./src/cfg.cc.blocknet.qa.sh
+./setup.cc.firejail.sh ./src/cfg.cc.blocknet.sh
 ./setup.cc.firejail.sh ./src/cfg.cc.litecoin.sh
 ./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh
 ```
@@ -62,7 +62,7 @@ cd ~/Downloads/ccwallets/dexsetup
 ```
   * everything is ready to be started
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./run.instance_default.qt.sh/`
+cd ~/Downloads/ccwallets/dexsetup/ && ./start.screen.instance_default.gui.sh/`
 ```
   * now wallets should be loading for the first time
   * we could enter into GNU screen environment
@@ -80,9 +80,9 @@ CTRL + a + d
 ```
   * time to time check for update. this command should be done out of screen environment
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./setup.update.sh system dexsetup walletauto firejail dexbot screen once
+cd ~/Downloads/ccwallets/dexsetup/ && ./stop.screen.instance_default.sh && ./update.screen.instance_default.sh system dexsetup wallet firejail dexbot screen once
 ```
   * or updater could be running in separated special screen as daemon as automatic updater
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./setup.update.sh system dexsetup walletauto firejail dexbot screen daemon yes
+cd ~/Downloads/ccwallets/dexsetup/ && ./stop.screen.instance_default.sh && ./update.screen.instance_default.sh system dexsetup wallet firejail dexbot screen daemon yes
 ```

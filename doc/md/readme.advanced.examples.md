@@ -1,4 +1,4 @@
-### 11. Advanced examples
+### 10. Advanced examples
 
 **Example to generate 2 pivx wallet by firejail protected run scripts**
 
