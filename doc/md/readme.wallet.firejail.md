@@ -35,8 +35,8 @@
   * second wallet dedicated for staking only, with chain directory at `~/.pivx_staking/` and wallet dat file as  `wallet_pivx_staking`
   * to prevent mess wallet dat files, for example at backup process are using different file names
 ```
-./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/Downloads/ccwallets/pivx/ ~/.pivx/ wallet_pivx_blockdx
-./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/Downloads/ccwallets/pivx/ ~/.pivx_staking/ wallet_pivx_staking
+./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/.pivx/ wallet_pivx_blockdx
+./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/.pivx_staking/ wallet_pivx_staking
 ```
   * for more information about firejail script and how to use optional arguments, please read help
 ```
