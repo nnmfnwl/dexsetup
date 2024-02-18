@@ -6,8 +6,8 @@
   * `second pivx wallet for blockdx` liquidity will be using default blockchain directory "~/.pivx/" and wallet.dat file as "wallet_pivx_blockdx" and firejail run script named with suffix "_blockdx"
 ```
 cd ~/Downloads/ccwallets/dexsetup/
-./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/Downloads/ccwallets/pivx/ ~/.pivx/ wallet_pivx_blockdx
-./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/Downloads/ccwallets/pivx/ ~/.pivx_staking/ wallet_pivx_staking
+./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/.pivx/ wallet_pivx_blockdx
+./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/.pivx_staking/ wallet_pivx_staking
 ```
 
   * after generating run script, to run GUI/DAEMON/CLI for staking wallet:
