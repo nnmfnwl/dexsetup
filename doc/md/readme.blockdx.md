@@ -18,10 +18,10 @@
 ```
   
   * successful result of both above commands is
-    * downloaded blockdx at `<DEXSETUP root>/blockdx/latest/pkg/`
-    * binary files extracted at `<DEXSETUP root>/blockdx/latest/bin/`
+    * downloaded blockdx at `<DEXSETUP root>/blockdx/latest/data/download/pkg/`
+    * binary files extracted at `<DEXSETUP root>/blockdx/latest/data/download/bin/`
     * blockdx default profile start script at `<DEXSETUP root>/blockdx/latest/firejail.blockdx.default.sh`
-    * blockdx default profile files at `<DEXSETUP root>/blockdx/latest/profile/default/`
+    * blockdx default profile files at `<DEXSETUP root>/blockdx/latest/data/profile/default/`
 
 **Help tips**
   * in certain cases download error could happen, because of used proxychains
