@@ -1,4 +1,4 @@
-### 7. Start/stop/update scripts with GNU Screen terminal multiplexer setup
+### 8. Start/stop/update scripts with GNU Screen terminal multiplexer setup
 
 **ABOUT**
   * Whole ecosystem start/stop/update screen script setup
