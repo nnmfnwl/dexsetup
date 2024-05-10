@@ -53,15 +53,19 @@ so here this project comes:
 
 [6. DEXBOT trading strategies setup](./doc/md/readme.dexbot.md)
 
-[7. Start/stop/update scripts with GNU Screen terminal multiplexer setup](./doc/md/readme.screen.md)
+[7. BlockDX - Blocknet DEX GUI setup](./doc/md/readme.blockdx.md)
 
-[8. Environment usage](./doc/md/readme.usage.md)
+[8. Start/stop/update scripts with GNU Screen terminal multiplexer setup](./doc/md/readme.screen.md)
 
-[9. How start it all up automatically right after restart](./doc/md/readme.howto.auto.md)
+[9. Environment usage](./doc/md/readme.usage.md)
 
-[10. Advanced examples](./doc/md/readme.advanced.examples.md)
+[10. How start it all up automatically right after restart](./doc/md/readme.howto.auto.md)
 
-[11. full PIVX/LTC setup example](./doc/md/readme.pivx.ltc.setup.example.md)
+[11. Advanced examples](./doc/md/readme.advanced.examples.md)
+
+[12. Full PIVX/LTC setup example](./doc/md/readme.pivx.ltc.setup.example.md)
+
+[13. Cool Free-Speech Privacy apps](./doc/md/readme.apps.md)
 
 ### Video for educational purposes
   * Decentralized exchange setup overview:  

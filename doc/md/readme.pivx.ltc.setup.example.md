@@ -1,4 +1,4 @@
-### 11. full PIVX/LTC setup example
+### 12. full PIVX/LTC setup example
 
 **full PIVX/LTC setup example:**
   * this example works even from freshly installed debian operating system

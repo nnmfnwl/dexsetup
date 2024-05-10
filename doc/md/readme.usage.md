@@ -1,4 +1,4 @@
-### 8. Environment usage
+### 9. Environment usage
 
 **Basic Files Structure navigation**
   * By default of this tutorial root directory where all files are stored is `~/Downloads/ccwallets/`

@@ -1,4 +1,4 @@
-### 9. How start it all up automatically right after restart
+### 10. How start it all up automatically right after restart
 
   * once you are having screen start script generated, like
 ```
