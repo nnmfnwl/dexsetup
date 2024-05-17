@@ -2,25 +2,29 @@
 
 #### Initial VNC server startup
 
-  * Hints how to remote desktop management with VNC:
-  
-  * SSH to connect to server
+  * At first we need use SSH to connect to server
 ```
 ssh user@hostname
 ```
 
-  * to generate VNC password
+  * generate VNC password
   * (one time only)
 ```
 tigervncpasswd
 ```
 
-  * to start tigervnc on server(do not worry, tiger vnc client resolution auto resize is supported :))
-  * (one time only)
+  * to start tigervnc on server(one time only)
+  * after executing below command and waiting few seconds it is safe to exit ssh connection
 ```
 tigervncserver -localhost yes -geometry 1024x768 -depth 16 :1
 ```
-  * after executing above command wait a few seconds and exit ssh connection
+
+  * to configure tigervnc server to start automatically with computer
+  * below command add user into tigervnc vncserver.users config and enable and start vnc service
+  * :1 means 5901 vnc port, :2 would be 5902 vnc port.
+```
+grep "^:1=${USER}$" /etc/tigervnc/vncserver.users || su - -c "echo \":1=${USER}\" >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:1.service; systemctl enable tigervncserver@:1.service"
+```
 
 #### VNC client connect option 1 with xtigervncviewer
 
