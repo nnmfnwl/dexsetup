@@ -7,12 +7,12 @@
   
   * to setup latest default `tor browser` by `downloading` and `installing` to default `directory`
 ```
-./setup.cc.torbrowser.sh download install
+./setup.torbrowser.sh download install
 ```
   * it is not recommended to use `tor browser` app directly but by below privacy security sandbox profile
   * to create `default` `tor browser` sandbox profile start script `firejail.torbrowser.default.sh`
 ```
-./setup.cc.torbrowser.firejail.sh default
+./setup.torbrowser.firejail.sh default
 ```
   * successful result of both above commands is
     * downloaded torbrowser at `<DEXSETUP root>/tor_browser/latest/data/download/pkg/`
@@ -20,8 +20,8 @@
     * torbrowser default profile start script at `<DEXSETUP root>/tor_browser/latest/firejail.torbrowser.default.sh`
   * for more information about script usage read full help
 ```
-./setup.cc.torbrowser.sh help | less
-./setup.cc.torbrowser.firejail.sh help | less
+./setup.torbrowser.sh help | less
+./setup.torbrowser.firejail.sh help | less
 ```
 
 **Session Ultimate Privacy Messenger download or build from official repositories:**
@@ -31,12 +31,12 @@
   
   * to setup latest default `Session messenger` by `downloading` and `installing` to default `directory`
 ```
-./setup.cc.session.sh download install
+./setup.session.sh download install
 ```
   * it is not recommended to use `session` app directly but by below privacy security sandbox profile
   * to create `default` `session` sandbox profile start script `firejail.session.default.sh`
 ```
-./setup.cc.session.firejail.sh default
+./setup.session.firejail.sh default
 ```
   * successful result of both above commands is
     * downloaded session at `<DEXSETUP root>/session/latest/data/download/pkg/`
@@ -44,6 +44,6 @@
     * session default profile start script at `<DEXSETUP root>/session/latest/firejail.session.default.sh`
   * for more information about script usage read full help
 ```
-./setup.cc.session.sh help | less
-./setup.cc.session.firejail.sh help | less
+./setup.session.sh help | less
+./setup.session.firejail.sh help | less
 ```
