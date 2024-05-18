@@ -1,22 +1,22 @@
 ### The only True-Decentralized-Exchange Setup
-  * All parts by Firejail-Sandbox securely isolated even from each other
-  * Whole setup and runtime by Tor-Privacy-Protected
+  * All parts **by Firejail-Sandbox securely isolated** even from each other
+  * Whole setup and runtime **by Tor-Privacy-Protected**
   * Ability of decentralized Liquidity-pools/trading/DCA/BUY/SEL
   * For Debian GNU/Linux compatible systems
   * All also even from scratch!
 
 ### Motivation
-  * Any Crypto exchange that has at least one centralized point is by definition Centralized exchange.
+  * **Any centralized point makes exchange vulnerable and by definition Centralized**.
     * So all parts of exchange must be decentralized to define itself as DEX.
-  * Bridge is centralized point that will soon or later fail/outage in critical moments, because of few entities having it under control.
+  * **Bridge is centralized point** that will soon or later fail/outage in critical moments, because of few entities having it under control.
     * Native token/crypto must be used or over-collateralized by something by smart contract.
-  * Centralized liquidity pools are point that will be soon or later hacked and your liquidity lost.
+  * **Liquidity pools is centralzied point** that will be soon or later hacked and your liquidity lost.
     * Decentralized independent fragmented liquidity pools(orders) run by any entities are solution.
-  * Any Exchange that is using DNS(Domain name service) is subject to be censored at any time.
+  * Any Exchange that is using **DNS(Domain name service)** is subject to be censored at any time.
     * Exchange must have an app that is able to reach decentralized network without DNS.
-  * Any Exchange that is using Metamask is subject to scam you, sell data about you and anyway using centralized data provider.
+  * Any Exchange that is using **Metamask** is subject to scam you, sell data about you and anyway using centralized data provider.
     * Avoid any exchange that has dependency on 3rty software like above mentioned.
-  * Any Exchange that does not allow you to use native node is making you subject to be hacked.
+  * Any Exchange that does **not allow you to easy setup and use native node** is making you subject to be hacked.
     * There must be ability to verify network by using own nodes or stay connected to trusted decentralized way verified nodes data providers.
 
 ### About
