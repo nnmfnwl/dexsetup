@@ -1,25 +1,39 @@
-### The only True-Decentralized-Exchange Setup
-  * All parts **by Firejail-Sandbox securely isolated** even from each other
-  * Whole setup and runtime **by Tor-Privacy-Protected**
-  * Ability of decentralized Liquidity-pools/trading/DCA/BUY/SEL
+## DEXSETUP: The Only True-Decentralized-Exchange Setup
+
+### DEXSETUP Take Freedom, Decentralization And Privacy Seriously:
+  * True decentralization, not like other "fake decentralized exchanges" with many centralized points.
+  * Everything 100% transparent and open-source, not like other "fake decentralized exchanges" with closed components.
+  * 100% decentralized liquidity pools, your funds are 100% of time under your self custody and trading under your own custom rules, not like other "fake decentralized exchanges" with centralized liquidity pools, where few people have right to loose your funds or make accidentally a mistake or even restrict someone from trading or even stop whole trading pair.
+  * 100% open-source and 100% free and very easy to join.
+  * 100% censorship resistant, because there is no way to block you from using this system and also nobody could stop this system from single place.
+  * NO limits, no restrictions.
+  * 100% of time self-custody even whole process of coins exchange called native on-chain atomic swap.
+  * Freedom to choose to setup from source code on any CPU architecture or binary packages.
+  * Every component of setup and runtime is by design maximum privacy oriented.
+  * Every component of setup and runtime process is by Firejail-Sandbox isolated.
+  * Every component of setup and runtime process has networking by Tor-Privacy-Protected.
+  * Using native official crypto wallets from official sources.
+  * Part of setup is DEXBOT and predefined strategy templates to easy provide decentralized Liquidity-pools/trading/DCA/BUY/SEL
   * For Debian GNU/Linux compatible systems
   * All also even from scratch!
 
-### Motivation
-  * **Any centralized point makes exchange vulnerable and by definition Centralized**.
+### Good To Know About Privacy and Decentralization
+  * Crucial is to have privacy applied on every layer, accounting, local system files, local metadata, the network. System could have any type of coin swaps, but as long there is public IP, the privacy is zero.
+  * System should be using privacy tools like TOR and native Linux-kernel-sandbox to run all apps isolated from your personal data and also protect your privacy on internet.
+  * Any Crypto exchange that has at least one centralized point is by definition Centralized exchange.
     * So all parts of exchange must be decentralized to define itself as DEX.
-  * **Bridge is centralized point** that will soon or later fail/outage in critical moments, because of few entities having it under control.
+  * Bridge is centralized point that will soon or later fail/outage in critical moments, because of few entities having it under control.
     * Native token/crypto must be used or over-collateralized by something by smart contract.
-  * **Liquidity pools is centralzied point** that will be soon or later hacked and your liquidity lost.
+  * Centralized liquidity pools are point that will be soon or later hacked and your liquidity lost.
     * Decentralized independent fragmented liquidity pools(orders) run by any entities are solution.
-  * Any Exchange that is using **DNS(Domain name service)** is subject to be censored at any time.
+  * Any Exchange that is using DNS(Domain name service) is subject to be censored at any time.
     * Exchange must have an app that is able to reach decentralized network without DNS.
-  * Any Exchange that is using **Metamask** is subject to scam you, sell data about you and anyway using centralized data provider.
+  * Any Exchange that is using Metamask is subject to scam you, sell data about you and anyway using centralized data provider.
     * Avoid any exchange that has dependency on 3rty software like above mentioned.
-  * Any Exchange that does **not allow you to easy setup and use native node** is making you subject to be hacked.
+  * Any Exchange that does not allow you to use native node is making you subject to be hacked.
     * There must be ability to verify network by using own nodes or stay connected to trusted decentralized way verified nodes data providers.
 
-### About
+### DEXSETUP Features
 Crypto currency(cc) wallets, exchanges and bots management could be time consuming task,
 so here this project comes:
   * Easy to **prepare fresh installed machine from scratch** or virtual machine for cc GUI wallets or CLI daemons
@@ -65,15 +79,15 @@ so here this project comes:
 
 [12. Full PIVX/LTC setup example](./doc/md/readme.pivx.ltc.setup.example.md)
 
-[13. Cool Free-Speech Privacy apps](./doc/md/readme.apps.md)
+[13. Cool Free-Speech Privacy Apps](./doc/md/readme.apps.md)
 
 ### Video for educational purposes
   * Decentralized exchange setup overview:  
   * Decentralized exchange complete setup: 
 
 ### Bugs
-  * Thank you for all the reported errors/bugs, even if you not sure.
-  * You can report bug directly here on github or on bastyon social network:
+  * Thank`s for all the reported errors/bugs, even if you not sure)
+  * Bugs can be reported directly here on github [issues](https://github.com/nnmfnwl/dexsetup/issues) or on [bastyon social network](https://bastyon.com/nnmfnwl7).
 
 ### Donations for development, testing and liquidity providing:
   * For ability of this project to continue it needs your support:
