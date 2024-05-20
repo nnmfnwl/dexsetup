@@ -1,21 +1,23 @@
 ## DEXSETUP: The Only True-Decentralized-Exchange Setup
 
 ### DEXSETUP Take Freedom, Decentralization And Privacy Seriously:
-  * True decentralization, not like other "fake decentralized exchanges" with many centralized points.
-  * Everything 100% transparent and open-source, not like other "fake decentralized exchanges" with closed components.
-  * 100% decentralized liquidity pools, your funds are 100% of time under your self custody and trading under your own custom rules, not like other "fake decentralized exchanges" with centralized liquidity pools, where few people have right to loose your funds or make accidentally a mistake or even restrict someone from trading or even stop whole trading pair.
-  * 100% open-source and 100% free and very easy to join.
-  * 100% censorship resistant, because there is no way to block you from using this system and also nobody could stop this system from single place.
-  * NO limits, no restrictions.
-  * 100% of time self-custody even whole process of coins exchange called native on-chain atomic swap.
-  * Freedom to choose to setup from source code on any CPU architecture or binary packages.
-  * Every component of setup and runtime is by design maximum privacy oriented.
-  * Every component of setup and runtime process is by Firejail-Sandbox isolated.
-  * Every component of setup and runtime process has networking by Tor-Privacy-Protected.
-  * Using native official crypto wallets from official sources.
-  * Part of setup is DEXBOT and predefined strategy templates to easy provide decentralized Liquidity-pools/trading/DCA/BUY/SEL
-  * For Debian GNU/Linux compatible systems
-  * All also even from scratch!
+  * **True decentralization**, not like other "fake decentralized exchanges" with many centralized points.
+  * Everything **100% transparent and open-source**, not like other "fake decentralized exchanges" with closed components.
+  * **100% decentralized liquidity pools**, your funds are 100% of time under your self custody and **automatic DEXBOT trading under your own custom rules**, not like other "fake decentralized exchanges" with centralized liquidity pools, where few people have right to loose your funds or make accidentally a mistake or even restrict someone from trading or even stop whole trading pair.
+  * **100% open-source and 100% free** and very easy to join.
+  * **100% censorship resistant**, because there is no way to block you from using this system and also nobody could stop this system from single place.
+  * **NO limits, NO restrictions, NO registrations, NO cloudflare, NO IP address**.
+  * **100% of time self-custody** even whole process of coins exchange called native on-chain atomic swap.
+  * **Freedom to choose** to setup from source code on any CPU architecture or binary packages.
+  * Every component of setup and runtime is by design **maximum privacy oriented**.
+  * Every component of setup and runtime process is by **Firejail-Sandbox isolated**.
+  * Every component of setup and runtime process has **networking by Tor-Privacy-Protected**.
+  * **Using native official crypto wallets from official sources**.
+  * Part of this project is **DEXBOT setup with predefined strategy templates** to easy provide decentralized Liquidity-pools/trading/DCA/BUY/SEL
+  * **Xlite lite wallet is 100% open,100% decentralized,100% censorship resistant**
+  * **For Debian GNU/Linux** compatible systems
+  * **No Root Operating system modifications!**
+  * **All from scratch!**, because DEXSETUP is designed as one place to stop and easy setup everything.
 
 ### Good To Know About Privacy and Decentralization
   * Crucial is to have privacy applied on every layer, accounting, local system files, local metadata, the network. System could have any type of coin swaps, but as long there is public IP, the privacy is zero.
