@@ -20,19 +20,19 @@
   * **All from scratch!**, because DEXSETUP is designed as one place to stop and easy setup everything.
 
 ### Good To Know About Privacy and Decentralization
-  * Crucial is to have privacy applied on every layer, accounting, local system files, local metadata, the network. System could have any type of coin swaps, but as long there is public IP, the privacy is zero.
-  * System should be using privacy tools like TOR and native Linux-kernel-sandbox to run all apps isolated from your personal data and also protect your privacy on internet.
-  * Any Crypto exchange that has at least one centralized point is by definition Centralized exchange.
-    * So all parts of exchange must be decentralized to define itself as DEX.
-  * Bridge is centralized point that will soon or later fail/outage in critical moments, because of few entities having it under control.
+  * **Crucial is to have privacy applied on every layer**, accounting, local system files, local metadata, the network. System could have any type of coin swaps, but as long there is public IP, the privacy is zero.
+  * **System should be using privacy tools like TOR and native kernel-sandbox to run all apps isolated from your personal data and also protect your privacy on internet**.
+  * **Any Crypto exchange that has at least one centralized point is by definition Centralized exchange.**
+    * **So all parts of exchange must be decentralized to define itself as Decentralized exchange DEX**.
+  * **Bridge is centralized** point that will soon or later fail/outage in critical moments, because of few entities having it under control.
     * Native token/crypto must be used or over-collateralized by something by smart contract.
-  * Centralized liquidity pools are point that will be soon or later hacked and your liquidity lost.
+  * **Centralized liquidity pools** are point that will be soon or later hacked and your liquidity lost.
     * Decentralized independent fragmented liquidity pools(orders) run by any entities are solution.
-  * Any Exchange that is using DNS(Domain name service) is subject to be censored at any time.
+  * Any Exchange that is using **centralized DNS(Domain name service)** is subject to be censored at any time.
     * Exchange must have an app that is able to reach decentralized network without DNS.
-  * Any Exchange that is using Metamask is subject to scam you, sell data about you and anyway using centralized data provider.
+  * Any Exchange that is using **Metamask** is subject to scam you, sell data about you and anyway using **centralized data provider**.
     * Avoid any exchange that has dependency on 3rty software like above mentioned.
-  * Any Exchange that does not allow you to use native node is making you subject to be hacked.
+  * Any Exchange that does **not allow you to easy use native node** is making you subject to be hacked.
     * There must be ability to verify network by using own nodes or stay connected to trusted decentralized way verified nodes data providers.
 
 ### DEXSETUP Features
