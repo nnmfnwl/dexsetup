@@ -20,10 +20,10 @@
   * ***Funds for different trading pairs must be stored separately on different addresses!***
   * `blocknet01` and `litecoin01` needs to be replaced by real wallet addresses (It could be done later by manually editing generated strategy file with text editor)
 
-**Predefined setup commands for DEXBOT trading pairs**
+**Predefined setup commands for many DEXBOT trading pairs**
   * Blocknet / Litecoin
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.qa.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.block.ltc.sh strategy1      blocknet01   litecoin01
+./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.block.ltc.sh strategy1      blocknet01   litecoin01
 ```
   * Bitcoin / Litecoin
   * Because of very high Bitcoin Transaction Fees, it is we use Litecoin as base trading token
