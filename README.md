@@ -55,7 +55,10 @@ so here this project comes:
   * And little bit more...
 
 ### Step By Step Setup Tutorial
-  * It is recommended to read all steps of this tutorial first
+  * This tutorial supposed to become one stop point for anyone who want to join us and use unstoppable automatized decentralized exchange trading system.
+  * Even if you have minimal knowledge how command line terminal works, it is just about copy pasting commands by your own requirements and setup do all hard stuff for you. This tutorial also teach you everything you need to know practically.
+  
+[0. DEXSETUP Introduction and overview video](https://bastyon.com/nnmfnwl7/)
 
 [1. Operating system dependencies and setup download](./doc/md/readme.prereq.md)
 
