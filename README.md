@@ -60,7 +60,7 @@ so here this project comes:
   
 [0. DEXSETUP Introduction and overview video](https://bastyon.com/nnmfnwl7?v=024ee823b6549742cfbc458e9fbdb4dcd52bcc120a5cc7698edfadbc4fd74b77)
 
-[1. Operating system dependencies and setup download](./doc/md/readme.prereq.md)
+[1. Operating system dependencies and setup download](./doc/md/readme.prereq.md) - ([video tutorial](https://bastyon.com/index?v=da29ab6596e5da24b89f4891d724d636041d3a7a19cd1acbf77d90b6696f4905&video=1))
 
 [2. Remote console management tips with Gnu Screen](./doc/md/readme.remote.console.md)
 
