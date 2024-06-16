@@ -58,7 +58,7 @@ so here this project comes:
   * This tutorial supposed to become one stop point for anyone who want to join us and use unstoppable automatized decentralized exchange trading system.
   * Even if you have minimal knowledge how command line terminal works, it is just about copy pasting commands by your own requirements and setup do all hard stuff for you. This tutorial also teach you everything you need to know practically.
   
-[0. DEXSETUP Introduction and overview video](https://github.com/nnmfnwl/dexsetup/tree/main?tab=readme-ov-file#dexsetup-the-only-true-decentralized-exchange-setup) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=024ee823b6549742cfbc458e9fbdb4dcd52bcc120a5cc7698edfadbc4fd74b77))
+[0. DEXSETUP Introduction and overview video](#dexsetup-the-only-true-decentralized-exchange-setup) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=024ee823b6549742cfbc458e9fbdb4dcd52bcc120a5cc7698edfadbc4fd74b77))
 
 [1. Operating system dependencies and setup download](./doc/md/readme.prereq.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=da29ab6596e5da24b89f4891d724d636041d3a7a19cd1acbf77d90b6696f4905))
 
