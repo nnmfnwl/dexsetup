@@ -58,21 +58,21 @@ so here this project comes:
   * This tutorial supposed to become one stop point for anyone who want to join us and use unstoppable automatized decentralized exchange trading system.
   * Even if you have minimal knowledge how command line terminal works, it is just about copy pasting commands by your own requirements and setup do all hard stuff for you. This tutorial also teach you everything you need to know practically.
   
-[0. DEXSETUP Introduction and overview video](https://bastyon.com/nnmfnwl7?v=024ee823b6549742cfbc458e9fbdb4dcd52bcc120a5cc7698edfadbc4fd74b77)
+[0. DEXSETUP Introduction and overview video](https://github.com/nnmfnwl/dexsetup/tree/main?tab=readme-ov-file#dexsetup-the-only-true-decentralized-exchange-setup) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=024ee823b6549742cfbc458e9fbdb4dcd52bcc120a5cc7698edfadbc4fd74b77))
 
-[1. Operating system dependencies and setup download](./doc/md/readme.prereq.md) - ([video tutorial](https://bastyon.com/index?v=da29ab6596e5da24b89f4891d724d636041d3a7a19cd1acbf77d90b6696f4905&video=1))
+[1. Operating system dependencies and setup download](./doc/md/readme.prereq.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=da29ab6596e5da24b89f4891d724d636041d3a7a19cd1acbf77d90b6696f4905))
 
-[2. Remote console management tips with Gnu Screen](./doc/md/readme.remote.console.md)
+[2. Remote console management tips with Gnu Screen](./doc/md/readme.remote.console.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=093fb2196e95763de886586ebf66547fd0c8e2753170e5cd23f34ea7dbbc0f77))
 
-[3. Remote desktop management tips with VNC](./doc/md/readme.remote.desktop.md)
+[3. Remote desktop management tips with VNC](./doc/md/readme.remote.desktop.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=579a23ec00973e244ab923199c67eae3792fcec9f3856601a88ef955fab4cdac))
 
-[4. Build/Update wallets from official repositories](./doc/md/readme.wallet.build.md)
+[4. Build/Update wallets from official repositories](./doc/md/readme.wallet.build.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=56e69d5e9573a4acd6dd24ff806c043276881bda46d1137a61bd659e5083d7ea))
 
-[5. Wallets firejail sandbox setup](./doc/md/readme.wallet.firejail.md)
+[5. Wallets firejail sandbox setup](./doc/md/readme.wallet.firejail.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=8929e9920fe8fe9694d074f46ae5c8d793af5720a4bd44112a454b7b03b69812))
 
-[6. DEXBOT trading strategies setup](./doc/md/readme.dexbot.md)
+[6. DEXBOT trading strategies setup](./doc/md/readme.dexbot.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=25dbbe424f1cd33dd340f6a2e526d646481d8f2704e244be323b78680049c467))
 
-[7. BlockDX - Blocknet DEX GUI setup](./doc/md/readme.blockdx.md)
+[7. BlockDX - Blocknet DEX GUI setup](./doc/md/readme.blockdx.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=d4962a1dd5d74027b6e0a3d5058df4e2cc3f49c35d17a32f38806718c0c08156))
 
 [8. Start/stop/update scripts with GNU Screen terminal multiplexer setup](./doc/md/readme.screen.md)
 
@@ -92,10 +92,10 @@ so here this project comes:
 
 ### Bugs
   * Thank`s for all the reported errors/bugs, even if you not sure)
-  * Bugs can be reported directly here on github [issues](https://github.com/nnmfnwl/dexsetup/issues) or on [bastyon social network](https://bastyon.com/nnmfnwl7).
+  * Bugs can be reported directly here on github [issues](https://github.com/nnmfnwl/dexsetup/issues) or on [bastyon social network](https://bastyon.com/nnmfnwl7) by comment or chat direct message.
 
-### Donations for development, testing and liquidity providing:
-  * For ability of this project to continue it needs your support:
+### Donations for DEXSETUP/DEXBOT continuos development, testing and liquidity providing:
+  * For ability of this project to continue it needs even your penny support. Please contact by bastyon to request below or other address.
   * BTC LN: ****
   * BTC: ****
   * LTC: ****
@@ -105,3 +105,6 @@ so here this project comes:
   * BLOCK: ****
   * PKOIN: ****
   * LBC: ****
+  * NANO: ****
+  * XMR: ****
+  * ETH: ****
