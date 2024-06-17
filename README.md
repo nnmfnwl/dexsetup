@@ -74,7 +74,7 @@ so here this project comes:
 
 [7. BlockDX - Blocknet DEX GUI setup](./doc/md/readme.blockdx.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=d4962a1dd5d74027b6e0a3d5058df4e2cc3f49c35d17a32f38806718c0c08156))
 
-[8. Start/stop/update scripts with GNU Screen terminal multiplexer setup](./doc/md/readme.screen.md)
+[8. Start/stop/update scripts with GNU Screen terminal multiplexer setup](./doc/md/readme.screen.md) - ([video tutorial](https://bastyon.com/nnmfnwl7?v=5699575c6819e40c6cd93b32514670bee5b4e8080583e6540ef6780fb04556ca))
 
 [9. Environment usage](./doc/md/readme.usage.md)
 
