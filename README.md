@@ -108,3 +108,16 @@ so here this project comes:
   * NANO: ****
   * XMR: ****
   * ETH: ****
+
+### Related web links
+  * Dexsetup main web - [for now same as github](https://github.com/nnmfnwl/dexsetup)
+  * Dexsetup source code - [dexsetup github](https://github.com/nnmfnwl/dexsetup)
+  * Dexbot source code - [dexbot github](https://github.com/nnmfnwl/dexbot)
+  * Dexsetup and Dexbot social announcements, videos, articles - [nnmfnwl7](https://bastyon.com/nnmfnwl7)
+  * Dexsetup and Dexbot open public chat on bastyon - [dexsetup](https://bastyon.com/welcome?publicroom=!cJLoAwwxvGxLoTtjwv:matrix.pocketnet.app)
+  * Blocknet interchain main web - [The Blocknet](https://blocknet.org/)
+  * Blocknet interchain source code - [blockdx github](https://github.com/blocknetdx)
+  * Blocknet interchain API for decentralized services - [Blocknet API](https://api.blocknet.org/#xbridge-api)
+  * Blocknet Blockdx new coins listing process - [BlockDX listing](https://docs.blocknet.org/blockdx/listings/)
+  * Blocknet Xlite wallet source code - [xlite github](https://github.com/blocknetdx/xlite)
+  * Blocknet Blockdx DEX app main web - [BlockDX DEX](https://blockdx.net/)
