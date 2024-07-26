@@ -233,8 +233,8 @@ scp -r username@server_hostname:~/Downloads/ccwallets/dexsetup/backup ~/backup_d
 ```
 ./cli dxSplitAddress PIVX 250 PIVX_ADDRESS_1 true false true
 ./cli dxSplitAddress PIVX 250 PIVX_ADDRESS_2 true false true
-./cli dxSplitAddress PIVX 5 LITECOIN_ADDRESS_1 true false true
-./cli dxSplitAddress PIVX 5 LITECOIN_ADDRESS_2 true false true
+./cli dxSplitAddress LTC 5 LITECOIN_ADDRESS_1 true false true
+./cli dxSplitAddress LTC 5 LITECOIN_ADDRESS_2 true false true
 ```
   * more trading strategy parameter updates by file edit `~/Downloads/ccwallets/dexbot/git.src/strategy_PIVX_LTC_strategy1.py`, for example:
     * maximum open orders count update is `"--maxopen 2"`
@@ -333,40 +333,46 @@ cd ~/Downloads/ccwallets/tor_browser/latest/ && ./firejail.torbrowser.default.sh
 cd ~/Downloads/ccwallets/dexsetup/ && ./stop.screen.instance_default.sh`
 ```
 
-**How to update just one specific wallet, for example PIVX wallet**
-  * switch to wallet cli which is going to be updated, for example `pivx_cli` and stop wallet by command `./stop`
+**How to update just one specific wallet, for example Litecoin wallet**
+  * switch to wallet cli which is going to be updated, for example `ltc_cli` and stop wallet by command `./stop`
 ```
 ./stop
 ```
-  * switch to wallet `pivx` component and wait until wallet completely stop.
+  * switch to wallet `ltc` component and wait until wallet completely stop.
   * If wallet experience stuck at quit as actual version of PIVX is causing, try use `CTRL + c` some few times.
 ```
 # `CTRL + c`
 ```
-  * switch to `dexsetup` component and for sure switch directory to `dexsetup` and use git to update components
+  * switch to `dexsetup` component and for sure switch directory to `dexsetup` and use proxychains and git pull to update components
 ```
 cd ~/Downloads/ccwallets/dexsetup/ && proxychains4 git pull
 ```
-  * rebuild `pivx` wallet from source into new version by
+  * rebuild `ltc` wallet from source into new version by
 ```
-./setup.cc.wallet.sh ./src/cfg.cc.pivx.sh update build
+./setup.cc.wallet.sh ./src/cfg.cc.ltc.sh update build
 ```
-  * optionally `pivx` wallet could be updated by download
+  * Unfortunately there are many cases when developer forget to update correctly build rules, so wallet would not update or is not able to be rebuild from previously downloaded and updated source code correctly. For this cases there is ability to force wallet files to be removed and rebuild again from scratch.
 ```
-./setup.cc.wallet.sh ./src/cfg.cc.pivx.sh update download
+./setup.cc.wallet.sh ./src/cfg.cc.ltc.sh purge
+./setup.cc.wallet.sh ./src/cfg.cc.ltc.sh update build
 ```
-  * Once build/download update process successfully finish, check new wallet version in `pivx_cli` component by command `./cli -version`
+  * optionally `ltc` wallet could be updated by download
+```
+./setup.cc.wallet.sh ./src/cfg.cc.ltc.sh update download
+```
+  * Once build/download update process successfully finish, check new wallet version in `ltc_cli` component by command `./cli -version`
 ```
 ./cli -version
 ```
-  * And finally start pivx wallet again switched in `pivx` component
+  * And finally start ltc wallet again switched in `ltc` component
 ```
-./firejail.pivx.wallet_pivx.qt.bin.sh
+./firejail.ltc.wallet_ltc.qt.bin.sh
 ```
 
 **How to update whole DEX system**
   * To update all DEX system components: enter directory and click on script or use command on fresh open terminal.
   * all wallets and components will stop automatically.
+  * this is experimental branch functionality and needs more development and testing.
 ```
 cd ~/Downloads/ccwallets/dexsetup/ && ./update.screen.instance_default.sh all`
 ```
