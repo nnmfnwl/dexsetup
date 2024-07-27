@@ -109,15 +109,23 @@ so here this project comes:
   * XMR: ****
   * ETH: ****
 
-### Related web links
-  * Dexsetup main web - [for now same as github](https://github.com/nnmfnwl/dexsetup)
-  * Dexsetup source code - [dexsetup github](https://github.com/nnmfnwl/dexsetup)
-  * Dexbot source code - [dexbot github](https://github.com/nnmfnwl/dexbot)
-  * Dexsetup and Dexbot social announcements, videos, articles - [nnmfnwl7](https://bastyon.com/nnmfnwl7)
-  * Dexsetup and Dexbot open public chat on bastyon - [dexsetup](https://bastyon.com/welcome?publicroom=!cJLoAwwxvGxLoTtjwv:matrix.pocketnet.app)
+### Related DEXSETUP web links
+  * Dexsetup main web and source code - [dexsetup github](https://github.com/nnmfnwl/dexsetup)
+  * Dexbot main web and source code - [dexbot github](https://github.com/nnmfnwl/dexbot)
+  * Dexsetup and Dexbot social announcements, videos, articles on bastyon - [nnmfnwl7 on bastyon](https://bastyon.com/nnmfnwl7)
+  * Dexsetup and Dexbot open **free public chat on bastyon** - [dexsetup public chat](https://bastyon.com/welcome?publicroom=!cJLoAwwxvGxLoTtjwv:matrix.pocketnet.app)
+  * Dexsetup and Dexbot social announcements, videos, articles on Twitter/X - [nnmfnwl on Twitter/X](https://x.com/nnmfnwl)
+  
+### Related Blocknet web links
   * Blocknet interchain main web - [The Blocknet](https://blocknet.org/)
   * Blocknet interchain source code - [blockdx github](https://github.com/blocknetdx)
   * Blocknet interchain API for decentralized services - [Blocknet API](https://api.blocknet.org/#xbridge-api)
   * Blocknet Blockdx new coins listing process - [BlockDX listing](https://docs.blocknet.org/blockdx/listings/)
   * Blocknet Xlite wallet source code - [xlite github](https://github.com/blocknetdx/xlite)
   * Blocknet Blockdx DEX app main web - [BlockDX DEX](https://blockdx.net/)
+  
+### Already integrated crypto currencies list
+  * Below list of crypto currencies are already integrated and tested by DEXSETUP
+
+### List of By blocknet supported crypto currencies which can be added into DEXSETUP
+  * Below list of crypto currencies are already supported by BLocknet-DEX-system(Blockdx) and are possibly to be added into DEXSETUP
