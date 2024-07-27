@@ -42,7 +42,7 @@ grep "^:${port}=${USER}$" /etc/tigervnc/vncserver.users || su - -c "echo \":${po
 ```
 mkdir -p ~/Downloads/ccwallets/dexsetup
 cd ~/Downloads/ccwallets/dexsetup
-&& proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
+proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
   * Using dexsetup to install complete GUI(graphical user interface)+CLI(command line interface) Debian package dependencies
 ```
