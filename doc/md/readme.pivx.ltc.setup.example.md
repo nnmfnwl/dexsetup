@@ -133,7 +133,7 @@ remmina
 **How to start DEX system and attach into and detach from screen DEX CLI interface**
   * To spin up whole DEX system up: enter directory and click on script or use command
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./start.screen.instance_default.gui.sh`
+cd ~/Downloads/ccwallets/dexsetup/ && ./start.screen.instance_default.gui.sh
 ```
   * To attach to DEX system CLI interface command
 ```
@@ -195,8 +195,13 @@ cp -r ~/Downloads/ccwallets/dexsetup/backup /media/${USER}/usb/mount/point/
 ```
 scp -r username@server_hostname:~/Downloads/ccwallets/dexsetup/backup ~/backup_dex_wallets
 ```
-  * Just little HINT:
-  * Try to list all by DEXSETUP predefined wallet CLI commands by writing `./` and push `TAB` button twice
+  * Please remember that encrypted wallets must be unlocked before starting any dexbot trading bot strategy or doing any funds send operations.
+  * Use `CTRL + a + "` to switch to `block_cli`, `litecoin_cli` and also `pivx_cli` and use command `./unlock.full` and enter password used to encrypt wallet.
+```
+./unlock.full
+```
+  * Just little CLI(command line interface) HINT:
+  * To easy list and use many DEXSETUP predefined wallet CLI commands, just type `./` and push `TAB` button twice for autocomplete.
 ```
 ./
 ```
@@ -258,12 +263,6 @@ cd ~/Downloads/ccwallets/dexbot/ && ./run.firejail.proxy.sh
 
 </strike>
 
-
-  * Before starting any dexbot trading bot strategy, be sure you unlocked all wallets first.
-  * Use `CTRL + a + "` to switch to `block_cli`, `litecoin_cli` and also `pivx_cli` and use command `./unlock.full` and enter password used to encrypt wallet.
-```
-./unlock.full
-```
   * Use `CTRL + a + "` to switch to `PIVX LTC strategy1` component
   * And push `enter` key to start PIVX DEXBOT order maker of `PIVX/LTC` trading pair.
   * Below command is not needed just represents whats supposed to be done.
@@ -327,10 +326,14 @@ cd ~/Downloads/ccwallets/tor_browser/latest/ && ./firejail.torbrowser.default.sh
 
 </strike>
 
+```
+https://www.blocknetmonitor.com/?p=openorders
+```
+
 **How to stop whole DEX system**
   * To stop all DEX system components: enter directory and click on script or use command
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./stop.screen.instance_default.sh`
+cd ~/Downloads/ccwallets/dexsetup/ && ./stop.screen.instance_default.sh
 ```
 
 **How to update just one specific wallet, for example Litecoin wallet**
