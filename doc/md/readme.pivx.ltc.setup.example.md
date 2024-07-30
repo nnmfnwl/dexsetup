@@ -85,7 +85,7 @@ proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
   * Another PIVX/LTC trading strategy could be generated very easy, lets say, name it `strategy2` and using another addresses for funds `yourpivxaddress2` and `yourlitecoinaddress2` and choose not default but aggressive price movement behavior to try earn more profits `./src/cfg.strategy.pivx.ltc.aggressive1.sh` 
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.qa.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 yourpivxaddress2 yourlitecoinaddress2
+./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 yourpivxaddress2 yourlitecoinaddress2
 ```
   * download or build blocknet BlockDX GUI(Graphical user interface) app from official sources
   * setup BlockDX by compilation from source code would take hours, so we choose `download` instead of `build` argument
@@ -219,7 +219,7 @@ scp -r username@server_hostname:~/Downloads/ccwallets/dexsetup/backup ~/backup_d
 ./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy1 PIVX_ADDRESS_1 LITECOIN_ADDRESS_1 update_strategy
 ```
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.qa.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 PIVX_ADDRESS_2 LITECOIN_ADDRESS_2 update_strategy
+./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 PIVX_ADDRESS_2 LITECOIN_ADDRESS_2 update_strategy
 ```
   * Now wallet addresses used buy DEXBOT trading strategies needs FUNDS(you know what to do)
   * Best would be to send funds to trading addresses as many times as open orders you are willing to keep active by bot at same time, because atomic swap technology can process just one swaps per UTXO. Split functionality is already part of Blocknet's XBrige API and Automatic split functionality will be part of DEXBOT configuration later, anyway expensive transaction coins like Bitcoin should be using strategy with this feature very carefully and by default must be disabled.
