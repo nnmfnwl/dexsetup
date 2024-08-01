@@ -113,9 +113,13 @@ proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
 ./setup.screen.sh install
 ```
+  * Now we are almost ready and it is time to to logout/close from terminal/SSH server connection.
+```
+exit
+```
 
 **How to VNC remote desktop connection**
-  * At first it is needed to open secure SSH tunnel to server by
+  * Before VNC remote desktop connection to server, it is always needed to make secured SSH tunnel to server first.
 ```
 ssh -L 5922:127.0.0.1:5902 username@server_hostname -N -f
 ```
