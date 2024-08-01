@@ -113,7 +113,7 @@ proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
 ./setup.screen.sh install
 ```
-  * Now we are almost ready and it is time to to logout/close from terminal/SSH server connection.
+  * Now we are almost ready and it is time to logout/close from terminal/SSH server connection.
 ```
 exit
 ```
