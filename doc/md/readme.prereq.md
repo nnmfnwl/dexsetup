@@ -14,11 +14,11 @@ su - -c "apt update; apt full-upgrade; apt install git proxychains4 tor torsocks
 groups | grep debian-tor || su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
 
-**Create root directory(~/Downloads/ccwallets) and download all dexsetup files**
+**Create root directory(~/dexsetup) and download all dexsetup files**
   * estimated time on very slow machine 1 minute, depending on connection speed
 ```
-mkdir -p ~/Downloads/ccwallets/dexsetup \
-&& cd ~/Downloads/ccwallets/dexsetup \
+mkdir -p ~/dexsetup/dexsetup \
+&& cd ~/dexsetup/dexsetup \
 && proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
 

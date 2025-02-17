@@ -21,7 +21,7 @@
   * successful result of every above command is
     * downloaded source code at `/<DEXSETUP root>/../<coin name>/git.src/`
     * build binary files at `/<DEXSETUP root>/../<coin name>/bin/`
-    * for example `~/Downloads/ccwallets/blocknet/`
+    * for example `~/dexsetup/blocknet/`
   * **it is recommended to not execute build binary files directly, rather using it with firejail and screen setup of this tutorial**
     * firejail setup is used to generate security profile and script which isolate wallet from other user files and also from other wallets because of security reasons
     * screen setup is used to generate user friendly whole ecosystem startup script

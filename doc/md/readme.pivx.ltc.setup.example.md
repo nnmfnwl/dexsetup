@@ -40,8 +40,8 @@ grep "^:${port}=${USER}$" /etc/tigervnc/vncserver.users || su - -c "echo \":${po
 ```
   * download DEXSETUP installation files privately over tor
 ```
-mkdir -p ~/Downloads/ccwallets/dexsetup
-cd ~/Downloads/ccwallets/dexsetup
+mkdir -p ~/dexsetup/dexsetup
+cd ~/dexsetup/dexsetup
 proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
 ```
   * Using dexsetup to install complete GUI(graphical user interface)+CLI(command line interface) Debian package dependencies
@@ -68,9 +68,9 @@ proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
   * check, merge and generate/add needed wallet configuration variables for ability to be everything working properly and ready for DEX and CLI management
   * generate CLI(command line interface) wallet management predefined commands for autocomplete
 ```
-./setup.cc.firejail.sh ./src/cfg.cc.blocknet.sh
-./setup.cc.firejail.sh ./src/cfg.cc.litecoin.sh
-./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh
+./setup.cc.wallet.profile.sh ./src/cfg.cc.blocknet.sh
+./setup.cc.wallet.profile.sh ./src/cfg.cc.litecoin.sh
+./setup.cc.wallet.profile.sh ./src/cfg.cc.pivx.sh
 ```
   * generate PIVX/LTC trading strategy start scripts
   * generate firejail security isolation configuration files(rules) for scripts
@@ -85,11 +85,11 @@ proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
   * command will be run again later with `yourpivxaddress` and `yourlitecoinaddress` replaced with real wallet addresses.
   * Specific generated strategy is using funds sitting on specified addresses only. Because you can run many strategies with pivx at same time, for example `PIVX/LTC conservative 1`, `PIVX/LTC aggressive 1`, `PIVX/BTC aggressive 1`... and you do not want funds to be mixed.
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy1 yourpivxaddress1 yourlitecoinaddress1
+./setup.cc.dexbot.profile.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy1 yourpivxaddress1 yourlitecoinaddress1
 ```
   * Another PIVX/LTC trading strategy could be generated very easy, lets say, name it `strategy2` and using another addresses for funds `yourpivxaddress2` and `yourlitecoinaddress2` and choose not default but aggressive price movement behavior to try earn more profits `./src/cfg.strategy.pivx.ltc.aggressive1.sh` 
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 yourpivxaddress2 yourlitecoinaddress2
+./setup.cc.dexbot.profile.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 yourpivxaddress2 yourlitecoinaddress2
 ```
   * download or build blocknet BlockDX GUI(Graphical user interface) app from official sources
   * setup BlockDX by compilation from source code would take hours, so we choose `download` instead of `build` argument
@@ -141,7 +141,7 @@ remmina
 **How to start DEX system and attach into and detach from screen DEX CLI interface**
   * To spin up whole DEX system up: enter directory and click on script or use command
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./start.screen.instance_default.gui.sh
+cd ~/dexsetup/dexsetup/ && ./start.screen.instance_default.gui.sh
 ```
   * To attach to DEX system CLI interface command
 ```
@@ -167,15 +167,15 @@ CTRL + a + d
 <strike>
 
 ```
-cd ~/Downloads/ccwallets/blocknet
+cd ~/dexsetup/blocknet
 ./firejail.blocknet.wallet_block.qt.bin.sh
 ```
 ```
-cd ~/Downloads/ccwallets/litecoin
+cd ~/dexsetup/litecoin
 ./firejail.litecoin.wallet_ltc.qt.bin.sh
 ```
 ```
-cd ~/Downloads/ccwallets/pivx
+cd ~/dexsetup/pivx
 ./firejail.pivx.wallet_pivx.qt.bin.sh
 ```
 
@@ -194,14 +194,14 @@ cd ~/Downloads/ccwallets/pivx
 ```
 ./backup
 ```
-  * Once wallet backups are done, immediately make hard copy of whole `/home/username/Downloads/ccwallets/dexsetup/backup/` directory on safe external offline drive.
+  * Once wallet backups are done, immediately make hard copy of whole `/home/username/dexsetup/dexsetup/backup/` directory on safe external offline drive.
   * you can do it manually by graphical user interface or do like hacker by calling recursive copy command.
 ```
-cp -r ~/Downloads/ccwallets/dexsetup/backup /media/${USER}/usb/mount/point/
+cp -r ~/dexsetup/dexsetup/backup /media/${USER}/usb/mount/point/
 ```
   * maybe if your server is remote running VPS, you can run scp command on your local machine to download backups to your local machine.
 ```
-scp -r username@server_hostname:~/Downloads/ccwallets/dexsetup/backup ~/backup_dex_wallets
+scp -r username@server_hostname:~/dexsetup/dexsetup/backup ~/backup_dex_wallets
 ```
   * Please remember that encrypted wallets must be unlocked before starting any dexbot trading bot strategy or doing any funds send operations.
   * Use `CTRL + a + "` to switch to `block_cli`, `litecoin_cli` and also `pivx_cli` and use command `./unlock.full` and enter password used to encrypt wallet.
@@ -222,12 +222,12 @@ scp -r username@server_hostname:~/Downloads/ccwallets/dexsetup/backup ~/backup_d
 ```
   * Now set our addresses to be used by generated PIVX/LTC trading strategies `startegy1` and `strategy2`.
   * Most easy way is to navigate by `CTRL + a + "` to `dexsetup` component and call dexbot setup command again with real addresses and `update_strategy`
-  * or manually edit file `~/Downloads/ccwallets/dexbot/git.src/strategy_PIVX_LTC_strategy1.py` and `~/Downloads/ccwallets/dexbot/git.src/strategy_PIVX_LTC_strategy2.py` lines ~41 and ~42 where `--makeraddress` and `--takeraddress` is specified.
+  * or manually edit file `~/dexsetup/dexbot/git.src/strategy_PIVX_LTC_strategy1.py` and `~/dexsetup/dexbot/git.src/strategy_PIVX_LTC_strategy2.py` lines ~41 and ~42 where `--makeraddress` and `--takeraddress` is specified.
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy1 PIVX_ADDRESS_1 LITECOIN_ADDRESS_1 update_strategy
+./setup.cc.dexbot.profile.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.sh strategy1 PIVX_ADDRESS_1 LITECOIN_ADDRESS_1 update_strategy
 ```
 ```
-./setup.cc.dexbot.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 PIVX_ADDRESS_2 LITECOIN_ADDRESS_2 update_strategy
+./setup.cc.dexbot.profile.sh ./src/cfg.cc.blocknet.sh ./src/cfg.cc.pivx.sh ./src/cfg.cc.litecoin.sh ./src/cfg.dexbot.alfa.sh ./src/cfg.strategy.pivx.ltc.aggressive1.sh strategy2 PIVX_ADDRESS_2 LITECOIN_ADDRESS_2 update_strategy
 ```
   * Now wallet addresses used buy DEXBOT trading strategies needs FUNDS(you know what to do)
   * Best would be to send funds to trading addresses as many times as open orders you are willing to keep active by bot at same time, because atomic swap technology can process just one swaps per UTXO. Split functionality is already part of Blocknet's XBrige API and Automatic split functionality will be part of DEXBOT configuration later, anyway expensive transaction coins like Bitcoin should be using strategy with this feature very carefully and by default must be disabled.
@@ -249,7 +249,7 @@ scp -r username@server_hostname:~/Downloads/ccwallets/dexsetup/backup ~/backup_d
 ./cli dxSplitAddress LTC 5 LITECOIN_ADDRESS_1 true false true
 ./cli dxSplitAddress LTC 5 LITECOIN_ADDRESS_2 true false true
 ```
-  * more trading strategy parameter updates by file edit `~/Downloads/ccwallets/dexbot/git.src/strategy_PIVX_LTC_strategy1.py`, for example:
+  * more trading strategy parameter updates by file edit `~/dexsetup/dexbot/git.src/strategy_PIVX_LTC_strategy1.py`, for example:
     * maximum open orders count update is `"--maxopen 2"`
     * first placed order size and minimal first placed order size `"--sellstart 10 --sellstartmin 5"`
     * first placed order price slide `"--slidestart 2.01"` (2.01 * price == slide is +101%)
@@ -266,7 +266,7 @@ scp -r username@server_hostname:~/Downloads/ccwallets/dexsetup/backup ~/backup_d
 <strike>
 
 ```
-cd ~/Downloads/ccwallets/dexbot/ && ./run.firejail.proxy.sh
+cd ~/dexsetup/dexbot/ && ./run.firejail.proxy.sh
 ```
 
 </strike>
@@ -278,7 +278,7 @@ cd ~/Downloads/ccwallets/dexbot/ && ./run.firejail.proxy.sh
 <strike>
 
 ```
-cd ~/Downloads/ccwallets/dexbot/ && ./run.firejail.PIVX.LTC.strategy1.sh
+cd ~/dexsetup/dexbot/ && ./run.firejail.PIVX.LTC.strategy1.sh
 ```
 
 </strike>
@@ -290,7 +290,7 @@ cd ~/Downloads/ccwallets/dexbot/ && ./run.firejail.PIVX.LTC.strategy1.sh
 <strike>
 
 ```
-cd ~/Downloads/ccwallets/dexbot/ && ./run.firejail.LTC.PIVX.strategy1.sh
+cd ~/dexsetup/dexbot/ && ./run.firejail.LTC.PIVX.strategy1.sh
 ```
 
 </strike>
@@ -317,7 +317,7 @@ echo "I am happy DEX Liquidity provider"
 <strike>
 
 ```
-cd ~/Downloads/ccwallets/blockdx/blockdx.1.9.5/ && ./firejail.blockdx.default.sh
+cd ~/dexsetup/blockdx/blockdx.1.9.5/ && ./firejail.blockdx.default.sh
 ```
 
 </strike>
@@ -329,7 +329,7 @@ cd ~/Downloads/ccwallets/blockdx/blockdx.1.9.5/ && ./firejail.blockdx.default.sh
 <strike>
 
 ```
-cd ~/Downloads/ccwallets/tor_browser/latest/ && ./firejail.torbrowser.default.sh
+cd ~/dexsetup/tor_browser/latest/ && ./firejail.torbrowser.default.sh
 ```
 
 </strike>
@@ -341,7 +341,7 @@ https://www.blocknetmonitor.com/?p=openorders
 **How to stop whole DEX system**
   * To stop all DEX system components: enter directory and click on script or use command
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./stop.screen.instance_default.sh
+cd ~/dexsetup/dexsetup/ && ./stop.screen.instance_default.sh
 ```
 
 **How to update just one specific wallet, for example Litecoin wallet**
@@ -356,7 +356,7 @@ cd ~/Downloads/ccwallets/dexsetup/ && ./stop.screen.instance_default.sh
 ```
   * switch to `dexsetup` component and for sure switch directory to `dexsetup` and use proxychains and git pull to update components
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && proxychains4 git pull
+cd ~/dexsetup/dexsetup/ && proxychains4 git pull
 ```
   * rebuild `ltc` wallet from source into new version by
 ```
@@ -385,12 +385,12 @@ cd ~/Downloads/ccwallets/dexsetup/ && proxychains4 git pull
   * all wallets and components will stop automatically.
   * this is experimental branch functionality and needs more development and testing.
 ```
-cd ~/Downloads/ccwallets/dexsetup/ && ./update.screen.instance_default.sh all`
+cd ~/dexsetup/dexsetup/ && ./update.screen.instance_default.sh all`
 ```
 **FAQ - Frequently asked questions**
   * Where could find all files used and generated by DEXSETUIP?
     * DEXSETUP is by default using standard directory paths for chain data used like `~/.pivx`, `~/.litecoin`, `./blocknet`, `~/.bitcoin`
-    * DEXSETUP is by default using one main installation path/directory where source code, profiles, build and all stuff stored `cd ~/Downloads/ccwallets/`
+    * DEXSETUP is by default using one main installation path/directory where source code, profiles, build and all stuff stored `cd ~/dexsetup/`
     * DEXSETUP also using standard proxychains config file `~/.proxychains/proxychains.conf`
     
   * DEXSETUP is failing to download a source code with commands like `./setup.cc.wallet.sh ./src/cfg.cc.blocknet.sh install`.
