@@ -71,6 +71,8 @@ txindex=1
 
 blocksonly=1
 
+walletbroadcast=1
+
 staking=1
 
 bantime=180
