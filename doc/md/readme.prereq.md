@@ -19,7 +19,10 @@ groups | grep debian-tor || su - -c "usermod -a -G debian-tor ${USER}; exit"
 ```
 mkdir -p ~/dexsetup/dexsetup \
 && cd ~/dexsetup/dexsetup \
-&& proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
+&& proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./ \
+&& git checkout merge.2025.02.06 \
+&& chmod 755 setup* \
+&& chmod 755 ./src/setup*.sh
 ```
 
 **Software dependencies installation**
