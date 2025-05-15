@@ -4,7 +4,7 @@ cc_ticker="BLOCK"
 cc_bin_file_name_prefix="blocknet"
 cc_gui_cfg_dir_name="Blocknet"
 
-cc_install_dir_path_default="~/Downloads/ccwallets/blocknet"
+cc_install_dir_path_default="blocknet"
 cc_chain_dir_path_default="~/.blocknet"
 cc_wallet_name_default="wallet_block"
 cc_conf_name_default="blocknet.conf"
