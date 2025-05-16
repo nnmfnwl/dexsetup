@@ -14,7 +14,7 @@
   * it is not recommended to use blockdx app directly but below privacy security sandbox profile
   * following command is to setup default installed `blockdx` with default installed `blocknet` and create blockdx firejail sandbox profile start script `firejail.blockdx.default.sh`
 ```
-./setup.cc.blockdx.firejail.sh
+./setup.cc.blockdx.profile.sh
 ```
   
   * successful result of both above commands is
@@ -36,5 +36,5 @@
   * for more information about dowload/build scripts and how to use optional arguments, please read help
 ```
 ./setup.cc.blockdx.sh help | less
-./setup.cc.blockdx.firejail.sh help | less
+./setup.cc.blockdx.profile.sh help | less
 ```
