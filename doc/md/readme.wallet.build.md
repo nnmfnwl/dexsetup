@@ -10,7 +10,7 @@
 ./setup.cc.wallet.sh ./src/cfg.cc.bitcoin.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.verge.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.dogecoin.sh install
-./setup.cc.wallet.sh ./src/cfg.cc.pivx.sh install
+./setup.cc.wallet.sh ./src/cfg.cc.pivx.sh download install
 ./setup.cc.wallet.sh ./src/cfg.cc.dash.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.lbrycrd.leveldb.sh install
 ./setup.cc.wallet.sh ./src/cfg.cc.lbrycrd.sqlite.sh install
