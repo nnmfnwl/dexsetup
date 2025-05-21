@@ -7,6 +7,8 @@ source "./src/tools.sh" || exit 1
 cc_script_cfg_path_default="./src/cfg.session.sh"
 cc_action1_default="download"
 cc_action2_default="install"
+cc_firejail_default="firejail"
+cc_proxychains_default="proxychains -q"
 
 # include specific tool
 source "./src/tools.session.sh" || exit 1
@@ -18,9 +20,7 @@ tool_session_show_help
 cc_script_cfg_path=
 cc_action1=
 cc_action2=
-cc_firejail_default="firejail"
 cc_firejail=${cc_firejail_default}
-cc_proxychains_default="proxychains -q"
 cc_proxychains=${cc_proxychains_default}
 cc_install_dir_path=
 
@@ -38,6 +38,7 @@ tool_variable_info cc_proxychains
 # check make script exist
 cc_script_make_path="./src/setup.session.make.sh"
 tool_realpath cc_script_make_path "make script path"
+# TODO make session is not implemented yet
 #~ tool_file_if_notexist_exit ${cc_script_make_path} "make script path"
 
 # check download script exist
@@ -51,6 +52,8 @@ tool_realpath cc_script_cfg_path "parameter #1 session cfg script path"
 tool_check_version_and_include_script ${cc_script_cfg_path} "loading session cfg script" 
 
 # check included cfg variables
+tool_variable_check_load_default cc_download_url "" "torbrowser package download url"
+tool_variable_check_load_default cc_download_sha512sum "" "torbrowser package sha512sum "
 tool_variable_check_load_default cc_download_extracted_bin_files_dir "" "session download extracted bin files dir"
 
 # check download build install update purge arguments
@@ -187,7 +190,7 @@ fi
 clamscan_path="/usr/bin/clamscan"
 if [ -f "${clamscan_path}" ]; then
     echo "INFO >> using clamscan_path >> ${clamscan_path}"
-    ${clamscan_path} -r -v -z --no-summary ${cc_bin_path}"/"
+    ${clamscan_path} -r -v -z --no-summary ${cc_bin_path}"/"*
     (test $? != 0) && echo "ERROR >> AV SCAN >> ${clamscan_path} ${cc_bin_path}/* >> FAILED" && rm -rf ${cc_bin_path}"/"* && exit 1
     echo "INFO >> AV SCAN >> ${cc_bin_path}/* >> success"
 fi

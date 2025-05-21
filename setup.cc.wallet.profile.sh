@@ -23,12 +23,13 @@ cc_wallet_name=
 cc_firejail_profile_name_suffix=
 cc_action_cc_config=
 
+# process command line arguments
 argc=$#
 argv=("$@")
 tool_firejail_process_arguments ${argc} ${argv}
 
-
-
+# start measuring time
+tool_time_start
 
 # include main cc cfg script IE: ./src/cfg.cc.blocknet.sh
 tool_variable_check_load_default cc_script_cfg_path cc_script_cfg_path_default
@@ -465,5 +466,7 @@ echo "Generated firejail sandbox profiles >> ${cc_install_dir_path} >> ${firejai
 # exit
 
 echo "*** FIREJAIL CC SETUP SUCCESS ***"
+
+tool_time_finish_print
 
 exit 0

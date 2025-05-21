@@ -204,8 +204,8 @@ fi
 clamscan_path="/usr/bin/clamscan"
 if [ -f "${clamscan_path}" ]; then
     echo "INFO >> using clamscan_path >> ${clamscan_path}"
-    ${clamscan_path} --no-summary ${cc_bin_path}"/"*
-    (test $? != 0) && echo "ERROR >> AV SCAN >> ${clamscan_path} ${cc_bin_path}/* >> FAILED" && rm ${cc_bin_path}"/"* && exit 1
+    ${clamscan_path} -r -v -z --no-summary ${cc_bin_path}"/"*
+    (test $? != 0) && echo "ERROR >> AV SCAN >> ${clamscan_path} ${cc_bin_path}/* >> FAILED" && rm -rf ${cc_bin_path}"/"* && exit 1
     echo "INFO >> AV SCAN >> ${cc_bin_path}/* >> success"
 fi
 

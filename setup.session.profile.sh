@@ -6,6 +6,8 @@ source "./src/tools.sh" || exit 1
 # default arguments
 cc_script_cfg_path_default="./src/cfg.session.sh"
 cc_firejail_profile_name_default="default"
+cc_firejail_default="firejail"
+cc_proxychains_default="proxychains -q"
 
 # include specific tool
 source "./src/tools.session.firejail.sh" || exit 1
@@ -17,10 +19,7 @@ tool_session_firejail_show_help
 cc_script_cfg_path=
 cc_install_dir_path=
 cc_firejail_profile_name=
-
-cc_firejail_default="firejail"
 cc_firejail=${cc_firejail_default}
-cc_proxychains_default="proxychains -q"
 cc_proxychains=${cc_proxychains_default}
 
 # process command line arguments
@@ -42,6 +41,7 @@ tool_check_version_and_include_script ${cc_script_cfg_path} "loading session cfg
 
 # check included "./src/cfg.session.sh" cfg variables
 tool_variable_check_load_default cc_install_dir_path_default "" "session default install dir path"
+tool_variable_check_load_default cc_firejail_profile_name_default "" "torbrowser default firejail profile name"
 
 # prepare install directory path
 cc_install_dir_path_default_tmp=${cc_dexsetup_dir_path}"/../"${cc_install_dir_path_default}
