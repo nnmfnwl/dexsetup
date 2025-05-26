@@ -45,15 +45,15 @@ tool_variable_check_load_default cc_install_dir_path_default "" "wallet default 
 cc_install_dir_path_default_tmp=${cc_dexsetup_dir_path}"/../"${cc_install_dir_path_default}
 tool_variable_check_load_default cc_install_dir_path cc_install_dir_path_default_tmp
 tool_realpath cc_install_dir_path "cc install dir path"
-tool_dir_if_notexist_exit cc_install_dir_path "cc install directory"
+tool_make_and_check_dir_path cc_install_dir_path "cc install directory"
 
 # cc install directory git
 cc_git_src_path=${cc_install_dir_path}"/git.src"
-tool_dir_if_notexist_exit cc_git_src_path "cc install directory git.src"
+tool_make_and_check_dir_path cc_git_src_path "cc install directory git.src"
 
 # cc install directory bin files path
 cc_bin_path=${cc_install_dir_path}"/bin"
-tool_dir_if_notexist_exit cc_bin_path "cc bin files directory"
+tool_make_and_check_dir_path cc_bin_path "cc bin files directory"
 
 # cc chain directory path
 tool_variable_check_load_default cc_chain_dir_path cc_chain_dir_path_default "cc chain dir path"
