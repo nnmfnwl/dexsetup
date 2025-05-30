@@ -124,8 +124,35 @@ so here this project comes:
   * Blocknet Xlite wallet source code - [xlite github](https://github.com/blocknetdx/xlite)
   * Blocknet Blockdx DEX app main web - [BlockDX DEX](https://blockdx.net/)
   
-### Already integrated crypto currencies list
+### List of crypto currencies already supported by DEXSETUP
   * Below list of crypto currencies are already integrated and tested by DEXSETUP
+  * TODO
 
-### List of By blocknet supported crypto currencies which can be added into DEXSETUP
+### List of crypto currencies possibly supported by DEXSETUP because already supported by Blocknet.
   * Below list of crypto currencies are already supported by BLocknet-DEX-system(Blockdx) and are possibly to be added into DEXSETUP
+  * TODO
+
+### List used components by dexsetup
+  * Debian GNU/Linux operating system
+  * Firejail
+  * Tor
+  * Proxychains
+  * GNU Screen
+  * Tiger VNC server
+  * Blocknet
+  * Blocknet API
+  * DEXBOT
+  * DEXSETUP trading strategy templates
+  * BlockDX - Blocknet DEX graphical user interface app for trading
+  * Bitcoin wallet
+  * Litecoin wallet
+  * Dogecoin wallet
+  * Verge wallet
+  * PIVX wallet
+  * DASH wallet
+  * Lbry Credits wallet (odysee)
+  * Pocketcoin wallet (core node of Bastyon decentralized social/micro-blog/article/video/audio/chat/ network)
+  * Particl wallet
+  * Tor Browser
+  * Session privacy messaging app
+
