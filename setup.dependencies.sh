@@ -161,5 +161,12 @@ fi
 
 # installing all selected packages
 echo "packages: ${cc_pkg_list}"
-echo "please enter root password to install packages"
-su - -c "apt install ${scc_pkg_list}"
+
+cat /etc/*release | grep -i -e debian > /dev/null
+if [[ "${?}" == "0" ]] ;then
+   echo "please enter root password to install packages"
+   su -c "apt install ${scc_pkg_list}"
+else
+   echo "please enter sudo password to install packages"
+   sudo "apt install ${scc_pkg_list}"
+fi
