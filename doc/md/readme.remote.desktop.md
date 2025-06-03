@@ -20,10 +20,13 @@ tigervncserver -localhost yes -geometry 1024x768 -depth 16 :1
 ```
 
   * to configure tigervnc server to start automatically with computer
-  * below command add user into tigervnc vncserver.users config and enable and start vnc service
+  * first part of below command is to detect `su vs sudo` system
+  * second part of below command add user into tigervnc vncserver.users config and enable and start vnc service
   * :1 means 5901 vnc port, :2 would be 5902 vnc port.
+
 ```
-grep "^:1=${USER}$" /etc/tigervnc/vncserver.users || su - -c "echo \":1=${USER}\" >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:1.service; systemctl enable tigervncserver@:1.service"
+sudo -v; (test $? != 0) && su_cmd="echo \"Please enter ROOT password\"; su -c" || su_cmd="echo \"Please enter ${USER} sudo password\"; sudo -sh -c"; 
+grep "^:1=${USER}$" /etc/tigervnc/vncserver.users || eval "${su_cmd} \"echo ':1=${USER}' >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:1.service; systemctl enable tigervncserver@:1.service\""
 ```
 
 #### VNC client connect option 1 with xtigervncviewer
