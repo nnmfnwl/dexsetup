@@ -24,15 +24,15 @@ pkg_gui_tools="gitg keepassx geany xsensors tigervnc-standalone-server"
 ```
   * **6.** set to configure user to have ability to use tor network anonymity layer
 ```
-cfg_user_tor="groups | grep debian-tor || su - -c "usermod -a -G debian-tor ${USER}"
+groups | grep debian-tor > /dev/null && cfg_user_tor="echo 'tor for ${USER} already configured'" || cfg_user_tor="usermod -a -G debian-tor ${USER}"
 ```
   * **7.a** system configuration will prompt for root `su password` (**For `Debian` based systems which by default using `su`**)
 ```
-su - -c "apt update; apt full-upgrade; apt install ${pkg_base} ${pkg_cli_build ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; exit}"
+su - -c "apt update; apt full-upgrade; apt install ${pkg_base} ${pkg_cli_build} ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; exit"
 ```
   * **7.b** system configuration will prompt for user `sudo password` (**For `Ubuntu` based systems which by default using `sudo`**)
 ```
-sudo -sh -c "apt update; apt full-upgrade; apt install ${pkg_base} ${pkg_cli_build ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; exit}"
+sudo -sh -c "apt update; apt full-upgrade; apt install ${pkg_base} ${pkg_cli_build} ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; exit"
 ```
 
 **Create root directory(~/dexsetup) and download all dexsetup files**
