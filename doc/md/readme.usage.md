@@ -50,12 +50,12 @@ cd ~/dexsetup/blocknet && ./firejail.blocknet.wallet_block.cli.bin.sh
 ```
   * to start previously generated BLOCK.LTC trading strategy anmed strategy1 in bidirectorial way
 ```
-cd ~/Downloads/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh
-cd ~/Downloads/dexbot/ && ./run.firejail.LTC.BLOCK.strategy1.sh
+cd ~/dexsetup/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh
+cd ~/dexsetup/dexbot/ && ./run.firejail.LTC.BLOCK.strategy1.sh
 ```
   * once you stop trading strategy by CTRL+C, you need to clean up orders manually by
 ```
-cd ~/Downloads/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh --canceladdress
+cd ~/dexsetup/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh --canceladdress
 ```
   * for more details about usage you can also type
 ```
