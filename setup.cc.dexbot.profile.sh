@@ -121,7 +121,8 @@ tool_git_commit_id_check "${cc_dexbot_git_commit_id}" "dexbot"
 
 # dexbot install requirements
 echo "INFO >> dexbot installing requirements"
-${cc_proxychains} pip3 install -r requirements.txt --break-system-packages
+# ${cc_proxychains} pip3 install -r requirements.txt --break-system-packages
+PIP_BREAK_SYSTEM_PACKAGES=1 ${cc_proxychains} pip3 install -r requirements.txt
 (test $? != 0) && echo "ERROR >> dexbot install requirements failed" && exit 1
 
 # move above dir
