@@ -10,13 +10,33 @@
 ```
 ssh username@server_hostname
 ```
-  * make system uptodate, install base privacy tool and git to download dexsetup privately.
+  * set to install base mandatory privacy tools packages
+  * set to install mandatory console interface build dependencies and main console interface tools packages
+  * set to install install useful console interface tools. For example tool clamav anti-virus tool is used by dexsetup after every packages compilation or download to verify it.
+  * set to install install graphical interface build dependencies and main graphical tools
+  * set to install install graphical user interface tools. If you want to manage dexsetup environments like wallets, BlockDX and other apps remotely there is VNC package. Keepassx is tool to securely store your keys, passwords, seeds etc..., xsensors to monitor temperatures.
+  * set to configure user to have ability to use tor network anonymity layer
+  * set to configure tigervnc server to start automatically with computer for current user
+  * make command to detect and use primary administration access system
+  * make system updated and finally install packages and configure things
 ```
-su - -c "apt update; apt full-upgrade; apt install git proxychains4 tor torsocks; exit"
-```
-  * Update user permissions for ability to use tor
-```
-groups | grep debian-tor || su - -c "usermod -a -G debian-tor ${USER}; exit"
+pkg_base="proxychains4 tor torsocks";
+
+pkg_cli_build="curl wget git make cmake clang clang-tools clang-format libclang1 libboost-all-dev basez libprotobuf-dev protobuf-compiler libssl-dev openssl gcc g++ python3-pip python3-dateutil cargo pkg-config libseccomp-dev libcap-dev libsecp256k1-dev firejail firejail-profiles seccomp proxychains4 tor libsodium-dev libgmp-dev screen";
+
+pkg_cli_tools="clamav htop joe mc lm-sensors apt-file net-tools sshfs";
+
+pkg_gui_build="qt5-qmake-bin qt5-qmake qttools5-dev-tools qttools5-dev qtbase5-dev-tools qtbase5-dev libqt5charts5-dev python3-gst-1.0 libqrencode-dev";
+
+pkg_gui_tools="gitg keepassx geany xsensors tigervnc-standalone-server";
+
+groups | grep debian-tor > /dev/null && cfg_user_tor="echo 'Tor for ${USER} is already configured'" || cfg_user_tor="usermod -a -G debian-tor ${USER}";
+
+grep "^:1=${USER}$" /etc/tigervnc/vncserver.users && cfg_user_vnc="echo 'TigerVNC for ${USER} is laready configured'" || cfg_user_vnc="echo ':1=${USER}' >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:1.service; systemctl enable tigervncserver@:1.service";
+
+sudo -v; (test $? != 0) && su_cmd="echo 'Please enter ROOT password'; su -c" || su_cmd="echo 'Please enter ${USER} sudo password'; sudo -sh -c";
+
+eval "${su_cmd} \"apt update; apt full-upgrade; apt install ${pkg_base} ${pkg_cli_build} ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; ${cfg_user_vnc}; exit\""
 ```
   * for previous command changes to be applied
   * disconnect and SSH connect to remote server again
@@ -26,33 +46,25 @@ exit
 ```
 ssh username@server_hostname
 ```
-  * set user password used for VNC remote desktop management
+  * set password used to login over VNC remote desktop management to current user
   * please remember that password it will be need later.
 ```
 tigervncpasswd
 ```
-  * configure server to start VNC server automatically after every computer restart
-  * VNC listening TCP port set by 2 as 5902
-  * don't worry listening port is for security reasons accessible by localhost only.
-```
-port=2
-grep "^:${port}=${USER}$" /etc/tigervnc/vncserver.users || su - -c "echo \":${port}=${USER}\" >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:${port}.service; systemctl enable tigervncserver@:${port}.service"
-```
   * download DEXSETUP installation files privately over tor
 ```
-mkdir -p ~/dexsetup/dexsetup
-cd ~/dexsetup/dexsetup
-proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./
-```
-  * Using dexsetup to install complete GUI(graphical user interface)+CLI(command line interface) Debian package dependencies
-```
-./setup.dependencies.sh clibuild clitools guibuild guitools
+mkdir -p ~/dexsetup/dexsetup \
+&& cd ~/dexsetup/dexsetup \
+&& proxychains4 git clone https://github.com/nnmfnwl/dexsetup.git ./ \
+&& git checkout merge.2025.02.06 \
+&& chmod 755 setup* \
+&& chmod 755 ./src/setup*.sh
 ```
   * proxychains user file reconfiguration
 ```
 ./setup.cfg.proxychains.sh install
 ```
-  * download and build blocknet, litecoin wallets securely from official sources
+  * download and build `blocknet`, `litecoin` wallets securely from official sources
   * Because PIVX using not enough tested rustc unstable buggy library and Debian using 1.63 stable version, the PIVX wallet must be temporary downloaded as precompiled binary package.
 ```
 ./setup.cc.wallet.sh ./src/cfg.cc.blocknet.sh install
