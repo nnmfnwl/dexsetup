@@ -27,7 +27,7 @@ tigervncserver -localhost yes -geometry 1024x768 -depth 16 :1
 ```
 port=1
 sudo -v; (test $? != 0) && su_cmd="echo \"Please enter ROOT password\"; su -c" || su_cmd="echo \"Please enter ${USER} sudo password\"; sudo -sh -c"; 
-(grep "^:[0-9]=${USER}$" /etc/tigervnc/vncserver.users && echo "TigerVNC is already configured to start automatically with ${USER}") || (grep "^:${port}=" /etc/tigervnc/vncserver.users && echo "TigerVNC is already configured at port ${port} for another user, please choose another port=${port} value and repeat command again") || eval "${su_cmd} \"echo ':${port}=${USER}' >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:1.service; systemctl enable tigervncserver@:1.service\""
+(grep "^:[0-9]=${USER}$" /etc/tigervnc/vncserver.users && echo "TigerVNC is already configured to start automatically with ${USER}") || (grep "^:${port}=" /etc/tigervnc/vncserver.users && echo "TigerVNC is already configured at port ${port} for another user, please choose another port=${port} value and repeat command again") || eval "${su_cmd} \"echo ':${port}=${USER}' >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:${port}.service; systemctl enable tigervncserver@:${port}.service\""
 ```
 
 #### VNC client connect option 1 with xtigervncviewer
