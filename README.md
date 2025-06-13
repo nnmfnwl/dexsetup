@@ -133,26 +133,25 @@ so here this project comes:
   * TODO
 
 ### List used components by dexsetup
-  * Debian GNU/Linux operating system
-  * Firejail
-  * Tor
-  * Proxychains
-  * GNU Screen
-  * Tiger VNC server
-  * Blocknet
-  * Blocknet API
-  * DEXBOT
-  * DEXSETUP trading strategy templates
-  * BlockDX - Blocknet DEX graphical user interface app for trading
-  * Bitcoin wallet
-  * Litecoin wallet
-  * Dogecoin wallet
-  * Verge wallet
-  * PIVX wallet
-  * DASH wallet
-  * Lbry Credits wallet (odysee)
-  * Pocketcoin wallet (core node of Bastyon decentralized social/micro-blog/article/video/audio/chat/ network)
-  * Particl wallet
-  * Tor Browser
-  * Session privacy messaging app
-
+  * Debian GNU/Linux operating system - [main page](https://www.debian.org/)
+  * Firejail - [github](https://github.com/netblue30/firejail) - [main page](https://firejail.wordpress.com/) - [wikipedia](https://en.wikipedia.org/wiki/Firejail) - [debian package](https://packages.debian.org/stable/firejail) - [firejail by arch](https://wiki.archlinux.org/title/Firejail) 
+  * Tor - [github](https://github.com/torproject) - [debian package](https://packages.debian.org/stable/tor) - [wikipedia](https://en.wikipedia.org/wiki/The_Tor_Project)
+  * Proxychains - [debian package](https://packages.debian.org/bookworm/proxychains) - [manual page](https://manpages.debian.org/bullseye/proxychains4/proxychains4.1.en.html)
+  * GNU Screen terminal multiplexer - [main page](htps://www.gnu.org/software/screen/) - [debian package](https://packages.debian.org/stable/screen) - [wikipedia](https://en.wikipedia.org/wiki/GNU_Screen) - [tutorial](https://www.howtogeek.com/devops/how-to-use-the-gnu-screen-utility-in-linux/)
+  * Tiger VNC server - [main page](https://tigervnc.org/) - [debian package](https://packages.debian.org/stable/tigervnc-standalone-server)
+  * Blocknet - [main page](https://blocknet.org/)
+  * Blocknet API - [main page](https://api.blocknet.org/) - [Xbridge API](https://api.blocknet.org/#xbridge-api)
+  * DEXBOT - [github page](https://github.com/nnmfnwl/dexbot/tree/merge.2025.03.26)
+  * DEXSETUP trading strategy templates - [main documentation](https://github.com/nnmfnwl/dexbot/blob/merge.2025.03.26/howto/examples/bot_v2_template.py) - [BLOCK/LTC](https://github.com/nnmfnwl/dexsetup/blob/merge.2025.02.06/src/cfg.strategy.block.ltc.sh) - [BTC/LTC](https://github.com/nnmfnwl/dexsetup/blob/merge.2025.02.06/src/cfg.strategy.btc.ltc.sh) ...
+  * BlockDX - Blocknet DEX graphical user interface app for trading - [Introduction to BlockDX](https://docs.blocknet.org/blockdx/introduction/) - [github page](https://github.com/BlocknetDX/block-dx) - [all open orders exported page](https://www.blocknetmonitor.com/?p=openorders)
+  * Bitcoin wallet - [github](https://github.com/bitcoin/bitcoin.git)
+  * Litecoin wallet - [github](https://github.com/litecoin-project/litecoin.git)
+  * Dogecoin wallet - [github](https://github.com/dogecoin/dogecoin.git)
+  * Verge wallet - [github](https://github.com/vergecurrency/verge.git)
+  * PIVX wallet - [github](https://github.com/PIVX-Project/PIVX.git) - [PIVX.org](https://pivx.org/) - [mypivxwallet lite wallet](https://app.mypivxwallet.org/)
+  * DASH wallet - [github](https://github.com/dashpay/dash)
+  * Lbry Credits wallet (odysee) - [github](https://github.com/lbryio/lbrycrd)
+  * Pocketcoin wallet (core node of Bastyon decentralized social/micro-blog/article/video/audio/chat/ network) - [github](https://github.com/pocketnetteam/pocketnet.core) - [Bastyon.com](https://bastyon.com/index?sst=cbdc)
+  * Particl wallet - [github](https://github.com/particl/particl-core.git)
+  * Tor Browser - [main page](https://www.torproject.org/download/) - [github archive](https://archive.torproject.org/tor-package-archive/torbrowser/14.5.3/)
+  * Session privacy messaging app  - [Session privacy messenger](https://getsession.org/) - [github](https://github.com/session-foundation/session-desktop)
