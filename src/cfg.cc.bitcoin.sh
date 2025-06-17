@@ -21,7 +21,7 @@ cc_git_src_url="https://github.com/bitcoin/bitcoin.git"
 cc_git_src_branch="v0.20.2"
 cc_git_commit_id="29e129ab6bb03f595e9c4fd89fa701c0159441f2"
 
-cc_make_cpu_threads=4
+cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
 
@@ -55,20 +55,29 @@ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 cc_main_cfg_add='
 server=1
 listen=1
+port=${cc_port}
+
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
+
+listenonion=0
+onlynet=ipv6
+onlynet=ipv4
+onlynet=onion
+onion=127.0.0.1:9050
+bind=127.0.0.1
+bantime=180
+
+maxconnections=7
+maxuploadtarget=777
+
 txindex=1
 
 addresstype=legacy
 changetype=legacy
-
-bantime=180
-
-maxuploadtarget=1500
 '
 
 cc_xbridge_cfg_add='
