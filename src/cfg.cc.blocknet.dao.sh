@@ -7,3 +7,9 @@ cc_wallet_name_default="wallet_block_dao"
 
 cc_port=41432
 cc_rpcport=41434
+
+# lines will eval before add
+cc_main_cfg_add='
+classic=0
+staking=0
+'${cc_main_cfg_add}
