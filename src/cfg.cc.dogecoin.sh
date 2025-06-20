@@ -18,10 +18,10 @@ cc_firejail_make_args=''
 cc_firejail_profile_add=''
 
 cc_git_src_url="https://github.com/dogecoin/dogecoin.git"
-cc_git_src_branch="v1.14.7"
-cc_git_commit_id="a6d12201363b0eb4ccf854b609fc6e98958b1443"
+cc_git_src_branch="v1.14.9"
+cc_git_commit_id="e0a1c157791544e818c901bd9341896965afbf9d"
 
-cc_make_cpu_threads=4
+cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
 
@@ -55,18 +55,26 @@ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 cc_main_cfg_add='
 listen=1
 server=1
+port=${cc_port}
 
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
-txindex=1
 
+listenonion=0
+onlynet=ipv6
+onlynet=ipv4
+onlynet=onion
+onion=127.0.0.1:9050
+bind=127.0.0.1
 bantime=180
 
-maxuploadtarget=1500
+maxconnections=7
+maxuploadtarget=777
+
+txindex=1
 '
 
 cc_xbridge_cfg_add='
