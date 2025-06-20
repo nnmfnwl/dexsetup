@@ -59,25 +59,36 @@ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 cc_main_cfg_add='
 listen=1
 server=1
+port=${cc_port}
 
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
+
+listenonion=0
+onlynet=ipv6
+onlynet=ipv4
+onlynet=onion
+onion=127.0.0.1:9050
+bind=127.0.0.1
+bantime=180
+
+maxconnections=17
+maxuploadtarget=1777
 
 txindex=1
 
 blocksonly=1
 
+staking=0
+
 walletbroadcast=1
 
-staking=1
+api=0
 
-bantime=180
-
-maxuploadtarget=1500
+disconnectold=1
 '
 
 cc_xbridge_cfg_add='
@@ -85,11 +96,11 @@ Title=PocketCoin
 Ip=127.0.0.1
 Port=${cc_rpcport}
 AddressPrefix=55
-ScriptPrefix=128
+ScriptPrefix=80
 SecretPrefix=33
 COIN=100000000
 MinimumAmount=0
-TxVersion=2
+TxVersion=1
 DustAmount=0
 CreateTxMethod=BTC
 GetNewKeySupported=true
