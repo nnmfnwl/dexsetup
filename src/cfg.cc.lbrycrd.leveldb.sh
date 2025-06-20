@@ -21,7 +21,7 @@ cc_git_src_url="https://github.com/lbryio/lbrycrd.git"
 cc_git_src_branch="v0.17.3.3"
 cc_git_commit_id="7afc4c418a3beae4a57c8fd91e527ada349a69c7"
 
-cc_make_cpu_threads=4
+cc_make_cpu_threads=3
 
 cc_make_depends="bdb boost"
 
@@ -56,14 +56,25 @@ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 cc_main_cfg_add='
 listen=1
 server=1
+port=${cc_port}
 
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
+
+listenonion=0
+onlynet=ipv6
+onlynet=ipv4
+onlynet=onion
+onion=127.0.0.1:9050
+bind=127.0.0.1
+bantime=180
+
 txindex=1
+
+maxconnections=7
 
 addresstype=legacy
 changetype=legacy
@@ -91,7 +102,7 @@ blocksonly=1
 #persistmempool=0
 # Whether to save the mempool on shutdown and load on restart (default: 1)
 
-maxuploadtarget=1000
+maxuploadtarget=777
 # Tries to keep outbound traffic under the given target (in MiB per 24h),
 # 0 = no limit (default: 0)
 
