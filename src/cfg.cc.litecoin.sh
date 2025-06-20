@@ -20,7 +20,7 @@ cc_git_src_url="https://github.com/litecoin-project/litecoin.git"
 cc_git_src_branch="0.18"
 cc_git_commit_id="2eabb3a5ebdcd58252d244aa7b106c84c65cbabf"
 
-cc_make_cpu_threads=4
+cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
 
@@ -53,21 +53,31 @@ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 cc_main_cfg_add='
 server=1
 listen=1
+port=${cc_port}
 
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
-txindex=1
-addresstype=legacy
-changetype=legacy
-deprecatedrpc=signrawtransaction
 
+listenonion=0
+onlynet=ipv6
+onlynet=ipv4
+onlynet=onion
+onion=127.0.0.1:9050
+bind=127.0.0.1
 bantime=180
 
-maxuploadtarget=1500
+maxconnections=7
+maxuploadtarget=777
+
+txindex=1
+
+addresstype=legacy
+changetype=legacy
+
+deprecatedrpc=signrawtransaction
 '
 
 cc_xbridge_cfg_add='
