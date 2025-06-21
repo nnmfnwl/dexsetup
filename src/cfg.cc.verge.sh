@@ -21,7 +21,7 @@ cc_git_src_url="https://github.com/vergecurrency/verge.git"
 cc_git_src_branch="v7.4.0"
 cc_git_commit_id="30975fbb0ce810e6c3418dd7d75844b29e23d3b4"
 
-cc_make_cpu_threads=4
+cc_make_cpu_threads=3
 
 cc_make_depends="bdb boost"
 
@@ -56,18 +56,27 @@ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 cc_main_cfg_add='
 listen=1
 server=1
+port=${cc_port}
 
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
+
+listenonion=0
+onlynet=onion
+onlynet=ipv6
+onlynet=ipv4
+#~ proxy=127.0.0.1:9050
+onion=127.0.0.1:9050
+bind=127.0.0.1
+bantime=180
+
+maxconnections=7
+maxuploadtarget=777
+
 txindex=1
-
-bantime=300
-
-maxuploadtarget=1500
 
 dynamic-network=true
 without-tor=true
