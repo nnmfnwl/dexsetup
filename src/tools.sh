@@ -86,10 +86,6 @@ function tool_variable_arch_load() { #var.name.load.with._arch #prefix.info
     (test $? != 0) && echo "ERROR >> ${prefix} >> ${1}_${arch_val} = eval save failed" && exit 1
     
     echo "INFO >> ${prefix} >> expand >> ${1}_${arch_val} >> ${tmp1} >> ${tmp2} >> success"
-    echo ""
-    echo ""
-    echo ""
-    echo ""
 }
 
 # function include bash source code in
