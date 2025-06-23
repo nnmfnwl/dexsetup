@@ -21,9 +21,11 @@ tool_variable_info cc_proxychains "pkg download proxychains"
 
 tool_check_version_and_include_script ${cc_script_cfg_path} "cc_script_cfg_path"
 
-# check included cfg variables
+# get variables by specific architecture and check included cfg variables
 
+tool_variable_arch_load cc_download_url "pkg download url"
 tool_variable_check_load_default cc_download_url "" "pkg download url"
+tool_variable_arch_load cc_download_sha512sum "pkg download sha512"
 tool_variable_check_load_default cc_download_sha512sum "" "pkg download sha512" 
 
 # change directory
