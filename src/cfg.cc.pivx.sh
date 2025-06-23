@@ -9,8 +9,18 @@ cc_chain_dir_path_default="~/.pivx"
 cc_wallet_name_default="wallet_pivx"
 cc_conf_name_default="pivx.conf"
 
-cc_download_url="https://github.com/PIVX-Project/PIVX/releases/download/v5.6.1/pivx-5.6.1-x86_64-linux-gnu.tar.gz"
-cc_download_sha512sum="6b1c83bd60d2930d012abfddf309a2aa45ee5c3ee634170eea6f7b6d57847b51e4915e6609b21aef0d5ecedade20387c49bf79b9627964b8ea4c180ea3c24024"
+cc_download_url_x86_64="https://github.com/PIVX-Project/PIVX/releases/download/v5.6.1/pivx-5.6.1-x86_64-linux-gnu.tar.gz"
+cc_download_sha512sum_x86_64="6b1c83bd60d2930d012abfddf309a2aa45ee5c3ee634170eea6f7b6d57847b51e4915e6609b21aef0d5ecedade20387c49bf79b9627964b8ea4c180ea3c24024"
+
+cc_download_url_i686="https://github.com/PIVX-Project/PIVX/releases/download/v5.6.1/pivx-5.6.1-i686-pc-linux-gnu.tar.gz"
+cc_download_sha512sum_i686="4ff0057d27d4006a534632c6b37cfbf2ae7cfb91c51b4856d31ba5f9a09c24c1df3d76d3b5132861b8c35abe7beec759efd466eda43649ed56683842adac75ba"
+
+cc_download_url_arm="https://github.com/PIVX-Project/PIVX/releases/download/v5.6.1/pivx-5.6.1-arm-linux-gnueabihf.tar.gz"
+cc_download_sha512sum_arm="c7c079efd8daf6edc10654a3390edfd752353469a6791b4415a00c9f0d723d132acbc4e37b5735e0061296816a7844653da982b6d0651fcaa79f71112fba7597"
+
+cc_download_url_aarch64="https://github.com/PIVX-Project/PIVX/releases/download/v5.6.1/pivx-5.6.1-aarch64-linux-gnu.tar.gz"
+cc_download_sha512sum_aarch64="2a2544782a381e706a823fba6288a9d51cb555ab98881ec6b1d356c9cd23f1b56248dd94527c78552c54c458d7373d279f08bf732fa814bf03d219e226b249b2"
+
 cc_download_extracted_bin_files_dir="pivx-5.6.1/bin"
 
 export CC=clang
