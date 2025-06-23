@@ -7,12 +7,11 @@ cc_git_src_branch_master=
 cc_git_branch="v1.15.2"
 cc_git_commit_id="073ab14a5e7fbd26d80d806e5ba73c712b75a4ab"
 cc_git_build_bin_file_dir="build"
-#~ cc_download_url="https://github.com/oxen-io/session-desktop/releases/download/v1.13.1/session-desktop-linux-amd64-1.13.1.deb"
-#~ cc_download_url="https://github.com/session-foundation/session-desktop/releases/download/v1.14.5/session-desktop-linux-amd64-1.14.5.deb"
-#~ cc_download_url="https://github.com/session-foundation/session-desktop/releases/download/v1.15.2/session-desktop-linux-amd64-1.15.2.deb"
-cc_download_url="https://github.com/session-foundation/session-desktop/releases/download/v1.16.0/session-desktop-linux-amd64-1.16.0.deb"
-cc_download_sha512sum="81f1e1c96cf48afef29b4c8c2ef2915cf370277b8b9c865aa62472851a6673b8c43ea06b2d01a8f8b8a21a02e2ae33623480f72fc6d5976a3da1525caa0bac96"
-cc_download_sha256sum="06fbf71c06f13550541b954dc0bce7bee691c982c38d0c7853f094344cea8775"
+
+cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.16.1/session-desktop-linux-amd64-1.16.1.deb"
+cc_download_sha512sum_x86_64="521d3f541f796668d53a02df56206d9074f9eb3ad47ce928de2b9f9b05e3fb229ce93f6f37c8dcc8aab8db53d0ee16008af0bda6bfcca088b0fd31ce583628b9"
+cc_download_sha256sum_x86_64="06fbf71c06f13550541b954dc0bce7bee691c982c38d0c7853f094344cea8775"
+
 cc_download_extracted_bin_files_dir="/opt/Session/"
 
 cc_firejail_make_args=""
