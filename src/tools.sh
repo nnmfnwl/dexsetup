@@ -70,6 +70,28 @@ function tool_eval_arg() { #var.name.to.eval #prefix.info
     echo "INFO >> ${prefix} >> expand >> ${1} >> ${tmp1} >> ${tmp2} >> success"
 }
 
+#
+function tool_variable_arch_load() { #var.name.load.with._arch #prefix.info
+    (test "${2}" = "" ) && local prefix="${FUNCNAME[*]}" || local prefix="${FUNCNAME[*]} >> ${2}"
+    (test "${1}" == "") && echo "ERROR >> ${prefix} >> variable >> ${1} >> is missing" && exit 1
+    
+    arch_val=`uname -m`
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${1} = uname -m failed" && exit 1
+    
+    eval "tmp1=\"\${${1}_${arch_val}}\""
+    #~ local tmp1=`eval echo "\\${${1}}"`
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${1}_${arch_val} = eval expand failed" && exit 1
+    
+    eval "${1}=\"${tmp1}\"" && eval "tmp2=\"${tmp1}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${1}_${arch_val} = eval save failed" && exit 1
+    
+    echo "INFO >> ${prefix} >> expand >> ${1}_${arch_val} >> ${tmp1} >> ${tmp2} >> success"
+    echo ""
+    echo ""
+    echo ""
+    echo ""
+}
+
 # function include bash source code in
 function tool_check_version_and_include_script() { # cfg.path # prefix.info #
     # default prefix
@@ -565,3 +587,4 @@ if [ "$cc_dexsetup_dir" != "dexsetup" ]; then
     echo "ERROR >> dexsetup scripts must be executed from <dexsetup> directory"
     exit 1
 fi
+
