@@ -69,3 +69,34 @@ while :; do ssh user@hostname "arecord -f cd" | aplay; done
     * It is more easy to automatize CLI commands with GNU screen
     * [see 2. Remote console management tips with Gnu Screen](./readme.remote.console.md)
     * [see 7. Start script with GNU Screen terminal multiplexer setup](./readme.screen.md)
+    
+#### Remote desktop effectivity with Mate Desktop
+
+  * The more effects Graphical Desktop Environment using, the slower and less effective VNC connection could be, same navigation all the time with mouse without keyboard shortcuts cause same negative effect.
+  * For most effective user experience with VNC, the below configuration for mate desktop minimize network bandwidth and maximize effectivity by many build in desktop shortcuts.
+  * Included changes and shortcuts:
+    * `WIN + Q` - Show main menu
+    * `WIN + E` - ***S***earch and Run application
+    * `WIN + G` - ***G***o go home folder
+    * `WIN + S` - ***S***earch for files
+    * `WIN + D` - Minimize all applications and show ***d***esktop
+    * `WIN + L` - ***L***ock screen
+    * `WIN + T` - Run ***t***erminal
+    * `CTRL + ALT + Narrows` - Navigate different desktops
+    * `WIN + ALT + Narrows` - Move applications between desktops
+    * `WIN + F` - Toggle window ***f***ull-screen mode
+    * `WIN + X` - Toggle window ma***x***imize mode
+    * `WIN + N` - Mi***n***imize window
+    * `WIN + M` - ***M***aximize window
+    * `WIN + R` - ***R***esize window
+    * `WIN + W` - Toggle window visible on all ***w***orkspaces or just one
+    * `WIN + V` - Toggle maximize window ***V***ertically
+    * `WIN + H` - Toggle maximize window ***H***orizontally
+    * `WIN + Narrows` - Move window to borders of the screen
+    * `WIN + C` - Move windows to the ***C***enter of the screen
+    * `WIN + A` - Make screenshot on specific ***a***rea of the screen
+    * Minimized desktop effects for less remote desktop video traffic
+  * to apply above configuration on Mate desktop
+```
+dconf load /org/mate/ < ~/dexsetup/dexsetup/src/dconf.dump.org.mate.txt
+```
