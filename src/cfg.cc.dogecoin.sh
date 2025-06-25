@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="Dogecoin"
 
 cc_install_dir_path_default="dogecoin"
 cc_chain_dir_path_default="~/.dogecoin"
-cc_wallet_name_default="wallet_doge.dat"
+cc_wallet_name_default="wallet_doge_dex.dat"
 cc_conf_name_default="dogecoin.conf"
 
 
