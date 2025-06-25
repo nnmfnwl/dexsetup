@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="Litecoin"
 
 cc_install_dir_path_default="litecoin"
 cc_chain_dir_path_default="~/.litecoin"
-cc_wallet_name_default="wallet_ltc"
+cc_wallet_name_default="wallet_ltc_dex"
 cc_conf_name_default="litecoin.conf"
 
 export CC=clang
