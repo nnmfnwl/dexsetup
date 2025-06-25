@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="Bitcoin"
 
 cc_install_dir_path_default="bitcoin"
 cc_chain_dir_path_default="~/.bitcoin"
-cc_wallet_name_default="wallet_btc"
+cc_wallet_name_default="wallet_btc_dex"
 cc_conf_name_default="bitcoin.conf"
 
 
