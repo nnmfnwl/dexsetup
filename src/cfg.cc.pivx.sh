@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="PIVX"
 
 cc_install_dir_path_default="pivx"
 cc_chain_dir_path_default="~/.pivx"
-cc_wallet_name_default="wallet_pivx"
+cc_wallet_name_default="wallet_pivx_dex"
 cc_conf_name_default="pivx.conf"
 
 cc_download_url_x86_64="https://github.com/PIVX-Project/PIVX/releases/download/v5.6.1/pivx-5.6.1-x86_64-linux-gnu.tar.gz"
