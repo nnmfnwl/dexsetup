@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="Pocketcoin"
 
 cc_install_dir_path_default="pocketcoin"
 cc_chain_dir_path_default="~/.pocketcoin"
-cc_wallet_name_default="wallet_pkoin"
+cc_wallet_name_default="wallet_pkoin_dex"
 cc_conf_name_default="pocketcoin.conf"
 
 
