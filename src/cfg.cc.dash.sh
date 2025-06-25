@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="Dash"
 
 cc_install_dir_path_default="dash"
 cc_chain_dir_path_default="~/.dashcore"
-cc_wallet_name_default="wallet_dash"
+cc_wallet_name_default="wallet_dash_dex"
 cc_conf_name_default="dash.conf"
 
 
