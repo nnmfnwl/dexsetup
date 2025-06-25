@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="LBRY"
 
 cc_install_dir_path_default="lbrycrd/sqlite"
 cc_chain_dir_path_default="~/.lbrycrd.sqlite"
-cc_wallet_name_default="wallet_lbc"
+cc_wallet_name_default="wallet_lbc_dex"
 cc_conf_name_default="lbrycrd.conf"
 
 
