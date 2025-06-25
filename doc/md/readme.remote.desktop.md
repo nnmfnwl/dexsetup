@@ -75,13 +75,13 @@ while :; do ssh user@hostname "arecord -f cd" | aplay; done
   * The more effects Graphical Desktop Environment using, the slower and less effective VNC connection could be, same navigation all the time with mouse without keyboard shortcuts cause same negative effect.
   * For most effective user experience with VNC, the below configuration for mate desktop minimize network bandwidth and maximize effectivity by many build in desktop shortcuts.
   * Included changes and shortcuts:
-    * `WIN + Q` - Show main menu
+    * `WIN + Q` - Show main menu (Just because **Q** key is on good position)
     * `WIN + E` - ***S***earch and Run application
     * `WIN + G` - ***G***o go home folder
     * `WIN + S` - ***S***earch for files
-    * `WIN + D` - Minimize all applications and show ***d***esktop
+    * `WIN + D` - Minimize all applications and show `d`esktop
     * `WIN + L` - ***L***ock screen
-    * `WIN + T` - Run ***t***erminal
+    * `WIN + T` - Run ***T***erminal
     * `CTRL + ALT + Narrows` - Navigate different desktops
     * `WIN + ALT + Narrows` - Move applications between desktops
     * `WIN + F` - Toggle window ***f***ull-screen mode
@@ -89,14 +89,27 @@ while :; do ssh user@hostname "arecord -f cd" | aplay; done
     * `WIN + N` - Mi***n***imize window
     * `WIN + M` - ***M***aximize window
     * `WIN + R` - ***R***esize window
-    * `WIN + W` - Toggle window visible on all ***w***orkspaces or just one
+    * `WIN + W` - Toggle window visible on all ***W***orkspaces or just one
     * `WIN + V` - Toggle maximize window ***V***ertically
     * `WIN + H` - Toggle maximize window ***H***orizontally
     * `WIN + Narrows` - Move window to borders of the screen
     * `WIN + C` - Move windows to the ***C***enter of the screen
-    * `WIN + A` - Make screenshot on specific ***a***rea of the screen
+    * `WIN + A` - Make screenshot on specific ***A***rea of the screen
     * Minimized desktop effects for less remote desktop video traffic
-  * to apply above configuration on Mate desktop
+  * Before applying configuration, would be good practice to backup current Mate-desktop configuration first
+```
+test -f ~/dconf.dump.org.mate.backup.txt || dconf dump /org/mate/ > ~/dconf.dump.org.mate.backup.txt
+```
+  * To apply new configuration on Mate-desktop provided by dexsetup
 ```
 dconf load /org/mate/ < ~/dexsetup/dexsetup/src/dconf.dump.org.mate.txt
 ```
+  * To restore previous configuration on Mate-desktop from backup
+```
+dconf load /org/mate/ > ~/dconf.dump.org.mate.backup.txt
+```
+  * Optionally to reset all Mate-desktop configuration to system defaults
+```
+dconf reset -f /org/mate/
+```
+  
