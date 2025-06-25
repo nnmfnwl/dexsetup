@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="Blocknet"
 
 cc_install_dir_path_default="blocknet"
 cc_chain_dir_path_default="~/.blocknet"
-cc_wallet_name_default="wallet_block"
+cc_wallet_name_default="wallet_block_dex"
 cc_conf_name_default="blocknet.conf"
 cc_xbridge_cfg_name_default="xbridge.conf"
 
