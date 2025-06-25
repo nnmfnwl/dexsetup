@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="Particl"
 
 cc_install_dir_path_default="particl"
 cc_chain_dir_path_default="~/.particl"
-cc_wallet_name_default="wallet_part"
+cc_wallet_name_default="wallet_part_dex"
 cc_conf_name_default="particl.conf"
 
 
