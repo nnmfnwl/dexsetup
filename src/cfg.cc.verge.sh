@@ -6,7 +6,7 @@ cc_gui_cfg_dir_name="VERGE"
 
 cc_install_dir_path_default="verge"
 cc_chain_dir_path_default="~/.VERGE"
-cc_wallet_name_default="wallet_xvg"
+cc_wallet_name_default="wallet_xvg_dex"
 cc_conf_name_default="VERGE.conf"
 
 
