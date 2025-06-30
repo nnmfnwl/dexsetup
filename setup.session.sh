@@ -52,10 +52,10 @@ tool_realpath cc_script_cfg_path "parameter #1 session cfg script path"
 tool_check_version_and_include_script ${cc_script_cfg_path} "loading session cfg script" 
 
 # check included cfg variables
-tool_variable_arch_load cc_download_url "pkg download url"
-tool_variable_check_load_default cc_download_url "" "torbrowser package download url"
-tool_variable_arch_load cc_download_sha512sum "pkg download url"
-tool_variable_check_load_default cc_download_sha512sum "" "torbrowser package sha512sum "
+tool_variable_arch_load cc_download_url "session pkg download url"
+tool_variable_check_load_default cc_download_url "" "session pkg download url"
+tool_variable_arch_load cc_download_sha512sum "session pkg download sha512"
+tool_variable_check_load_default cc_download_sha512sum "" "session pkg download sha512"
 tool_variable_check_load_default cc_download_extracted_bin_files_dir "" "session download extracted bin files dir"
 
 # check download build install update purge arguments
