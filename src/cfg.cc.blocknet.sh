@@ -21,7 +21,7 @@ cc_git_src_url="https://github.com/blocknetdx/blocknet.git"
 cc_git_src_branch="v4.4.1"
 cc_git_commit_id="ac930b7f80c1773688a24f7519e2df2effa795d4"
 
-cc_make_cpu_threads=4
+cc_make_cpu_threads=3
 
 cc_make_depends="bdb boost"
 
@@ -74,27 +74,45 @@ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 
 # lines will eval before add
 cc_main_cfg_add='
+#Accept connections from outside (default: 1 if no -proxy or -connect)
 listen=1
 server=1
+port=${cc_port}
 
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
+
+#Automatically create Tor hidden service (default: 1)
+listenonion=0
+#~ onlynet=<net>
+# Make outgoing connections only through network <net> (ipv4, ipv6 or
+# onion). Incoming connections are not affected by this option.
+# This option can be specified multiple times to allow multiple networks.
+onlynet=ipv6
+onlynet=ipv4
+onlynet=onion
+#proxy=127.0.0.1:9050
+onion=127.0.0.1:9050
+bind=127.0.0.1
+bantime=180
+
+maxconnections=7
+maxuploadtarget=777
+
 txindex=1
 
 dxnowallets=1
 
 classic=1
-staking=1
+staking=0
 
 rpcworkqueue=256
 
-bantime=180
-
-maxuploadtarget=1500
+#rpcxbridgetimeout - Timeout for internal XBridge RPC calls (default: 120 seconds)
+rpcxbridgetimeout=210
 '
 
 cc_xbridge_cfg_add='
@@ -130,4 +148,12 @@ cc_cli_not_compatible='
  unlock.new 
  getstakinginfo 
  getstakereport
+'
+
+cc_cli_file_add='
+addnode.onetry.auto
+'
+
+cc_cli_cmd_add='
+./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} addnode "185.231.155.27:41412" onetry
 '
