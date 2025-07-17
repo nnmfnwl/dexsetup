@@ -6,7 +6,7 @@ source "./src/tools.sh" || exit 1
 # default arguments
 cc_script_cfg_path_default="./src/cfg.cc.blocknet.sh"
 cc_firejail_default="firejail"
-cc_proxychains_default="proxychains -q"
+cc_proxychains_default="proxychains4 -q"
 
 # include specific tools
 source "./src/tools.cc.wallet.profile.sh" || exit 1
@@ -459,6 +459,24 @@ cli_cmd_full="#!/bin/bash
 if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
     tool_firejail_mk_cli_script cli_file cli_cmd_full
 fi
+
+# cross all wallet specific CLI commands to be added
+i=0
+for cli_file_add_line in ${cc_cli_file_add}; do
+    # get command line
+    cli_cmd_add_line=${cc_cli_cmd_add[i]}
+    # evaluate command
+    cli_cmd_add_line=`eval echo ${cli_cmd_add_line}`
+    # load default verifies if command is not empty
+    tool_variable_check_load_default cli_cmd_add_line "" "command to be added"
+    # add specific prefic line to command
+    cli_cmd_add_line="#!/bin/bash
+${cli_cmd_add_line}"
+    # write down commands
+    tool_firejail_mk_cli_script cli_file_add_line cli_cmd_add_line
+    # next command
+    ((i++))
+done
 
 # list of generated scripts
 echo "Generated firejail sandbox profiles >> ${cc_install_dir_path} >> ${firejail_scripts}"
