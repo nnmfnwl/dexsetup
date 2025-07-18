@@ -26,7 +26,11 @@ tool_check_version_and_include_script ${cc_script_cfg_path} "cc_script_cfg_path"
 tool_variable_arch_load cc_download_url "pkg download url"
 tool_variable_check_load_default cc_download_url "" "pkg download url"
 tool_variable_arch_load cc_download_sha512sum "pkg download sha512"
-tool_variable_check_load_default cc_download_sha512sum "" "pkg download sha512" 
+tool_variable_arch_load cc_download_sha256sum "pkg download sha256"
+if [[ "${cc_download_sha512sum}" == "" ]] && [[ "${cc_download_sha256sum}" == ""  ]]; then
+    tool_info "" "" "none of sha512 or sha256 is set"
+    exit 1
+fi
 
 # change directory
 
@@ -46,26 +50,64 @@ if [ "${cc_action}" = "install" ]; then
     # download
     tool_wget_download_or_continue cc_proxychains cc_download_url "download pkg"
     
-    # verify file sha 512 sum
+    # verify file hash sum
     tool_sha512sum_file cc_download_pkg_file_name cc_download_sha512sum_check "downloaded pkg"
-    tool_cmp ${cc_download_sha512sum} ${cc_download_sha512sum_check} "downloaded pkg sha512sum"
+    if [ "${cc_download_sha512sum}" != "" ]; then
+        tool_compare cc_download_sha512sum cc_download_sha512sum_check "downloaded pkg sha512sum"
+    fi
+    
+    tool_sha256sum_file cc_download_pkg_file_name cc_download_sha256sum_check "downloaded pkg"
+    if [ "${cc_download_sha256sum}" != "" ]; then
+        tool_compare cc_download_sha256sum cc_download_sha256sum_check "downloaded pkg sha256sum"
+    fi
     
 elif [ "${cc_action}" = "update" ] || [ "${cc_action}" = "continue" ]; then
     
     # if download file already exist
     if [ -f "${cc_download_pkg_file_name}" ]; then
-        # verify sha512 of actual downloaded pkg
+        
+        # verify hash sum of actual downloaded pkg
         tool_sha512sum_file cc_download_pkg_file_name cc_download_sha512sum_check "check prev download pkg"
-        tool_compare_try cc_download_sha512sum_check cc_download_sha512sum "continue prev download pkg"
-        # if sha512 does not match
-        if [ "$?" == "1" ]; then
+        if [ "${cc_download_sha512sum}" != "" ]; then
+            tool_compare_try cc_download_sha512sum_check cc_download_sha512sum "continue prev download pkg"
+            sha512ret=$?
+        else
+            sha512ret=0
+        fi
+        
+        tool_sha256sum_file cc_download_pkg_file_name cc_download_sha256sum_check "check prev download pkg"
+        if [ "${cc_download_sha256sum}" != "" ]; then
+            tool_compare_try cc_download_sha256sum_check cc_download_sha256sum "continue prev download pkg"
+            sha256ret=$?
+        else
+            sha256ret=0
+        fi
+        
+        # if hash sum does not match
+        if [[ "${sha256ret}" != "0" ]] || [[ "${sha512ret}" != "0" ]]; then
             # try to continue download
             tool_wget_download_or_continue_try cc_proxychains cc_download_url "continue prev download pkg"
-            # again verify sha512 of downloaded pkg
-            tool_sha512sum_file cc_download_pkg_file_name cc_download_sha512sum_check "continue prev download pkg"
-            tool_compare_try cc_download_sha512sum_check cc_download_sha512sum "continue prev download pkg"
+            # again verify has sum of downloaded pkg
+            tool_sha512sum_file cc_download_pkg_file_name cc_download_sha512sum_check "check prev download pkg"
+            if [ "${cc_download_sha512sum}" != "" ]; then
+                tool_compare_try cc_download_sha512sum_check cc_download_sha512sum "continue prev download pkg"
+                sha512ret=$?
+            else
+                sha512ret=0
+            fi
+            
+            tool_sha256sum_file cc_download_pkg_file_name cc_download_sha256sum_check "check prev download pkg"
+            if [ "${cc_download_sha256sum}" != "" ]; then
+                tool_compare_try cc_download_sha256sum_check cc_download_sha256sum "continue prev download pkg"
+                sha256ret=$?
+            else
+                sha256ret=0
+            fi
+            
             # if package sha512 not match delete it
-            (test $? != 0) && tool_rmfile cc_download_pkg_file_name
+            if [[ "${sha256ret}" != "0" ]] || [[ "${sha512ret}" != "0" ]]; then
+                tool_rmfile cc_download_pkg_file_name
+            fi
         fi
     fi
     
@@ -73,9 +115,16 @@ elif [ "${cc_action}" = "update" ] || [ "${cc_action}" = "continue" ]; then
     if [ ! -f "${cc_download_pkg_file_name}" ]; then
         # download
         tool_wget_download_or_continue cc_proxychains cc_download_url "download pkg"
-        # verify file sha 512 sum
+        # verify file hash sum
         tool_sha512sum_file cc_download_pkg_file_name cc_download_sha512sum_check "downloaded pkg"
-        tool_compare cc_download_sha512sum cc_download_sha512sum_check "downloaded pkg check sha512"
+        if [ "${cc_download_sha512sum}" != "" ]; then
+            tool_compare cc_download_sha512sum cc_download_sha512sum_check "downloaded pkg sha512sum"
+        fi
+        
+        tool_sha256sum_file cc_download_pkg_file_name cc_download_sha256sum_check "downloaded pkg"
+        if [ "${cc_download_sha256sum}" != "" ]; then
+            tool_compare cc_download_sha256sum cc_download_sha256sum_check "downloaded pkg sha256sum"
+        fi
     fi
 
 else
