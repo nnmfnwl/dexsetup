@@ -148,6 +148,21 @@ function tool_sha512sum_file() { #var.name.file #var.name.sha.out #prefix.info
     echo "INFO >> ${info} >> Get sha512 from >> ${in} >> ${out} >> success"
 }
 
+#
+function tool_sha256sum_file() { #var.name.file #var.name.sha.out #prefix.info
+    info=${3}
+    (test "${1}" == "") && echo "ERROR >> ${info} >> No path variable name argument" && exit 1
+    local in=`eval echo "\\${${1}}"`
+    (test "${2}" == "") && echo "ERROR >> ${info} >> No result variable name argument" && exit 1
+    local out=`eval echo "\\${${2}}"`
+    echo "INFO >> ${info} >> computing sha256 >> ${in} >>..."
+    out=`sha256sum ${in} | cut -d " " -f1`
+    (test $? != 0) && echo "ERROR >> ${info} >> sha256sum >> in = ${1} = ${in} >> to >> out = ${2} = ${out} >> failed" && exit 1
+    eval `echo "$2=\"${out}\""`
+    (test $? != 0) && echo "ERROR >> ${info} >> sha256sum >> variable >> out = ${2} = ${out} >> set failed" && exit 1
+    echo "INFO >> ${info} >> Get sha265 from >> ${in} >> ${out} >> success"
+}
+
 # 
 function tool_make_and_check_dir_path() {  #dir.path.var.name  #prefix.info
     info=${2}
