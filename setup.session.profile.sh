@@ -87,6 +87,7 @@ firejail \\
 --mkdir=${cc_profile_data_path} \\
 --whitelist=${cc_profile_data_path} \\
 --private-tmp \\
+--private-dev \\
     ./${cc_session_firejail_run_script2_filename}
 "
 tool_make_and_chmod_script_or_exit cc_session_firejail_run_script_path script_data "create session firejail run script"
