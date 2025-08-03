@@ -74,7 +74,9 @@ tool_realpath cc_session_firejail_run_script2_path "session firejail run script"
 # generate firejail session run script 1
 script_data="#!/bin/bash
 
-# run script generated with ./setup.session.firejail.sh --help
+# run script generated with ./setup.session.profile.sh --help
+
+cd "$(dirname "$(realpath "$0")")"
 
 cd ${cc_bin_dir} || exit 1
 
