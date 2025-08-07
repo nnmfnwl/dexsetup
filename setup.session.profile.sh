@@ -76,9 +76,12 @@ script_data="#!/bin/bash
 
 # run script generated with ./setup.session.profile.sh --help
 
-cd "$(dirname "$(realpath "$0")")"
+#~ cd "$(dirname "$(realpath "$0")")"
+cd \"\$(dirname \"\$(realpath \"\$0\")\")\"
 
 cd ${cc_bin_dir} || exit 1
+
+mkdir -p ${cc_profile_data_path} || exit 1
 
 firejail \\
 --name=session.${cc_firejail_profile_name} \\
@@ -86,7 +89,6 @@ firejail \\
 --read-only=\`pwd\` \\
 --whitelist=\${HOME}/.proxychains \\
 --read-only=\${HOME}/.proxychains \\
---mkdir=${cc_profile_data_path} \\
 --whitelist=${cc_profile_data_path} \\
 --private-tmp \\
 --private-dev \\
