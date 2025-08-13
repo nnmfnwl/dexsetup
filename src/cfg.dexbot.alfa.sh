@@ -3,6 +3,6 @@ cc_setup_helper_version="20210827"
 cc_dexbot_install_dir_path_default="dexbot"
 cc_dexbot_git_src_url="https://github.com/nnmfnwl/dexbot.git"
 cc_dexbot_git_branch="merge.2025.03.26"
-cc_dexbot_git_commit_id="f45ff41e540ea3443a1faaa94d6e77fcaa5c1623"
+cc_dexbot_git_commit_id="17ae199bd2cdfba5315912a85a5a824503ae28fe"
 
 cc_dexbot_strategy_template_path_relative="/howto/examples/bot_v2_template.py"
