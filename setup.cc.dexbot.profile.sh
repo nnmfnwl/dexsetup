@@ -112,7 +112,7 @@ ${cc_proxychains} git checkout ${cc_dexbot_git_branch}
 
 # if dexbot update
 if [ "${cc_action_source}" = "update" ]; then
-    echo "INFO >> removing existing cc_dexbot_git_src_path >> ${cc_dexbot_git_src_path}"
+    echo "INFO >> git pull updating existing cc_dexbot_git_src_path >> ${cc_dexbot_git_src_path}"
     git stash && proxychains4 git pull
     (test $? != 0) && echo "update dexbot by git failed. try again later" && exit 1
 fi
