@@ -19,7 +19,7 @@ cc_action_xb_config=
 cc_action_strategy=
 cc_firejail_default="firejail"
 cc_firejail=${cc_firejail_default}
-cc_proxychains_default="proxychains -q"
+cc_proxychains_default="proxychains4 -q"
 cc_proxychains=${cc_proxychains_default}
 cc_dexbot_install_dir_path=
 cc_chain_dir_path_blocknet=
@@ -94,12 +94,6 @@ tool_make_and_check_dir_path cc_dexbot_install_dir_path "dexbot install dir path
 cc_dexbot_git_src_path=${cc_dexbot_install_dir_path}"/git.src"
 echo "INFO >> using >> cc_dexbot_git_src_path >> ${cc_dexbot_git_src_path}"
 
-# if dexbot update enabled, so remove all git src first 
-if [ "${cc_action_source}" = "update" ]; then
-    echo "INFO >> removing existing cc_dexbot_git_src_path >> ${cc_dexbot_git_src_path}"
-    rm -rfv "${cc_dexbot_git_src_path}"
-fi
-
 # dexbot git source dir recreate
 tool_make_and_check_dir_path "cc_dexbot_git_src_path" "dexbot git dir"
 
@@ -116,12 +110,18 @@ echo "INFO >> dexbot >> git checkout >> cc_dexbot_git_branch >> ${cc_dexbot_git_
 ${cc_proxychains} git checkout ${cc_dexbot_git_branch}
 (test $? != 0) && echo "ERROR >> git checkout >> ${cc_dexbot_git_branch} >> failed" && exit 1
 
+# if dexbot update
+if [ "${cc_action_source}" = "update" ]; then
+    echo "INFO >> removing existing cc_dexbot_git_src_path >> ${cc_dexbot_git_src_path}"
+    git stash && proxychains4 git pull
+    (test $? != 0) && echo "update dexbot by git failed. try again later" && exit 1
+fi
+
 # dexbot commit_id check
 tool_git_commit_id_check "${cc_dexbot_git_commit_id}" "dexbot"
 
 # dexbot install requirements
 echo "INFO >> dexbot installing requirements"
-# ${cc_proxychains} pip3 install -r requirements.txt --break-system-packages
 PIP_BREAK_SYSTEM_PACKAGES=1 ${cc_proxychains} pip3 install -r requirements.txt
 (test $? != 0) && echo "ERROR >> dexbot install requirements failed" && exit 1
 
