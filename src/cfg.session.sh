@@ -9,7 +9,7 @@ cc_git_commit_id="073ab14a5e7fbd26d80d806e5ba73c712b75a4ab"
 cc_git_build_bin_file_dir="build"
 
 cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.16.6/session-desktop-linux-amd64-1.16.6.deb"
-cc_download_sha512sum_x86_64=""
+cc_download_sha512sum_x86_64="e1cf41b2f321ee45394caeb4dc4fe4a007002a9199899cea0d4792cbffa8111ea397626f35ddc5ab641832341f83734acfa7f05e7e6fe3877e3702d57b100f9b"
 cc_download_sha256sum_x86_64="031903847d68b9bdcf77f91e7d768b4e45f1cb41e2f2f5734fdd5d320bfce011"
 
 cc_download_extracted_bin_files_dir="/opt/Session/"
