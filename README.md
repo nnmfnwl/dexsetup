@@ -132,7 +132,7 @@ so here this project comes:
   * Below list of crypto currencies are already supported by BLocknet-DEX-system(Blockdx) and are possibly to be added into DEXSETUP
   * TODO
 
-### List used components by dexsetup
+### List of used components by dexsetup
   * Debian GNU/Linux operating system - [main page](https://www.debian.org/)
   * Firejail - [github](https://github.com/netblue30/firejail) - [main page](https://firejail.wordpress.com/) - [wikipedia](https://en.wikipedia.org/wiki/Firejail) - [debian package](https://packages.debian.org/stable/firejail) - [firejail by arch](https://wiki.archlinux.org/title/Firejail) 
   * Tor - [github](https://github.com/torproject) - [debian package](https://packages.debian.org/stable/tor) - [wikipedia](https://en.wikipedia.org/wiki/The_Tor_Project)
