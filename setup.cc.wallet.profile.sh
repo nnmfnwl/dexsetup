@@ -462,20 +462,36 @@ fi
 
 # cross all wallet specific CLI commands to be added
 i=0
-for cli_file_add_line in ${cc_cli_file_add}; do
-    # get command line
-    cli_cmd_add_line=${cc_cli_cmd_add[i]}
-    # evaluate command
-    cli_cmd_add_line=`eval echo ${cli_cmd_add_line}`
-    # load default verifies if command is not empty
-    tool_variable_check_load_default cli_cmd_add_line "" "command to be added"
-    # add specific prefic line to command
-    cli_cmd_add_line="#!/bin/bash
-${cli_cmd_add_line}"
-    # write down commands
-    tool_firejail_mk_cli_script cli_file_add_line cli_cmd_add_line
-    # next command
+while :
+do
+    # load CLI file name and command
+    cli_file=${cc_cli_add[i]}
     ((i++))
+    cli_cmd=${cc_cli_add[i]}
+    ((i++))
+    
+    # verify CLI file name and command
+    if [[ "${cli_file}" == '' ]]; then
+        break
+    fi
+    
+    if [[ "${cli_cmd}" == '' ]]; then
+        break
+    fi
+    
+    # evaluate command
+    cli_cmd=`eval echo ${cli_cmd}`
+    
+    # log information
+    tool_variable_info cli_file "command name to be added"
+    tool_variable_info cli_cmd "command content to be added"
+    
+    # add bash prefix
+    cli_cmd="#!/bin/bash
+${cli_cmd}"
+
+    # make command file
+    tool_firejail_mk_cli_script cli_file cli_cmd
 done
 
 # list of generated scripts
