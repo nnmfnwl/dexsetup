@@ -279,10 +279,23 @@ function tool_compare() { #var.name1 #var.name2 #prefix.info
 
 #
 function tool_variable_info() {  #var.name #prefix.info
-    (test "${2}" = "" ) && local prefix="${FUNCNAME[*]}" || local prefix="${FUNCNAME[*]} >> ${2}"
-    (test "${1}" = "" ) && echo "ERROR >> ${prefix} >> arg 1 #var.name is not set" && exit 1
+    if [[ "${2}" == "" ]] ;then
+        local prefix=""
+    elif [[ "${2}" == " " ]] ;then
+        local prefix=" >> ${FUNCNAME[0]}"
+    elif [[ "${2}" == "  " ]] ;then
+        local prefix=" >> ${FUNCNAME[*]}"
+    elif [[ "${2}" == "  "* ]] ;then
+        local prefix=" >> ${FUNCNAME[*]} >>${2}"
+    elif [[ "${2}" == " "* ]] ;then
+        local prefix=" >> ${FUNCNAME[0]} >>${2}"
+    else
+        local prefix=" >> ${2}"
+    fi
+    
+    (test "${1}" = "" ) && echo "ERROR${prefix} >> arg 1 #var.name is not set" && exit 1
     local variable=`eval echo "\\${${1}}"`
-    echo "INFO >> ${prefix} >> using variable >> ${1} = ${variable}"
+    echo "INFO${prefix} >> using variable >> ${1} = ${variable}"
 }
 
 # "" is not prefix
