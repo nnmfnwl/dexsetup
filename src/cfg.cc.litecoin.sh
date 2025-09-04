@@ -116,10 +116,7 @@ cc_cli_not_compatible='
  getstakereport 
 '
 
-cc_cli_file_add='
-addnode.onetry.auto
-'
-
-cc_cli_cmd_add='
-./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} addnode "95.216.39.190:9333" onetry
-'
+cc_cli_add=(
+'addnode.onetry.auto'
+'./cli addnode "95.216.39.190:9333" onetry'
+)
