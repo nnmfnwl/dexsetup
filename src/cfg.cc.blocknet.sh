@@ -150,12 +150,10 @@ cc_cli_not_compatible='
  getstakereport
 '
 
-cc_cli_file_add='
-addnode.onetry.auto
-dxSplitAddress
-'
+cc_cli_add=(
+'addnode.onetry.auto'
+'./cli addnode "185.231.155.27:41412" onetry'
 
-cc_cli_cmd_add='
-./cli addnode "185.231.155.27:41412" onetry
-./cli dxSplitAddress \\\$@
-'
+'dxSplitAddress'
+'./cli dxSplitAddress \\\$@'
+)
