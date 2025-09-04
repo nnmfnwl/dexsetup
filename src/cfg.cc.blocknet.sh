@@ -152,8 +152,10 @@ cc_cli_not_compatible='
 
 cc_cli_file_add='
 addnode.onetry.auto
+dxSplitAddress
 '
 
 cc_cli_cmd_add='
-./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} addnode "185.231.155.27:41412" onetry
+./cli addnode "185.231.155.27:41412" onetry
+./cli dxSplitAddress \\\$@
 '
