@@ -155,5 +155,5 @@ cc_cli_add=(
 './cli addnode "185.231.155.27:41412" onetry'
 
 'dxSplitAddress'
-'./cli dxSplitAddress \\\$@'
+'./cli dxSplitAddress \$@'
 )
