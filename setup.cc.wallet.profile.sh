@@ -126,7 +126,7 @@ tool_cd ${cc_install_dir_path} "cc_install_dir_path"
 tool_eval_arg cc_firejail_profile_add
 
 cc_firejail_profile_add=`echo "$cc_firejail_profile_add" | sed -E ':a;N;$!ba;s/\r{0,1}\n/\\\n/g'`
-echo "2: $cc_firejail_profile_add"
+tool_variable_info cc_firejail_profile_add ""
 #~ cc_firejail_profile_add=`echo "$cc_firejail_profile_add" | sed -z 's/\n/\\\n/g'`
 #~ echo "2: $cc_firejail_profile_add"
 #~ cc_firejail_profile_add=`echo "${cc_firejail_profile_add}" | sed -e "s+\n+\\\n+g"`
