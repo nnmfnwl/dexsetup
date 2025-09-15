@@ -40,7 +40,7 @@ nou2f
 novideo
 protocol unix,inet,inet6
 seccomp !chroot
-shell none
+# shell none
 # tracelog may cause issues, see github issue #1930
 #tracelog
 
