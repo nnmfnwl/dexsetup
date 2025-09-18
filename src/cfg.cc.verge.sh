@@ -18,8 +18,8 @@ cc_firejail_make_args=''
 cc_firejail_profile_add=''
 
 cc_git_src_url="https://github.com/vergecurrency/verge.git"
-cc_git_src_branch="v7.4.0"
-cc_git_commit_id="30975fbb0ce810e6c3418dd7d75844b29e23d3b4"
+cc_git_src_branch="v7.12.0"
+cc_git_commit_id="aae9d147c9bf0e5c8cadbc0e7ba41bdc9ac522ff"
 
 cc_make_cpu_threads=3
 
