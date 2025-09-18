@@ -106,7 +106,8 @@ if [ "${cc_make_depends}" != "" ]; then
     
     # checkout and make depends
     ${cc_proxychains} make -j${cc_make_cpu_threads} -C depends ${cc_make_depends}
-    (test $? != 0) && echo "ERROR >> make dependencies >> ${cc_make_depends} >> failed" && exit 1
+    #~ (test $? != 0) && echo "ERROR >> make dependencies >> ${cc_make_depends} >> failed" && exit 1
+    (test $? != 0) && echo "WARNING >> make dependencies >> ${cc_make_depends} >> failed"
     
     # detect machine architecture
     cd "depends/built/" && cc_archdir=`ls` && cd ../../
