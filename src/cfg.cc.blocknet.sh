@@ -10,6 +10,26 @@ cc_wallet_name_default="wallet_block_dex"
 cc_conf_name_default="blocknet.conf"
 cc_xbridge_cfg_name_default="xbridge.conf"
 
+cc_download_url_x86_64="https://github.com/blocknetdx/blocknet/releases/download/v4.4.1/blocknet-4.4.1-x86_64-linux-gnu.tar.gz"
+cc_download_sha512sum_x86_64="e6104098856c3e51d0fef9b933d383af89737210e5974a6f494bc0235a888b9efbdd3715132531af5554cabcfe18ab76f7b54ebfda1cc8d793a3fead175bd539"
+cc_download_sha256sum_aarch64="f6e89043e54560415f657b6c9b1c3932512e2fbc3ff109119798b1d71ecc1041"
+
+cc_download_url_i686=""
+cc_download_sha512sum_i686=""
+
+cc_download_url_arm=""
+cc_download_sha512sum_arm=""
+
+cc_download_url_aarch64="https://github.com/blocknetdx/blocknet/releases/download/v4.4.1/blocknet-4.4.1-aarch64-linux-gnu.tar.gz"
+cc_download_sha512sum_aarch64="4dfe0b4859909e4f4a802323230a708adf5f3c7596b2d00e10f70d6581379dd83cf2c5c1930b31b53befb921bb3ec143f6faf1054d4d3b37e170191ba2e504c2"
+cc_download_sha256sum_aarch64="be0b81dd7100afacac57f34f33e90e96ae90a5c84d2075350330ba5918e1604e"
+
+cc_download_url_riscv64="https://github.com/blocknetdx/blocknet/releases/download/v4.4.1/blocknet-4.4.1-riscv64-linux-gnu.tar.gz"
+cc_download_sha512sum_riscv64="9f447d90e048c1d1d92f8d76428b9595c9688148ecaea162e2f638442a6ca5a88273cbe40bc5edc7901123e5f58edabe285b0615e2b4272a1e23fac5470fde33"
+cc_download_sha256sum_aarch64="ccd1be2cad8de46ecb9d15184fc77d827b637d93fac768c8de444d9f7bccd6e1"
+
+cc_download_extracted_bin_files_dir="blocknet-4.4.1/bin"
+
 export CC=clang
 export CXX=clang++
 
