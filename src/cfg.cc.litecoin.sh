@@ -17,8 +17,8 @@ cc_firejail_make_args=''
 cc_firejail_profile_add=''
 
 cc_git_src_url="https://github.com/litecoin-project/litecoin.git"
-cc_git_src_branch="0.18"
-cc_git_commit_id="2eabb3a5ebdcd58252d244aa7b106c84c65cbabf"
+cc_git_src_branch="v0.21.4"
+cc_git_commit_id="beae01d62292a0aab363b7a4d3f606708cea7260"
 
 cc_make_cpu_threads=3
 
