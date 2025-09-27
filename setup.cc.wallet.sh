@@ -8,7 +8,7 @@ cc_script_cfg_path_default="./src/cfg.cc.blocknet.sh"
 cc_action1_default="build"
 cc_action2_default="install"
 cc_firejail_default="firejail"
-cc_proxychains_default="proxychains -q"
+cc_proxychains_default="proxychains4 -q"
 
 # include specific tools
 source "./src/tools.cc.wallet.sh" || exit 1
@@ -80,12 +80,24 @@ tool_realpath cc_git_src_path "src files dir"
 cc_bin_path=${cc_install_dir_path}"/bin"
 tool_realpath cc_bin_path "binary files dir"
 
+# custom predefined pre build command if specified
+if [ "${cc_action1}" = "build" ]; then
+    if [ "${cc_command_pre_build}" != "" ]; then
+        echo "INFO >> using custom pre build command >> cc_command_pre_build >> "
+        echo "${cc_command_pre_build}"
+        echo ""
+        eval `echo ${cc_command_pre_build}`
+        (test $? != 0) && echo "ERROR >> custom pre dependencies command >> ${cc_command_pre_build} >> failed" && exit 1
+        echo "INFO >> cc_command_pre_build >> finish success"
+    fi
+fi
+
 if [ "${cc_action1}" = "download" ]; then
     tool_variable_check_load_default cc_download_extracted_bin_files_dir "" "cc download extracted bin files dir"
 elif [ "${cc_action1}" = "build" ]; then
     tool_variable_check_load_default cc_git_src_url "" 
     tool_variable_check_load_default cc_git_src_branch ""
-    tool_variable_check_load_default cc_git_commit_id "" 
+    tool_variable_check_load_default cc_git_commit_id ""
 fi
 
 # solve install update continue purge arguments initialization
