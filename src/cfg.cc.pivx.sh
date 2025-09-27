@@ -26,6 +26,21 @@ cc_download_extracted_bin_files_dir="pivx-5.6.1/bin"
 export CC=clang
 export CXX=clang++
 
+cc_command_post_git='
+mkdir -p ${cc_git_src_path}/cargo_ln_to_home &&
+ln -s ${cc_git_src_path}/cargo_ln_to_home ~/.cargo
+'
+
+#~ cc_firejail_make_args='
+#~ --mkdir=$HOME/.cargo 
+#~ --noblacklist=$HOME/.cargo 
+#~ --whitelist=$HOME/.cargo 
+#~ --read-write=$HOME/.cargo 
+#~ --mkdir=$HOME/.pivx-params 
+#~ --noblacklist=$HOME/.pivx-params 
+#~ --whitelist=$HOME/.pivx-params 
+#~ '
+
 cc_firejail_make_args='
 --mkdir=$HOME/.pivx-params 
 --noblacklist=$HOME/.pivx-params 
