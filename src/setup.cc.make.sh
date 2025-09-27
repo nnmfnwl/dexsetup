@@ -87,9 +87,12 @@ ${cc_proxychains} sh autogen.sh
 # custom pre-dependencies process, ie, to fix some libraries incompatibility...
 
 if [ "${cc_command_pre_depends}" != "" ]; then
-    echo "INFO >> using custom pre dependencies command >> cc_command_pre_depends >> ${cc_command_pre_depends}"
+    echo "INFO >> using custom pre dependencies command >> cc_command_pre_depends >> "
+    echo "${cc_command_pre_depends}"
+    echo ""
     eval `echo ${cc_command_pre_depends}`
     (test $? != 0) && echo "ERROR >> custom pre dependencies command >> ${cc_command_pre_depends} >> failed" && exit 1
+    echo "INFO >> cc_command_pre_depends >> finish success"
 fi
 
 # clean up previously failed download depends TODO
@@ -106,8 +109,8 @@ if [ "${cc_make_depends}" != "" ]; then
     
     # checkout and make depends
     ${cc_proxychains} make -j${cc_make_cpu_threads} -C depends ${cc_make_depends}
-    #~ (test $? != 0) && echo "ERROR >> make dependencies >> ${cc_make_depends} >> failed" && exit 1
-    (test $? != 0) && echo "WARNING >> make dependencies >> ${cc_make_depends} >> failed"
+    (test $? != 0) && echo "ERROR >> make dependencies >> ${cc_make_depends} >> failed" && exit 1
+    #~ (test $? != 0) && echo "WARNING >> make dependencies >> ${cc_make_depends} >> failed"
     
     # detect machine architecture
     cd "depends/built/" && cc_archdir=`ls` && cd ../../
