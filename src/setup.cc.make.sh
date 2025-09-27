@@ -78,6 +78,17 @@ ${cc_proxychains} git checkout ${cc_git_src_branch}
 
 tool_git_commit_id_check ${cc_git_commit_id} "cc make"
 
+# custom predefined post git command if specified
+
+if [ "${cc_command_post_git}" != "" ]; then
+    echo "INFO >> using custom pre build command >> cc_command_post_git >> "
+    echo "${cc_command_post_git}"
+    echo ""
+    eval `echo ${cc_command_post_git}`
+    (test $? != 0) && echo "ERROR >> custom pre dependencies command >> ${cc_command_post_git} >> failed" && exit 1
+    echo "INFO >> cc_command_post_git >> finish success"
+fi
+
 # autogen
 
 echo "INFO >> autogen >> autogen.sh"
