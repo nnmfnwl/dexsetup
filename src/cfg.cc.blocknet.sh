@@ -32,6 +32,8 @@ cc_download_extracted_bin_files_dir="blocknet-4.4.1/bin"
 
 export CC=clang
 export CXX=clang++
+#~ export CXXFLAGS="-std=c++11 -O3 -march=native"
+#~ export CFLAGS="-std=c++11 -O3 -march=native"
 
 cc_firejail_make_args=''
 
@@ -43,14 +45,40 @@ cc_git_commit_id="ac930b7f80c1773688a24f7519e2df2effa795d4"
 
 cc_make_cpu_threads=3
 
-cc_make_depends="bdb boost"
+cc_command_pre_depends='
+filepath="depends/packages/bdb.mk" &&
+strsearch="_config_opts_linux" &&
+stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
+'
+
+#~ ((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+#~ '
+#~ filepath="depends/packages/boost.mk" &&
+#~ strsearch="_config_libraries" &&
+#~ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
+#~ ((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
+#~ '
+
+#~ cc_make_depends="bdb boost"
+cc_make_depends="bdb"
+
+#~ cc_command_configure='
+#~ ./configure --quiet
+#~ LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
+#~ CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
+#~ CXXFLAGS="-O3 -march=native"
+#~ --with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
+#~ --disable-bench --disable-gui-tests --disable-tests
+#~ --enable-reduce-exports --without-miniupnpc --without-zmq
+#~ --with-gui=auto
+#~ '
 
 cc_command_configure='
 ./configure --quiet
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
---with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
 --disable-bench --disable-gui-tests --disable-tests
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
@@ -60,6 +88,39 @@ CXXFLAGS="-O3 -march=native"
 # --enable-debug
 
 cc_command_pre_make='
+filepath="src/httpserver.cpp" &&
+((cat ${filepath} | grep "#include <deque>") || sed -i -e "/#include <ui_interface.h>/ a #include <deque>" ${filepath}) &&
+
+filepath="src/governance/governance.h" &&
+strsearch="#include <regex>" &&
+stradd="#include <array>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+filepath="src/xbridge/xbridgeapp.cpp" &&
+strsearch=", m_timer(m_timerIo, boost::posix_time::seconds(TIMER_INTERVAL))" &&
+stradd=", m_timer(m_timerIo, boost::posix_time::seconds((int)TIMER_INTERVAL))" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "s#.*${strsearch}.*#${stradd}#" ${filepath}) &&
+
+filepath="src/xbridge/xbridgeapp.cpp" &&
+strsearch="m_timer.expires_at(m_timer.expires_at() + boost::posix_time::seconds(TIMER_INTERVAL));" &&
+stradd="m_timer.expires_at(m_timer.expires_at() + boost::posix_time::seconds((int)TIMER_INTERVAL));" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "s#.*${strsearch}.*#${stradd}#" ${filepath}) &&
+
+filepath="src/support/lockedpool.cpp" &&
+strsearch="#include <algorithm>" &&
+stradd="#include <stdexcept>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+filepath="src/util/bip32.h" &&
+strsearch="#include <vector>" &&
+stradd="#include <cstdint>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+filepath="src/qt/sendcoinsdialog.cpp" &&
+strsearch="#include <QFontMetrics>" &&
+stradd="#include <array>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
 filepath="src/qt/trafficgraphwidget.cpp" &&
 ((cat ${filepath} | grep "#include <QPainterPath>") || sed -i -e "/#include <QPainter>/ a #include <QPainterPath>" ${filepath}) &&
 
