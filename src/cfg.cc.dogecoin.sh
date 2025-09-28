@@ -23,7 +23,8 @@ cc_git_commit_id="e0a1c157791544e818c901bd9341896965afbf9d"
 
 cc_make_cpu_threads=3
 
-cc_make_depends="bdb"
+#~ cc_make_depends="bdb"
+cc_make_depends=""
 
 cc_command_configure='
 ./configure --quiet
