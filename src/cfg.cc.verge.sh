@@ -10,27 +10,33 @@ cc_wallet_name_default="wallet_xvg_dex"
 cc_conf_name_default="VERGE.conf"
 
 
-#~ export CC=clang
-#~ export CXX=clang++
+export CC=clang
+export CXX=clang++
 
 cc_firejail_make_args=''
 
 cc_firejail_profile_add=''
 
 cc_git_src_url="https://github.com/vergecurrency/verge.git"
-cc_git_src_branch="v7.12.0"
-cc_git_commit_id="aae9d147c9bf0e5c8cadbc0e7ba41bdc9ac522ff"
+cc_git_src_branch="v8.0.0"
+cc_git_commit_id="b572bed7181fb72c41d4d717407d5eec8c7aaf97"
 
 cc_make_cpu_threads=3
 
-cc_make_depends="bdb boost"
+cc_command_pre_depends='
+filepath="depends/packages/bdb.mk" &&
+strsearch="_config_opts_linux" &&
+stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
+'
+
+cc_make_depends="bdb"
 
 cc_command_configure='
 ./configure
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
---with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
 --disable-bench --disable-gui-tests --disable-tests --without-tests
 --enable-reduce-exports --without-miniupnpc
 --with-gui=auto
@@ -40,6 +46,16 @@ CXXFLAGS="-O3 -march=native"
 # --enable-debug
 
 cc_command_pre_make='
+filepath="src/net_processing.cpp" &&
+strsearch="#include <memory>" &&
+stradd="#include <array>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+filepath="src/qt/sendcoinsdialog.cpp" &&
+strsearch="#include <QFontMetrics>" &&
+stradd="#include <array>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
 filepath="src/qt/trafficgraphwidget.cpp" &&
 ((cat ${filepath} | grep "#include <QPainterPath>") || sed -i -e "/#include <QPainter>/ a #include <QPainterPath>" ${filepath})
 '
