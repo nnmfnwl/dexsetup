@@ -18,8 +18,8 @@ cc_firejail_make_args=''
 cc_firejail_profile_add=''
 
 cc_git_src_url="https://github.com/bitcoin/bitcoin.git"
-cc_git_src_branch="v0.20.2"
-cc_git_commit_id="29e129ab6bb03f595e9c4fd89fa701c0159441f2"
+cc_git_src_branch="v23.2"
+cc_git_commit_id="4d2f2fae9782a4736c2e271f5d6107b677f2e14d"
 
 cc_make_cpu_threads=3
 
