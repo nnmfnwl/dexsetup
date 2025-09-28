@@ -133,3 +133,15 @@ cc_cli_not_compatible='
  getstakinginfo 
  getstakereport 
 '
+
+cc_cli_add=(
+'addnode.onetry.auto'
+'./cli addnode "p4vjqpnqslrc2gniopxgu75t2hwdjrhr56unzxyjmlvxh7l6dk33tlqd.onion:21102" onetry ; 
+./cli addnode "5ia5cridzvmrfn6jrc7yegxdiqsn23yr3gf2b3ru54zopbv5crwt7nad.onion:21102" onetry ; 
+./cli addnode "me42s2jffdmv2j5lq74y5dfrhjwvnh27cc7k4uleccbojcfmwfsxqzad.onion:21102" onetry ; 
+./cli addnode "kdaa6uvi7thwcf4wylydy4i723t6cvoib6wpl6pikekqmea4wm2b7did.onion:21102" onetry ; 
+./cli addnode "fs6zqnig2st24grcjdeqdvgjisohdj6itwxwqyymv7m6lku2itotczid.onion:21102" onetry ; 
+./cli addnode "gaw7kjhgsfjlt4hxvxxoqlewjj7e43spzuubgcfrndglr3rmqb7kebqd.onion:21102" onetry ; 
+./cli addnode "cydj7pocjyvdvl3nkrb5kxow6wga24oyzfik7ycpe5xlphvlastfhqyd.onion:21102" onetry
+'
+)
