@@ -8,7 +8,7 @@ pkg_base="proxychains4 tor torsocks"
 ```
   * **2.** set to install mandatory console interface build dependencies and main console interface tools packages
 ```
-pkg_cli_build="curl wget git make cmake clang clang-tools clang-format libclang1 libboost-all-dev basez libprotobuf-dev protobuf-compiler libssl-dev openssl gcc g++ python3-pip python3-dateutil cargo pkg-config libseccomp-dev libcap-dev libsecp256k1-dev firejail firejail-profiles seccomp proxychains4 tor libsodium-dev libgmp-dev screen libfmt-dev"
+pkg_cli_build="curl wget git make cmake clang clang-tools clang-format libclang1 libboost-all-dev basez libprotobuf-dev protobuf-compiler libssl-dev openssl gcc g++ python3-pip python3-dateutil cargo pkg-config libseccomp-dev libcap-dev libsecp256k1-dev firejail firejail-profiles seccomp proxychains4 tor libsodium-dev libgmp-dev screen libfmt-dev libdb-dev libdb5.3++-dev"
 ```
   * **3.** set to install install useful console interface tools. For example tool clamav anti virus tool is used by dexsetup after every packages compilation or download to verify it.
 ```
