@@ -467,7 +467,7 @@ do
     # load CLI file name and command
     cli_file=${cc_cli_add[i]}
     ((i++))
-    cli_cmd=${cc_cli_add[i]}
+    cli_cmd="${cc_cli_add[i]}"
     ((i++))
     
     # verify CLI file name and command
@@ -480,16 +480,16 @@ do
     fi
     
     # evaluate command
-    cli_cmd=`eval echo ${cli_cmd}`
+    tool_eval_arg cli_cmd
     
     # log information
-    tool_variable_info cli_file "command name to be added"
-    tool_variable_info cli_cmd "command content to be added"
+    #~ tool_variable_info cli_file "command name to be added"
+    #~ tool_variable_info cli_cmd "command content to be added"
     
     # add bash prefix
     cli_cmd="#!/bin/bash
 ${cli_cmd}"
-
+    
     # make command file
     tool_firejail_mk_cli_script cli_file cli_cmd
 done
