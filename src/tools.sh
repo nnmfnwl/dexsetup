@@ -530,58 +530,90 @@ function tool_update_cc_cfg() { # cc_main_cfg_path # cc_main_cfg_add # cc_ticker
         # extract variable name and check if not empty
         var_name=`echo $cfg_line | cut -d "=" -f1`
         var_value=`echo $cfg_line | cut -d "=" -f2`
+        var_option=`echo $cfg_line | cut -d "=" -f3`
         
-        # check variable to add duplicates, only first one value is applied
-        echo "${cc_main_cfg_add_dup_test}" | grep "=${var_name}=" > /dev/null && already_exist="1" || already_exist="0"
+        cfg_line="${var_name}=${var_value}"
         
-        if [[ "${var_name}" != "" ]] && [[ "${already_exist}" != "1"  ]]; then
+        # invalid config line filter
+        if [[ "${var_name}" = "" ]]; then
+            echo "INFO >> cfg_line >> $cfg_line >> is invalid "
+        
+        # multi-var config line, allows to add same variable with different values mutliple times
+        elif  [[ "${var_option}" = "multi" ]]; then
+        
+            # check if exact config line already exist
+            echo "${cc_main_cfg_data}" | grep "^${cfg_line}" > /dev/null && already_exist="1" || already_exist="0"
             
-            #~ echo "updating/adding variable >> $var_name"
+            # process if line not found
+            if [[ "${already_exist}" = "0"  ]]; then
             
-            # configuration update option
-            if [ "${cc_action_cc_config}" = "update" ]; then
-            
-                # configuration value is not empty so will be replaced
-                if [ "${var_value}" != "" ]; then
-                    # if existing variable, comment it
-                    # if commented variable, then add new variable next to
-                    cc_main_cfg_data=$(
-                    echo "$cc_main_cfg_data" | sed \
-                       -e "s/^${var_name}=/#~ ${var_name}=/" \
-                       -e "0,/^#~ ${var_name}=/s/^#~ ${var_name}=.*/${cfg_line}\n&/"
-                    )
-                    (test $? != 0) && echo "ERROR >> update line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
-               
-                # else configuration value is empty so will be just commented out
-                else
-                    # if existing variable, comment it
-                    # if commented variable, then add new commented out variable next to
-                    cc_main_cfg_data=$(
-                    echo "$cc_main_cfg_data" | sed \
-                       -e "s/^${var_name}=/#~ ${var_name}=/" \
-                       -e "0,/^#~ ${var_name}=/s/^#~ ${var_name}=.*/#~ ${cfg_line}\n&/"
-                    )
-                    (test $? != 0) && echo "ERROR >> update line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
-                fi
-            fi
-            
-            # if variable in configuration still does not exist, then add it
-            if [ "${var_value}" != "" ]; then
-                # if variable not added next to comment, so add new line(PLEASE LET NEWLINE THERE)
-                echo "${cc_main_cfg_data}" | grep "^${var_name}=" > /dev/null || cc_main_cfg_data="${cc_main_cfg_data}
+                # if variable or commented variable found, then add new variable next to because multi allowed
+                cc_main_cfg_data=$(
+                echo "$cc_main_cfg_data" | sed \
+                   -e "0,/${var_name}=/s/${var_name}=.*/${cfg_line}\n&/"
+                )
+                (test $? != 0) && echo "ERROR >> update line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
+                
+                # if variable not added next to existing variable by sed, so add it as new line at the end of file(PLEASE LET NEWLINE THERE)
+                echo "${cc_main_cfg_data}" | grep "^${cfg_line}" > /dev/null || cc_main_cfg_data="${cc_main_cfg_data}
 ${cfg_line}"
                 (test $? != 0) && echo "ERROR >> add line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
-            
-            # if variable or commented variable still does not exist, then add variable as commented variable
-            else
-                # if variable not added next to comment, so add new line(PLEASE LET NEWLINE THERE)
-                echo "${cc_main_cfg_data}" | grep -e "^#~ ${var_name}=" -e "^${var_name}=" > /dev/null || cc_main_cfg_data="${cc_main_cfg_data}
-#~ ${cfg_line}"
-                (test $? != 0) && echo "ERROR >> add line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
             fi
             
-            # add into duplicates list check and prevent double update
-            cc_main_cfg_add_dup_test="${cc_main_cfg_add_dup_test}=${var_name}="
+        # standard cfg line
+        else
+            # check variable to add duplicates, only first one value is applied, secondary configuration made as derivation
+            echo "${cc_main_cfg_add_dup_test}" | grep "=${var_name}=" > /dev/null && already_exist="1" || already_exist="0"
+            
+            if [[ "${already_exist}" != "1"  ]]; then
+                
+                #~ echo "updating/adding variable >> $var_name"
+                
+                # configuration update option
+                if [ "${cc_action_cc_config}" = "update" ]; then
+                
+                    # configuration value is not empty so will be replaced
+                    if [ "${var_value}" != "" ]; then
+                        # if existing variable, comment it
+                        # if commented variable, then add new variable next to
+                        cc_main_cfg_data=$(
+                        echo "$cc_main_cfg_data" | sed \
+                           -e "s/^${var_name}=/#~ ${var_name}=/" \
+                           -e "0,/^#~ ${var_name}=/s/^#~ ${var_name}=.*/${cfg_line}\n&/"
+                        )
+                        (test $? != 0) && echo "ERROR >> update line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
+                   
+                    # else configuration value is empty so will be just commented out
+                    else
+                        # if existing variable, comment it
+                        # if commented variable, then add new commented out variable next to
+                        cc_main_cfg_data=$(
+                        echo "$cc_main_cfg_data" | sed \
+                           -e "s/^${var_name}=/#~ ${var_name}=/" \
+                           -e "0,/^#~ ${var_name}=/s/^#~ ${var_name}=.*/#~ ${cfg_line}\n&/"
+                        )
+                        (test $? != 0) && echo "ERROR >> update line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
+                    fi
+                fi
+                
+                # if variable in configuration still does not exist, then add it
+                if [ "${var_value}" != "" ]; then
+                    # if variable not added next to comment, so add new line(PLEASE LET NEWLINE THERE)
+                    echo "${cc_main_cfg_data}" | grep "^${var_name}=" > /dev/null || cc_main_cfg_data="${cc_main_cfg_data}
+${cfg_line}"
+                    (test $? != 0) && echo "ERROR >> add line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
+                
+                # if variable or commented variable still does not exist, then add variable as commented variable
+                else
+                    # if variable not added next to comment, so add new line(PLEASE LET NEWLINE THERE)
+                    echo "${cc_main_cfg_data}" | grep -e "^#~ ${var_name}=" -e "^${var_name}=" > /dev/null || cc_main_cfg_data="${cc_main_cfg_data}
+#~ ${cfg_line}"
+                    (test $? != 0) && echo "ERROR >> add line >> ${cfg_line} >> ${cc_main_cfg_path} >> failed" && exit 1
+                fi
+                
+                # add into duplicates list check and prevent double update
+                cc_main_cfg_add_dup_test="${cc_main_cfg_add_dup_test}=${var_name}="
+            fi
         fi
     done
     
