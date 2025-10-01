@@ -409,7 +409,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -452,7 +452,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -492,7 +492,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -532,7 +532,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -572,7 +572,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -612,7 +612,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -652,7 +652,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -692,7 +692,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -732,7 +732,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff ';^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -772,7 +772,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff ';^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -812,7 +812,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff ';^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -852,7 +852,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff ';^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -892,7 +892,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff ';^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
@@ -932,7 +932,7 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
 screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
-while :; do ps aux | grep -v grep | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff ';^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
