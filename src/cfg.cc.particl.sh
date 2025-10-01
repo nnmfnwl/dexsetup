@@ -23,6 +23,13 @@ cc_git_commit_id="79ac84858bc33717ec572807f566acbc43dccd0e"
 
 cc_make_cpu_threads=3
 
+cc_command_pre_depends='
+filepath="depends/packages/bdb.mk" &&
+strsearch="_config_opts_linux" &&
+stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
+'
+
 cc_make_depends="bdb"
 
 cc_command_configure='
