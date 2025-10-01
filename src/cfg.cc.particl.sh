@@ -46,6 +46,20 @@ CXXFLAGS="-O3 -march=native"
 # --enable-debug
 
 cc_command_pre_make='
+filepath="src/support/lockedpool.cpp" &&
+strsearch="#include <algorithm>" &&
+stradd="#include <stdexcept>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+filepath="src/util/bip32.h" &&
+strsearch="#include <vector>" &&
+stradd="#include <cstdint>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+filepath="src/key/mnemonic.h" &&
+strsearch="#include <vector>" &&
+stradd="#include <cstdint>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
 '
 
 cc_command_post_make=''
