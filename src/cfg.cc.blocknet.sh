@@ -173,8 +173,8 @@ listenonion=0
 # onion). Incoming connections are not affected by this option.
 # This option can be specified multiple times to allow multiple networks.
 onlynet=ipv6
-onlynet=ipv4
-onlynet=onion
+onlynet=ipv4=multi
+onlynet=onion=multi
 #proxy=127.0.0.1:9050
 onion=127.0.0.1:9050
 bind=127.0.0.1
