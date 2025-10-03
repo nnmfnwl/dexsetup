@@ -102,6 +102,7 @@ script_data2="#!/bin/bash
 
 mkdir -p ~/.config/ || exit 1
 ln -s ${cc_profile_data_path} ~/.config/Session || exit 1
+ln -s ${cc_profile_data_path} ~/.config/Session-development || exit 1
 
 #~ ${cc_proxychains} ./session-desktop --no-sandbox --no-zygote --disable-gpu
 
