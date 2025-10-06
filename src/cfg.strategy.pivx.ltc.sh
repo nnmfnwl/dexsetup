@@ -14,6 +14,7 @@ cc_sell_size_asset="PIVX"
 cc_sell_size_asset_opposite="PIVX"
 
 # automatic maker price gathering
+cc_price_redirections=' '
 cc_maker_price=0
 cc_price_source_argval=" "
 cc_price_source_argval="--usecg"
