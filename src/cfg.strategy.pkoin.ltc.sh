@@ -13,6 +13,7 @@ cc_sell_size_asset="PKOIN"
 cc_sell_size_asset_opposite="PKOIN"
 
 # automatic maker price gathering
+cc_price_redirections=' '
 cc_maker_price=0
 cc_price_source_argval="--usecg"
 
