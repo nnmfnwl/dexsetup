@@ -14,6 +14,7 @@ cc_sell_size_asset="XVG"
 cc_sell_size_asset_opposite="XVG"
 
 # automatic maker price gathering
+cc_price_redirections=' '
 cc_maker_price=0
 cc_price_source_argval=" "
 cc_price_source_argval="--usecg"
