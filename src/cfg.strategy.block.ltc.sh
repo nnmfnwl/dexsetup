@@ -14,10 +14,9 @@ cc_sell_size_asset="BLOCK"
 cc_sell_size_asset_opposite="BLOCK"
 
 # automatic maker price gathering
-cc_maker_price=0.035
+cc_price_redirections='"BLOCK": { "asset": "USDT", "price": 0.035}'
+cc_maker_price=0
 cc_maker_price_opposite=0
-cc_maker_price_asset=USDT
-cc_maker_price_asset_opposite=" "
 cc_price_source_argval="--usecg"
 
 # flush all canceled orders every 60 seconds
