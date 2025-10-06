@@ -9,9 +9,9 @@ cc_address_funds_only="True"
 cc_address_maker_default="{cc_address_maker}"
 cc_address_taker_default="{cc_address_taker}"
 
-cc_sell_size_asset="PIVX"
+cc_sell_size_asset="USDT"
 # opposite strategy using "*_opposite" variables if exist
-cc_sell_size_asset_opposite="PIVX"
+cc_sell_size_asset_opposite="USDT"
 
 # automatic maker price gathering
 cc_price_redirections=' '
@@ -92,7 +92,7 @@ cc_balance_save_number=0
 cc_balance_save_percent=0
 
 cc_im_really_sure_what_im_doing_argval=" "
-cc_im_really_sure_what_im_doing_argval="--imreallysurewhatimdoing 1"
+cc_im_really_sure_what_im_doing_argval="--imreallysurewhatimdoing 0"
 
 # include default help for variables that will be loaded when not already set
 source "$(dirname "${BASH_SOURCE[0]}")/cfg.strategy.default_help.sh" || exit 1
