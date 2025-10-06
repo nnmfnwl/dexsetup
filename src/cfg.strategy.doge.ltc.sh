@@ -14,6 +14,7 @@ cc_sell_size_asset="DOGE"
 cc_sell_size_asset_opposite="DOGE"
 
 # automatic maker price gathering
+cc_price_redirections=' '
 cc_maker_price=0
 cc_price_source_argval="--usecg"
 
