@@ -94,20 +94,8 @@ so here this project comes:
   * Thank`s for all the reported errors/bugs, even if you not sure)
   * Bugs can be reported directly here on github [issues](https://github.com/nnmfnwl/dexsetup/issues) or on [bastyon social network](https://bastyon.com/nnmfnwl7) by comment or chat direct message.
 
-### Donations for DEXSETUP/DEXBOT continuos development, testing and liquidity providing:
-  * For ability of this project to continue it needs even your penny support. Please contact by bastyon to request below or other address.
-  * BTC LN: ****
-  * BTC: ****
-  * LTC: ****
-  * DOGE: ****
-  * XVG: ****
-  * PIVX: ****
-  * BLOCK: ****
-  * PKOIN: ****
-  * LBC: ****
-  * NANO: ****
-  * XMR: ****
-  * ETH: ****
+### Donations
+* Many options to support [Dexbot](https://github.com/nnmfnwl/dexbot/tree/merge.2025.03.26), [Dexsetup](https://github.com/nnmfnwl/dexsetup/tree/merge.2025.02.06), [Dexsetup.installer](https://github.com/nnmfnwl/dexsetup.cli.installer) and [Dexsetup.videos](https://github.com/nnmfnwl/dexsetup.videos) continuous development, testing, liquidity providing and making video tutorials could be found on Dexsetup Installer page [here](https://github.com/nnmfnwl/dexsetup.cli.installer#9-donations)
 
 ### Related DEXSETUP web links
   * Dexsetup main web and source code - [dexsetup github](https://github.com/nnmfnwl/dexsetup)
