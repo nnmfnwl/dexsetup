@@ -85,6 +85,8 @@ script_data="#!/bin/bash
 
 # run script generated with ./setup.session.profile.sh --help
 
+GTK_IM_MODULE=xim
+
 cd \"\$(dirname \"\$(realpath \"\$0\")\")\"
 
 cd ${cc_bin_dir} || exit 1
