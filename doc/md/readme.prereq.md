@@ -28,7 +28,7 @@ groups | grep debian-tor > /dev/null && cfg_user_tor="echo 'tor for ${USER} alre
 ```
   * **7.Debian** Start system configuration for `Debian` or `Ubuntu` based systems which are using `apt` package manager and `su` or `sudo` system configuration access.
 ```
-sudo -v; (test $? != 0) && su_cmd="echo \"Please enter ROOT password\"; su -c" || su_cmd="echo \"Please enter ${USER} sudo password\"; sudo -sh -c"; eval "${su_cmd} \"apt update; apt full-upgrade; apt install ${pkg_base} ${pkg_cli_build} ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; exit\""
+sudo -v; (test $? != 0) && su_cmd="echo \"Please enter ROOT password\"; su -c" || su_cmd="echo \"Please enter ${USER} sudo password\"; sudo sh -c"; eval "${su_cmd} \"apt -y update; apt -y full-upgrade; apt -y install ${pkg_base} ${pkg_cli_build} ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; exit\""
 ```
 
 **Create root directory(~/dexsetup) and download all dexsetup files**
