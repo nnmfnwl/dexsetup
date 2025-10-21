@@ -41,7 +41,8 @@ tool_check_version_and_include_script ${cc_script_cfg_path} "loading session cfg
 
 # check included "./src/cfg.session.sh" cfg variables
 tool_variable_check_load_default cc_install_dir_path_default "" "session default install dir path"
-tool_variable_check_load_default cc_firejail_profile_name_default "" "torbrowser default firejail profile name"
+tool_variable_check_load_default cc_firejail_profile_name_default "" "session default profile name"
+tool_variable_check_load_default cc_proxychains_cfg "" "session proxychains configuration file"
 
 # prepare install directory path
 cc_install_dir_path_default_tmp=${cc_dexsetup_dir_path}"/../"${cc_install_dir_path_default}
@@ -60,6 +61,10 @@ tool_realpath cc_session_firejail_run_script_path "session firejail run script"
 cc_profile_data_path=${cc_install_dir_path}"/data/profile/"${cc_firejail_profile_name}"/"
 tool_make_and_check_dir_path cc_profile_data_path "session firejail profiles data path"
 
+# prepare session proxychains file path
+cc_proxychains_cfg_data_path=${cc_install_dir_path}"/data/profile/"${cc_firejail_profile_name}".proxychains.cfg"
+tool_realpath cc_proxychains_cfg_data_path "session proxychains configuration file"
+
 # prepare bin files path
 cc_bin_dir="data/download/bin"
 cc_bin_path=${cc_install_dir_path}"/"${cc_bin_dir}
@@ -68,8 +73,12 @@ tool_dir_if_notexist_exit cc_bin_path "binary file path"
 
 # firejail session run script file path
 cc_session_firejail_run_script2_filename="firejail.session."${cc_firejail_profile_name}".sh"
-cc_session_firejail_run_script2_path=${cc_bin_path}"/"${cc_session_firejail_run_script2_filename}
+cc_session_firejail_run_script2_path=${cc_install_dir_path}"/data/profile/"${cc_session_firejail_run_script2_filename}
 tool_realpath cc_session_firejail_run_script2_path "session firejail run script"
+
+# generate proxychain configuration file
+
+tool_make_and_chmod_script_or_exit cc_proxychains_cfg_data_path cc_proxychains_cfg "create session proxychains configuration"
 
 # generate firejail session run script 1
 script_data="#!/bin/bash
@@ -86,12 +95,14 @@ firejail \\
 --name=session.${cc_firejail_profile_name} \\
 --whitelist=\`pwd\` \\
 --read-only=\`pwd\` \\
---whitelist=\${HOME}/.proxychains \\
---read-only=\${HOME}/.proxychains \\
+--whitelist=${cc_session_firejail_run_script2_path} \\
+--read-only=${cc_session_firejail_run_script2_path} \\
+--whitelist=${cc_proxychains_cfg_data_path} \\
+--read-only=${cc_proxychains_cfg_data_path} \\
 --whitelist=${cc_profile_data_path} \\
 --private-tmp \\
 --private-dev \\
-    ./${cc_session_firejail_run_script2_filename}
+    ./../../profile/${cc_session_firejail_run_script2_filename}
 "
 tool_make_and_chmod_script_or_exit cc_session_firejail_run_script_path script_data "create session firejail run script"
 
@@ -101,8 +112,13 @@ script_data2="#!/bin/bash
 # run script generated with ./setup.cc.session.firejail.sh --help
 
 mkdir -p ~/.config/ || exit 1
+mkdir -p ~/.proxychains/ || exit 1
+
 ln -s ${cc_profile_data_path} ~/.config/Session || exit 1
-ln -s ${cc_profile_data_path} ~/.config/Session-development || exit 1
+ln -s ${cc_proxychains_cfg_data_path} ~/.proxychains/proxychains.conf || exit 1
+
+# useful to enable if session activate development version
+#~ ln -s ${cc_profile_data_path} ~/.config/Session-development || exit 1
 
 #~ ${cc_proxychains} ./session-desktop --no-sandbox --no-zygote --disable-gpu
 
