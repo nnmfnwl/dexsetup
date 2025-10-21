@@ -32,11 +32,11 @@ pkg_gui_tools="gitg keepassx geany xsensors tigervnc-standalone-server";
 
 groups | grep debian-tor > /dev/null && cfg_user_tor="echo 'Tor for ${USER} is already configured'" || cfg_user_tor="usermod -a -G debian-tor ${USER}";
 
-grep "^:1=${USER}$" /etc/tigervnc/vncserver.users && cfg_user_vnc="echo 'TigerVNC for ${USER} is laready configured'" || cfg_user_vnc="echo ':1=${USER}' >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:1.service; systemctl enable tigervncserver@:1.service";
+grep "^:1=${USER}$" /etc/tigervnc/vncserver.users && cfg_user_vnc="echo 'TigerVNC for ${USER} is already configured'" || cfg_user_vnc="echo ':1=${USER}' >> /etc/tigervnc/vncserver.users; systemctl start tigervncserver@:1.service; systemctl enable tigervncserver@:1.service";
 
-sudo -v; (test $? != 0) && su_cmd="echo 'Please enter ROOT password'; su -c" || su_cmd="echo 'Please enter ${USER} sudo password'; sudo -sh -c";
+sudo -v; (test $? != 0) && su_cmd="echo 'Please enter ROOT password'; su -c" || su_cmd="echo 'Please enter ${USER} sudo password'; sudo sh -c";
 
-eval "${su_cmd} \"apt update; apt full-upgrade; apt install ${pkg_base} ${pkg_cli_build} ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; ${cfg_user_vnc}; exit\""
+eval "${su_cmd} \"apt -y update; apt -y full-upgrade; apt -y install ${pkg_base} ${pkg_cli_build} ${pkg_cli_tools} ${pkg_gui_build} ${pkg_gui_tools}; ${cfg_user_tor}; ${cfg_user_vnc}; exit\""
 ```
   * for previous command changes to be applied
   * disconnect and SSH connect to remote server again
