@@ -49,24 +49,62 @@ cc_reset_after_delay=600
 cc_reset_after_order_finish_number=3
 cc_reset_after_order_finish_delay=0
 
-cc_boundary_asset_argval=" "
-cc_boundary_asset_track_argval=" "
-cc_boundary_reversed_pricing_argval=" "
-cc_boundary_start_price_argval=" "
-cc_boundary_max_argval=" "
-cc_boundary_min_argval=" "
 
-#~ cc_boundary_asset_argval="--boundary_asset USDT"
-#~ cc_boundary_start_price_argval="--boundary_start_price 1"
-cc_boundary_max_argval="--boundary_max_relative 1.5"
-cc_boundary_min_argval="--boundary_min_relative 0.99"
+# static boundaries configuration:
+    # set boundaries in specific asset rather than taker
+#~ cc_sboundary_asset="USDT"
+cc_sboundary_asset="''"
+    # boundary set in static specific price
+cc_sboundary_max=0
+cc_sboundary_min=0
+    
+    # enabled disable boundary asset price updates. This means, ie if trading BLOCK/BTC but boundary is set in USD, it also do USD/BTC price updates and dynamically update boundary according to.
+cc_sboundary_max_track_asset="False"
+cc_sboundary_min_track_asset="False"
+    
+    # Enable reversed pricing as 1/X, ie BLOCK/BTC vs BTC/BLOCK pricing can set like 0.000145 on both bot trading sides, instead of 0.000145 vs 6896.55.
+cc_sboundary_max_min_reverse="True"
+    
+    # maximum boundary hit behavior True/False
+    # cancel orders on max boundary. The reason can be user is not willing to continue selling his maker-asset once price is too high bc expected bullmarket and user rather start staking
+cc_sboundary_max_cancel="True"
+cc_sboundary_max_exit="True"
+    # minimum boundary hit behavior True/False
+    # do not cancel orders on min boundary, but rather keep open orders on minimum boundary. The reason can be user is not willing to sell his maker-asset by very low price, rather wait for price recover
+cc_sboundary_min_cancel="False"
+cc_sboundary_min_exit="False"
 
-#~ cc_boundary_asset_argval="--boundary_asset USDT"
-#~ cc_boundary_asset_track_argval="--boundary_asset_track True"
-#~ cc_boundary_reversed_pricing_argval="--boundary_reversed_pricing False"
-#~ cc_boundary_reversed_pricing_argval_opposite="--boundary_reversed_pricing True"
-#~ cc_boundary_max_argval="--boundary_max_static 1.5"
-#~ cc_boundary_min_argval="--boundary_min_static 0.95"
+
+# set relative maximum and minimum maker price boundaries
+    # set relative boundary values in specific asset
+    # ie.: Static boundary with maker/taker BLOCK/BTC and boundary_asset is USDT, so possible boundary min 1.5 and max 3 USD (default= --taker)'
+cc_rboundary_asset=""
+    # manually set initial center price. Its usable only when some boundary_max/min_asset_track is Disabled
+cc_rboundary_price_initial=0
+    
+    # maximum and minimum acceptable price set as relative value to center price
+    # set max at 150% and min 95% of price when bot was started as 1.5 0.95
+cc_rboundary_max="1.5"
+cc_rboundary_min="0.9"
+    
+    # Track boundary asset price updates. This means, ie if trading BLOCK/BTC on USD also track USD/BTC price and update boundaries by it
+    # True/False
+cc_rboundary_max_track_asset="False"
+cc_rboundary_min_track_asset="False"
+    
+    # reversed set pricing as 1/X, ie BLOCK/BTC vs BTC/BLOCK pricing can set like 0.000145 on both bot trading sides, instead of 0.000145 vs 6896.55.'
+    # this feature works with relative boundary asset as well
+cc_rboundary_price_reverse="False"
+    
+    # maximum boundary hit behavior True/False
+    # cancel orders on max boundary. The reason can be user is not willing to continue selling his maker-asset once price is too high bc expected bullmarket and user rather start staking
+cc_rboundary_max_cancel="True"
+cc_rboundary_max_exit="True"
+    # minimum boundary hit behavior True/False
+    # do not cancel orders on min boundary, but rather keep open orders on minimum boundary. The reason can be user is not willing to sell his maker-asset by very low price, rather wait for price recover
+cc_rboundary_min_cancel="True"
+cc_rboundary_min_exit="False"
+
 
 # automatic order maching 0 disabled, otherwise seconds to check
 cc_takerbot="0"
