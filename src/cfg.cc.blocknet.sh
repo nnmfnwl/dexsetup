@@ -59,9 +59,10 @@ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
 #~ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
 #~ ((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
 #~ '
-
-#~ cc_make_depends="bdb boost"
 cc_make_depends="bdb"
+cc_make_depends_debian12="bdb boost"
+cc_make_depends_ubuntu="${cc_make_depends_debian12}"
+
 
 #~ cc_command_configure='
 #~ ./configure --quiet
@@ -83,6 +84,18 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
+
+cc_command_configure_debian12='
+./configure --quiet
+LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
+CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
+CXXFLAGS="-O3 -march=native"
+--with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
+--disable-bench --disable-gui-tests --disable-tests
+--enable-reduce-exports --without-miniupnpc --without-zmq
+--with-gui=auto
+'
+cc_command_configure_ubuntu="${cc_command_configure_debian12}"
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
 # --enable-debug
@@ -151,7 +164,8 @@ cc_command_post_make=''
 cc_port=41412
 cc_rpcport=41414
 cc_rpcuser="BlockDXBlocknet"
-cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+#~ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
 
 # lines will eval before add
 cc_main_cfg_add='
