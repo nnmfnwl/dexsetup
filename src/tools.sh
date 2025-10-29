@@ -324,24 +324,82 @@ function tool_info() { #prefix #var.name #suffix
     echo "INFO${prefix}${variable}${suffix}"
 }
 
-# 
-function tool_variable_check_load_default_try() { #var.name  #var.name.default  #prefix.info
+# function will try to load variable value and choose from below list the last one:
+# variable_default
+# variable custom default specified as second argument
+# variable
+# variable_dist_default
+# variable_dist
+# variable_dist_arch_default
+# variable_dist_arch
+function tool_variable_check_load_default_try() { #var.name  #var.name.default.or.none.will.auto  #prefix.info
     # args load and verify args
     (test "${3}" = "" ) && local prefix="${FUNCNAME[*]}" || local prefix="${FUNCNAME[*]} >> ${3}"
     (test "${1}" = "" ) && echo "ERROR >> ${prefix} >> arg 1 #var.name is not set" && exit 1
     
-    #~ local var=`eval echo "\\${${1}}"`
-    eval "var=\"\${${1}}\""
-    (test "${2}" = "" ) && local var_default="" || local var_default=`eval echo "\\${${2}}"`
+    # detect system architecture
+    arch_val=`uname -m`
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${1} = uname -m failed" && exit 1
     
-    # process args
-    (test "${var}" = "" ) && var=${var_default}
-    (test "${var}" = "" ) && echo "ERROR >> ${prefix} >> variable = ${1} = ${var} >> default = ${2} = ${var_default} >> load failed" && return 1
+    # detect linux distribution
+    dist_val="unknown"
+    cat /etc/*release | grep -i debian | grep -i bookworm > /dev/null && dist_val="debian12"
+    cat /etc/*release | grep -i debian | grep -i trixie > /dev/null && dist_val="debian13"
+    cat /etc/*release | grep -i ubuntu | grep -i ubuntu > /dev/null && dist_val="ubuntu"
+    
+    var=""
+    
+    # get variable_default
+    var_name_tmp="${1}_default"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get custom default variable
+    if [[ "${2}" != "" ]] ;then
+        var_name_tmp="${2}"
+        eval "var_tmp=\"\${${var_name_tmp}}\""
+        (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+        (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    fi
+    
+    # get variable
+    var_name_tmp="${1}"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist_default
+    var_name_tmp="${1}_${dist_val}_default"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist
+    var_name_tmp="${1}_${dist_val}"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist_arch_default
+    var_name_tmp="${1}_${dist_val}_${arch_val}_default"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist_arch
+    var_name_tmp="${1}_${dist_val}_${arch_val}"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # check final error
+    (test "${var}" = "" ) && echo "WARNING >> ${prefix} >> variable = '${1}' or '${2}' or 'auto' >> load failed" && return 1
     
     # fill return variable
     eval "${1}=\"${var}\""
     
-    echo "INFO >> ${prefix} >> using variable = ${1} = ${var}"
+    echo "INFO >> ${prefix} >> using variable = ${1} as ${var_name} = ${var}"
     return 0
 }
 
