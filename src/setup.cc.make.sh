@@ -115,7 +115,7 @@ fi
 
 # build and extract dependencies
 
-echo "INFO >> using >> make depends >> ${cc_make_depends}"
+tool_variable_check_load_default cc_make_depends "" "make depends"
 if [ "${cc_make_depends}" != "" ]; then
     
     # checkout and make depends
@@ -135,7 +135,7 @@ fi
 
 # configure process
 
-echo "INFO >> using >> cc_command_configure >> ${cc_command_configure}"
+tool_variable_check_load_default cc_command_configure "" "configure command"
 eval `echo ${cc_command_configure}`
 (test $? != 0) && echo "ERROR >> configure  >> ${cc_command_configure} >> failed" && exit 1
 
