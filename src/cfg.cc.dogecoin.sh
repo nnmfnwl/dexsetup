@@ -25,6 +25,8 @@ cc_make_cpu_threads=3
 
 #~ cc_make_depends="bdb"
 cc_make_depends=""
+cc_make_depends_debian12="bdb"
+cc_make_depends_ubuntu="bdb boost"
 
 cc_command_configure='
 ./configure --quiet
@@ -33,6 +35,17 @@ CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
 --disable-bench --disable-gui-tests --disable-tests
 --enable-reduce-exports --without-miniupnpc
+--with-gui=auto
+'
+
+cc_command_configure_ubuntu='
+./configure --quiet
+LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
+CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
+CXXFLAGS="-O3 -march=native"
+--with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
+--disable-bench --disable-gui-tests --disable-tests
+--enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
 
@@ -50,7 +63,8 @@ filepath="src/qt/trafficgraphwidget.cpp" &&
 cc_port=22556
 cc_rpcport=22555
 cc_rpcuser="BlockDXDogecoin"
-cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+#~ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
 
 # lines will eval before add
 cc_main_cfg_add='
