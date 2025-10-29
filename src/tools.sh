@@ -328,6 +328,8 @@ function tool_info() { #prefix #var.name #suffix
 # variable_default
 # variable custom default specified as second argument
 # variable
+# variable_arch_default
+# variable_arch
 # variable_dist_default
 # variable_dist
 # variable_dist_arch_default
@@ -365,6 +367,18 @@ function tool_variable_check_load_default_try() { #var.name  #var.name.default.o
     
     # get variable
     var_name_tmp="${1}"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_arch_default
+    var_name_tmp="${1}_${arch_val}_default"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_arch
+    var_name_tmp="${1}_${arch_val}"
     eval "var_tmp=\"\${${var_name_tmp}}\""
     (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
     (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
