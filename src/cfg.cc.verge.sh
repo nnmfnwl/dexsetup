@@ -66,7 +66,8 @@ filepath="src/qt/trafficgraphwidget.cpp" &&
 cc_port=21102
 cc_rpcport=20102
 cc_rpcuser="BlockDXVerge"
-cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+#~ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
 
 # lines will eval before add
 cc_main_cfg_add='
