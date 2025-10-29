@@ -23,13 +23,24 @@ cc_git_commit_id="beae01d62292a0aab363b7a4d3f606708cea7260"
 cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
+cc_make_depends_ubuntu="bdb boost"
 
 cc_command_configure='
 ./configure --quiet
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
+--disable-bench --disable-gui-tests --disable-tests
+--enable-reduce-exports --without-miniupnpc --without-zmq
+--with-gui=auto
+'
 
+cc_command_configure_ubuntu='
+./configure --quiet
+LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
+CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
+CXXFLAGS="-O3 -march=native"
+--with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
 --disable-bench --disable-gui-tests --disable-tests
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
@@ -47,7 +58,8 @@ cc_command_pre_make='
 cc_port=9333
 cc_rpcport=9332
 cc_rpcuser="BlockDXLitecoin"
-cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+#~ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
 
 # lines will eval before add
 cc_main_cfg_add='
