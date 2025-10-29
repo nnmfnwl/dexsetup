@@ -96,7 +96,8 @@ cd ./pivx-5.6.1/ && ./install-params.sh
 cc_port=52472
 cc_rpcport=52473
 cc_rpcuser="BlockDXPIVX"
-cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+#~ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
 
 # lines will eval before add
 cc_main_cfg_add='
