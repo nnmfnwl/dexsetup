@@ -27,19 +27,9 @@ cc_git_commit_id="19512988c6e6e8641245bd9c5fab21dd737561f0"
 
 cc_make_cpu_threads=3
 
-#~ cc_make_depends="bdb boost backtrace"
 cc_make_depends="bdb backtrace"
-
-#~ cc_command_configure='
-#~ ./configure --quiet
-#~ LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
-#~ CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
-#~ CXXFLAGS="-O3 -march=native"
-#~ --with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
-#~ --disable-bench --disable-gui-tests --disable-tests
-#~ --enable-reduce-exports
-#~ --with-gui=auto
-#~ '
+cc_make_depends_debian12="bdb boost backtrace"
+cc_make_depends_ubuntu="${cc_make_depends_debian12}"
 
 cc_command_configure='
 ./configure --quiet
@@ -47,9 +37,21 @@ LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
 --disable-bench --disable-gui-tests --disable-tests
---enable-reduce-exports
+--enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
+
+cc_command_configure_debian12='
+./configure --quiet
+LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
+CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
+CXXFLAGS="-O3 -march=native"
+--with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
+--disable-bench --disable-gui-tests --disable-tests
+--enable-reduce-exports --without-miniupnpc --without-zmq
+--with-gui=auto
+'
+cc_command_configure_ubuntu="${cc_command_configure_debian12}"
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
 # --enable-debug
@@ -67,7 +69,8 @@ cc_command_post_make=''
 cc_port=9999
 cc_rpcport=9998
 cc_rpcuser="BlockDXDash"
-cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+#~ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
+cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
 
 # lines will eval before add
 cc_main_cfg_add='
