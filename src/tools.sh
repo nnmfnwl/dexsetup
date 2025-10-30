@@ -410,6 +410,9 @@ function tool_variable_check_load_default_try() { #var.name  #var.name.default.o
     # check final error
     (test "${var}" = "" ) && echo "WARNING >> ${prefix} >> variable = '${1}' or '${2}' or 'auto' >> load failed" && return 1
     
+    # make string empty
+    (test "${var}" = " " ) && var="" &&  echo "WARNING >> ${prefix} >> variable = '${1}' or '${2}' or 'auto' >> is empty string"
+    
     # fill return variable
     eval "${1}=\"${var}\""
     
