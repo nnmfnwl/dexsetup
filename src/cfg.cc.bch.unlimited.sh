@@ -86,20 +86,29 @@ cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
 cc_main_cfg_add='
 server=1
 listen=1
+port=${cc_port}
+
 rpcbind=127.0.0.1
 rpcallowip=127.0.0.1
-port=${cc_port}
 rpcport=${cc_rpcport}
 rpcuser=${cc_rpcuser}
 rpcpassword=${cc_rpcpassword}
+
+listenonion=0
+onlynet=ipv6
+onlynet=ipv4=multi
+onlynet=onion=multi
+onion=127.0.0.1:9050
+bind=127.0.0.1
+bantime=180
+
+maxconnections=7
+maxuploadtarget=777
+
 txindex=1
 
 #~ addresstype=legacy
 #~ changetype=legacy
-
-bantime=180
-
-maxuploadtarget=1500
 '
 
 cc_xbridge_cfg_add='
