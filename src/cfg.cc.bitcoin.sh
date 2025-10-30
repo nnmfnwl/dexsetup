@@ -67,8 +67,8 @@ rpcpassword=${cc_rpcpassword}
 
 listenonion=0
 onlynet=ipv6
-onlynet=ipv4
-onlynet=onion
+onlynet=ipv4=multi
+onlynet=onion=multi
 onion=127.0.0.1:9050
 bind=127.0.0.1
 bantime=180
