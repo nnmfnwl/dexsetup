@@ -334,6 +334,10 @@ function tool_info() { #prefix #var.name #suffix
 # variable_dist
 # variable_dist_arch_default
 # variable_dist_arch
+# variable_distv_default
+# variable_distv
+# variable_distv_arch_default
+# variable_distv_arch
 function tool_variable_check_load_default_try() { #var.name  #var.name.default.or.none.will.auto  #prefix.info
     # args load and verify args
     (test "${3}" = "" ) && local prefix="${FUNCNAME[*]}" || local prefix="${FUNCNAME[*]} >> ${3}"
@@ -345,9 +349,13 @@ function tool_variable_check_load_default_try() { #var.name  #var.name.default.o
     
     # detect linux distribution
     dist_val="unknown"
-    cat /etc/*release | grep -i debian | grep -i bookworm > /dev/null && dist_val="debian12"
-    cat /etc/*release | grep -i debian | grep -i trixie > /dev/null && dist_val="debian13"
+    cat /etc/*release | grep -i debian | grep -i debian > /dev/null && dist_val="debian"
     cat /etc/*release | grep -i ubuntu | grep -i ubuntu > /dev/null && dist_val="ubuntu"
+    
+    cat /etc/*release | grep -i debian | grep -i bookworm > /dev/null && distv_val="debian12"
+    cat /etc/*release | grep -i debian | grep -i trixie > /dev/null && distv_val="debian13"
+    cat /etc/*release | grep -i ubuntu | grep -i 24 > /dev/null && distv_val="ubuntu24"
+    cat /etc/*release | grep -i ubuntu | grep -i 25 > /dev/null && distv_val="ubuntu25"
     
     var=""
     
@@ -403,6 +411,30 @@ function tool_variable_check_load_default_try() { #var.name  #var.name.default.o
     
     # get variable_dist_arch
     var_name_tmp="${1}_${dist_val}_${arch_val}"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist_default
+    var_name_tmp="${1}_${distv_val}_default"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist
+    var_name_tmp="${1}_${distv_val}"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist_arch_default
+    var_name_tmp="${1}_${distv_val}_${arch_val}_default"
+    eval "var_tmp=\"\${${var_name_tmp}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
+    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    
+    # get variable_dist_arch
+    var_name_tmp="${1}_${distv_val}_${arch_val}"
     eval "var_tmp=\"\${${var_name_tmp}}\""
     (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
     (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
