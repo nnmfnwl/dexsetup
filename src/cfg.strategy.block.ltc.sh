@@ -14,7 +14,7 @@ cc_sell_size_asset="BLOCK"
 cc_sell_size_asset_opposite="BLOCK"
 
 # automatic maker price gathering
-cc_price_redirections='"BLOCK": { "asset": "USDT", "price": 0.035}'
+cc_price_redirections='"BLOCK": { "asset": "USDT", "price": 0.023777}'
 cc_maker_price=0
 cc_maker_price_opposite=0
 cc_price_source_argval="--usecg"
@@ -25,7 +25,7 @@ cc_flush_canceled_orders=60
 # first placed orders
 cc_sell_start_spread="2.1"
 cc_sell_start_spread_opposite="2.1"
-cc_sell_start="10"
+cc_sell_start="100"
 cc_sell_start_min="6"
 # last palced order
 cc_sell_end_spread="1.04"
@@ -78,7 +78,7 @@ cc_sboundary_min_exit="False"
 # set relative maximum and minimum maker price boundaries
     # set relative boundary values in specific asset
     # ie.: Static boundary with maker/taker BLOCK/BTC and boundary_asset is USDT, so possible boundary min 1.5 and max 3 USD (default= --taker)'
-cc_rboundary_asset=""
+cc_rboundary_asset="''"
     # manually set initial center price. Its usable only when some boundary_max/min_asset_track is Disabled
 cc_rboundary_price_initial=0
     
