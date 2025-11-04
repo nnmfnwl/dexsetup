@@ -41,6 +41,13 @@ cc_firejail_profile_add=''
 
 cc_make_cpu_threads=3
 
+cc_command_pre_depends='
+filepath="depends/packages/bdb.mk" &&
+strsearch="_config_opts_linux" &&
+stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
+'
+
 cc_make_depends="bdb"
 cc_make_depends_ubuntu="bdb boost"
 
