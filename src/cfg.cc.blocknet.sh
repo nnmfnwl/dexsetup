@@ -59,10 +59,13 @@ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
 #~ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
 #~ ((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
 #~ '
-cc_make_depends="bdb"
-cc_make_depends_debian12="bdb boost"
-cc_make_depends_ubuntu="${cc_make_depends_debian12}"
 
+cc_make_depends="bdb"
+cc_command_configure_debian13="${cc_make_depends}"
+cc_command_configure_ubuntu25="${cc_make_depends}"
+
+cc_make_depends_debian12="bdb boost"
+cc_make_depends_ubuntu24="${cc_make_depends_debian12}"
 
 #~ cc_command_configure='
 #~ ./configure --quiet
@@ -85,6 +88,11 @@ CXXFLAGS="-O3 -march=native"
 --with-gui=auto
 '
 
+cc_command_configure_debian13="${cc_command_configure}"
+
+cc_command_configure_ubuntu25="${cc_command_configure}"
+
+
 cc_command_configure_debian12='
 ./configure --quiet
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
@@ -95,7 +103,9 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
-cc_command_configure_ubuntu="${cc_command_configure_debian12}"
+
+cc_command_configure_ubuntu24="${cc_command_configure_debian12}"
+
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
 # --enable-debug
