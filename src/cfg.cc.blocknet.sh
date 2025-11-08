@@ -61,8 +61,8 @@ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
 #~ '
 
 cc_make_depends="bdb"
-cc_command_configure_debian13="${cc_make_depends}"
-cc_command_configure_ubuntu25="${cc_make_depends}"
+cc_make_depends_debian13="${cc_make_depends}"
+cc_make_depends_ubuntu25="${cc_make_depends}"
 
 cc_make_depends_debian12="bdb boost"
 cc_make_depends_ubuntu24="${cc_make_depends_debian12}"
