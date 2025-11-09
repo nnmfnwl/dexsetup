@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="LTC"
 cc_bin_file_name_prefix="litecoin"
 cc_gui_cfg_dir_name="Litecoin"
@@ -19,8 +22,6 @@ cc_firejail_profile_add=''
 cc_git_src_url="https://github.com/litecoin-project/litecoin.git"
 cc_git_src_branch="v0.21.4"
 cc_git_commit_id="beae01d62292a0aab363b7a4d3f606708cea7260"
-
-cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
 cc_make_depends_ubuntu="bdb boost"
