@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="BCH"
 cc_bin_file_name_prefix="bitcoin"
 cc_gui_cfg_dir_name="Bitcoincash"
@@ -38,8 +41,6 @@ export CXX=clang++
 cc_firejail_make_args=''
 
 cc_firejail_profile_add=''
-
-cc_make_cpu_threads=3
 
 cc_command_pre_depends='
 filepath="depends/packages/bdb.mk" &&
