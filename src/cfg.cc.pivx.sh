@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="PIVX"
 cc_bin_file_name_prefix="pivx"
 cc_gui_cfg_dir_name="PIVX"
@@ -56,8 +59,6 @@ whitelist ${HOME}/.pivx-params
 cc_git_src_url="https://github.com/PIVX-Project/PIVX.git"
 cc_git_src_branch="v5.6.1"
 cc_git_commit_id="af60f19642c6356061049df253e8036e81879f4e"
-
-cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
 
