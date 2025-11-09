@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="BLOCK"
 cc_bin_file_name_prefix="blocknet"
 cc_gui_cfg_dir_name="Blocknet"
@@ -42,8 +45,6 @@ cc_firejail_profile_add=''
 cc_git_src_url="https://github.com/blocknetdx/blocknet.git"
 cc_git_src_branch="v4.4.1"
 cc_git_commit_id="ac930b7f80c1773688a24f7519e2df2effa795d4"
-
-cc_make_cpu_threads=3
 
 cc_command_pre_depends='
 filepath="depends/packages/bdb.mk" &&
