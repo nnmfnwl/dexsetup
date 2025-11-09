@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="DASH"
 cc_bin_file_name_prefix="dash"
 cc_gui_cfg_dir_name="Dash"
@@ -24,8 +27,6 @@ cc_git_src_url="https://github.com/dashpay/dash.git"
 #~ cc_git_commit_id="549e347b742cb4dc63807a292729e658218d7d0f"
 cc_git_src_branch="v20.1.1"
 cc_git_commit_id="19512988c6e6e8641245bd9c5fab21dd737561f0"
-
-cc_make_cpu_threads=3
 
 cc_make_depends="bdb backtrace"
 cc_make_depends_debian12="bdb boost backtrace"
