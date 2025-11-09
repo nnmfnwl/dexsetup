@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="LBC"
 cc_bin_file_name_prefix="lbrycrd"
 cc_gui_cfg_dir_name="LBRY"
@@ -20,8 +23,6 @@ cc_firejail_profile_add=''
 cc_git_src_url="https://github.com/lbryio/lbrycrd.git"
 cc_git_src_branch="v0.17.3.3"
 cc_git_commit_id="7afc4c418a3beae4a57c8fd91e527ada349a69c7"
-
-cc_make_cpu_threads=3
 
 cc_make_depends="bdb boost"
 
