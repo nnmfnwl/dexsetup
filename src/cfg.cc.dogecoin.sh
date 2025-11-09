@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="DOGE"
 cc_bin_file_name_prefix="dogecoin"
 cc_gui_cfg_dir_name="Dogecoin"
@@ -20,8 +23,6 @@ cc_firejail_profile_add=''
 cc_git_src_url="https://github.com/dogecoin/dogecoin.git"
 cc_git_src_branch="v1.14.9"
 cc_git_commit_id="e0a1c157791544e818c901bd9341896965afbf9d"
-
-cc_make_cpu_threads=3
 
 #~ cc_make_depends="bdb"
 cc_make_depends=" "
