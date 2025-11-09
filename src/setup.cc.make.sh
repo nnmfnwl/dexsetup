@@ -21,6 +21,15 @@ tool_variable_check_load_default cc_proxychains cc_proxychains "cc make"
 
 tool_check_version_and_include_script ${cc_script_cfg_path} "cc_script_cfg_path"
 
+# configuration variable check
+tool_variable_check_load_default cc_cpu_cores_reserve "" "number of CPU cores to reserve for other tasks"
+tool_variable_check_load_default cc_cpu_jobs_min "" "minimal number of parallel jobs"
+
+# detect optimal cpu cores by parallel job which to be used
+cc_make_cpu_threads=$((a=`nproc`-cc_cpu_cores_reserve, a > cc_cpu_jobs_min ? a : cc_cpu_jobs_min))
+
+tool_variable_check_load_default cc_make_cpu_threads "" "autodetect using CPU cores"
+
 # change directory
 
 tool_cd ${cc_git_src_path} "cc_git_src_path"
