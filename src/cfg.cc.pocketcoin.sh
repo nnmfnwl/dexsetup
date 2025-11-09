@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="PKOIN"
 cc_bin_file_name_prefix="pocketcoin"
 cc_gui_cfg_dir_name="Pocketcoin"
@@ -25,8 +28,6 @@ cc_git_src_branch="0.22.19"
 cc_git_commit_id="802b7cef8112c380538119f667f09646a871a47e"
 #~ cc_git_src_branch="fix/stake_worker_wallet_access"
 #~ cc_git_commit_id="1530f7e3cfdcde83790284d0cadf1111ad143a63"
-
-cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
 cc_make_depends_ubuntu="bdb boost"
