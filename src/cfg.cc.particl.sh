@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="PART"
 cc_bin_file_name_prefix="particl"
 cc_gui_cfg_dir_name="Particl"
@@ -20,8 +23,6 @@ cc_firejail_profile_add=''
 cc_git_src_url="https://github.com/particl/particl-core.git"
 cc_git_src_branch="v0.19.2.23"
 cc_git_commit_id="79ac84858bc33717ec572807f566acbc43dccd0e"
-
-cc_make_cpu_threads=3
 
 cc_command_pre_depends='
 filepath="depends/packages/bdb.mk" &&
