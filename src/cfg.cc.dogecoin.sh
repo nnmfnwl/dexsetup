@@ -128,3 +128,12 @@ cc_cli_not_compatible='
  getstakinginfo 
  getstakereport 
 '
+
+cc_cli_add=(
+'addnode.onetry.auto'
+'./cli addnode "82.163.40.40:22556" onetry
+./cli addnode "65.21.142.118:22556" onetry
+./cli addnode "88.97.7.2:22556" onetry
+./cli addnode "[2001:41d0:2:a012::]:22556" onetry
+'
+)
