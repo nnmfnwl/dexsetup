@@ -1,5 +1,8 @@
 cc_setup_helper_version="20210827"
 
+# include defaults
+source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
+
 cc_ticker="BTC"
 cc_bin_file_name_prefix="bitcoin"
 cc_gui_cfg_dir_name="Bitcoin"
@@ -20,8 +23,6 @@ cc_firejail_profile_add=''
 cc_git_src_url="https://github.com/bitcoin/bitcoin.git"
 cc_git_src_branch="v23.2"
 cc_git_commit_id="4d2f2fae9782a4736c2e271f5d6107b677f2e14d"
-
-cc_make_cpu_threads=3
 
 cc_make_depends="bdb"
 
