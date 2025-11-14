@@ -67,7 +67,6 @@ cc_command_configure='
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
-
 --disable-bench --disable-gui-tests --disable-tests
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
