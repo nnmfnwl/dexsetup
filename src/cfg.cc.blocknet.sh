@@ -64,9 +64,9 @@ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
 cc_make_depends="bdb"
 cc_make_depends_debian13="${cc_make_depends}"
 cc_make_depends_ubuntu25="${cc_make_depends}"
+cc_make_depends_ubuntu24="${cc_make_depends}"
 
 cc_make_depends_debian12="bdb boost"
-cc_make_depends_ubuntu24="${cc_make_depends_debian12}"
 
 #~ cc_command_configure='
 #~ ./configure --quiet
@@ -88,11 +88,9 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
-
 cc_command_configure_debian13="${cc_command_configure}"
-
 cc_command_configure_ubuntu25="${cc_command_configure}"
-
+cc_command_configure_ubuntu24="${cc_command_configure}"
 
 cc_command_configure_debian12='
 ./configure --quiet
@@ -104,8 +102,6 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
-
-cc_command_configure_ubuntu24="${cc_command_configure_debian12}"
 
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
@@ -258,7 +254,10 @@ cc_cli_not_compatible='
 
 cc_cli_add=(
 'addnode.onetry.auto'
-'./cli addnode "185.231.155.27:41412" onetry'
+'./cli addnode "185.231.155.27:41412" onetry
+./cli addnode "134.195.198.209:41412" onetry
+./cli addnode "86.48.2.51:41412" onetry
+'
 
 'dxSplitAddress'
 './cli dxSplitAddress \$@'
