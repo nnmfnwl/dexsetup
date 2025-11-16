@@ -25,6 +25,10 @@ cc_git_commit_id="beae01d62292a0aab363b7a4d3f606708cea7260"
 
 cc_make_depends="bdb"
 cc_make_depends_ubuntu="bdb boost"
+cc_make_depends_debian12="${cc_make_depends}"
+cc_make_depends_debian13="${cc_make_depends}"
+cc_make_depends_ubuntu24="${cc_make_depends}"
+cc_make_depends_ubuntu25="${cc_make_depends}"
 
 cc_command_configure='
 ./configure --quiet
@@ -131,5 +135,8 @@ cc_cli_not_compatible='
 
 cc_cli_add=(
 'addnode.onetry.auto'
-'./cli addnode "95.216.39.190:9333" onetry'
+'./cli addnode "95.216.39.190:9333" onetry
+./cli addnode "95.164.53.38:9333" onetry
+./cli addnode "80.85.141.43:9333" onetry
+'
 )
