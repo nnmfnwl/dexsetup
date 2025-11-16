@@ -29,8 +29,9 @@ cc_git_src_branch="v20.1.1"
 cc_git_commit_id="19512988c6e6e8641245bd9c5fab21dd737561f0"
 
 cc_make_depends="bdb backtrace"
-cc_make_depends_debian12="bdb boost backtrace"
-cc_make_depends_ubuntu="${cc_make_depends_debian12}"
+cc_make_depends_debian13="${cc_make_depends}"
+cc_make_depends_ubuntu24="${cc_make_depends}"
+cc_make_depends_ubuntu25="${cc_make_depends}"
 
 cc_command_configure='
 ./configure --quiet
@@ -41,6 +42,11 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
+cc_command_configure_debian13="${cc_command_configure}"
+cc_command_configure_ubuntu24="${cc_command_configure}"
+cc_command_configure_ubuntu25="${cc_command_configure}"
+
+cc_make_depends_debian12="bdb boost backtrace"
 
 cc_command_configure_debian12='
 ./configure --quiet
@@ -52,7 +58,6 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
-cc_command_configure_ubuntu="${cc_command_configure_debian12}"
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
 # --enable-debug
