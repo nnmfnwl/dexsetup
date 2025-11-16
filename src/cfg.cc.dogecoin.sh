@@ -24,10 +24,13 @@ cc_git_src_url="https://github.com/dogecoin/dogecoin.git"
 cc_git_src_branch="v1.14.9"
 cc_git_commit_id="e0a1c157791544e818c901bd9341896965afbf9d"
 
-#~ cc_make_depends="bdb"
 cc_make_depends=" "
+cc_make_depends_debian13="${cc_make_depends}"
+cc_make_depends_ubuntu25="${cc_make_depends}"
+
 cc_make_depends_debian12="bdb"
-cc_make_depends_ubuntu="bdb boost"
+
+cc_make_depends_ubuntu24="boost"
 
 cc_command_configure='
 ./configure --quiet
@@ -38,8 +41,11 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc
 --with-gui=auto
 '
+cc_command_configure_debian12="${cc_command_configure}"
+cc_command_configure_debian13="${cc_command_configure}"
+cc_command_configure_ubuntu25="${cc_command_configure}"
 
-cc_command_configure_ubuntu='
+cc_command_configure_ubuntu24='
 ./configure --quiet
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
