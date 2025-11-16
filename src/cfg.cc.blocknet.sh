@@ -63,21 +63,8 @@ stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
 
 cc_make_depends="bdb"
 cc_make_depends_debian13="${cc_make_depends}"
-cc_make_depends_ubuntu25="${cc_make_depends}"
 cc_make_depends_ubuntu24="${cc_make_depends}"
-
-cc_make_depends_debian12="bdb boost"
-
-#~ cc_command_configure='
-#~ ./configure --quiet
-#~ LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
-#~ CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
-#~ CXXFLAGS="-O3 -march=native"
-#~ --with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
-#~ --disable-bench --disable-gui-tests --disable-tests
-#~ --enable-reduce-exports --without-miniupnpc --without-zmq
-#~ --with-gui=auto
-#~ '
+cc_make_depends_ubuntu25="${cc_make_depends}"
 
 cc_command_configure='
 ./configure --quiet
@@ -92,6 +79,8 @@ cc_command_configure_debian13="${cc_command_configure}"
 cc_command_configure_ubuntu25="${cc_command_configure}"
 cc_command_configure_ubuntu24="${cc_command_configure}"
 
+cc_make_depends_debian12="bdb boost"
+
 cc_command_configure_debian12='
 ./configure --quiet
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
@@ -102,7 +91,6 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
-
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
 # --enable-debug
