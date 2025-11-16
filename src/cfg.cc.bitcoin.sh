@@ -25,6 +25,10 @@ cc_git_src_branch="v23.2"
 cc_git_commit_id="4d2f2fae9782a4736c2e271f5d6107b677f2e14d"
 
 cc_make_depends="bdb"
+cc_make_depends_debian12="${cc_make_depends}"
+cc_make_depends_debian13="${cc_make_depends}"
+cc_make_depends_ubuntu24="${cc_make_depends}"
+cc_make_depends_ubuntu25="${cc_make_depends}"
 
 cc_command_configure='
 ./configure --quiet
@@ -35,6 +39,10 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
+cc_command_configure_debian12="${cc_command_configure}"
+cc_command_configure_debian13="${cc_command_configure}"
+cc_command_configure_ubuntu24="${cc_command_configure}"
+cc_command_configure_ubuntu25="${cc_command_configure}"
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
 # --enable-debug
