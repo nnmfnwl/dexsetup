@@ -342,10 +342,11 @@ function tool_variable_check_load_default_try() { #var.name  #var.name.default.o
     # args load and verify args
     (test "${3}" = "" ) && local prefix="${FUNCNAME[*]}" || local prefix="${FUNCNAME[*]} >> ${3}"
     (test "${1}" = "" ) && echo "ERROR >> ${prefix} >> arg 1 #var.name is not set" && exit 1
+    var_name_arg="${1}"
     
     # detect system architecture
     arch_val=`uname -m`
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${1} = uname -m failed" && exit 1
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_arg} = uname -m failed" && exit 1
     
     # detect linux distribution
     dist_val="unknown"
@@ -357,98 +358,101 @@ function tool_variable_check_load_default_try() { #var.name  #var.name.default.o
     cat /etc/*release | grep -i ubuntu | grep -i 24 > /dev/null && distv_val="ubuntu24"
     cat /etc/*release | grep -i ubuntu | grep -i 25 > /dev/null && distv_val="ubuntu25"
     
-    var=""
+    var_data_tmp=""
     
     # get variable_default
-    var_name_tmp="${1}_default"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_default"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get custom default variable
     if [[ "${2}" != "" ]] ;then
-        var_name_tmp="${2}"
-        eval "var_tmp=\"\${${var_name_tmp}}\""
-        (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-        (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+        var_name_test="${2}"
+        eval "var_data_test=\"\${${var_name_test}}\""
+        (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+        (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     fi
     
     # get variable
-    var_name_tmp="${1}"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_arch_default
-    var_name_tmp="${1}_${arch_val}_default"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${arch_val}_default"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_arch
-    var_name_tmp="${1}_${arch_val}"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${arch_val}"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist_default
-    var_name_tmp="${1}_${dist_val}_default"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${dist_val}_default"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist
-    var_name_tmp="${1}_${dist_val}"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${dist_val}"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist_arch_default
-    var_name_tmp="${1}_${dist_val}_${arch_val}_default"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${dist_val}_${arch_val}_default"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist_arch
-    var_name_tmp="${1}_${dist_val}_${arch_val}"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${dist_val}_${arch_val}"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist_default
-    var_name_tmp="${1}_${distv_val}_default"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${distv_val}_default"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist
-    var_name_tmp="${1}_${distv_val}"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${distv_val}"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist_arch_default
-    var_name_tmp="${1}_${distv_val}_${arch_val}_default"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${distv_val}_${arch_val}_default"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # get variable_dist_arch
-    var_name_tmp="${1}_${distv_val}_${arch_val}"
-    eval "var_tmp=\"\${${var_name_tmp}}\""
-    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_tmp} = eval expand failed" && exit 1
-    (test "${var_tmp}" != "" ) && var="${var_tmp}" && var_name="${var_name_tmp}"
+    var_name_test="${var_name_arg}_${distv_val}_${arch_val}"
+    eval "var_data_test=\"\${${var_name_test}}\""
+    (test $? != 0) && echo "ERROR >> ${prefix} >> ${var_name_test} = eval expand failed" && exit 1
+    (test "${var_data_test}" != "" ) && var_data_tmp="${var_data_test}" && var_name_tmp="${var_name_test}"
     
     # check final error
-    (test "${var}" = "" ) && echo "WARNING >> ${prefix} >> variable = '${1}' or '${2}' or 'auto' >> load failed" && return 1
+    (test "${var_data_tmp}" = "" ) && echo "WARNING >> ${prefix} >> variable = '${var_name_arg}' or '${2}' or 'auto' >> load failed" && return 1
     
     # make string empty
-    (test "${var}" = " " ) && var="" &&  echo "WARNING >> ${prefix} >> variable = '${1}' or '${2}' or 'auto' >> is empty string"
+    (test "${var_data_tmp}" = " " ) && var_data_tmp="" &&  echo "WARNING >> ${prefix} >> variable = '${var_name_arg}' or '${2}' or 'auto' >> is empty string"
     
     # fill return variable
-    eval "${1}=\"${var}\""
+    # DO NOT EXPAND variables in this(var_data_tmp) VARIABLE so using ''
+    eval "${var_name_arg}='${var_data_tmp}'"
     
-    echo "INFO >> ${prefix} >> using variable = ${1} as ${var_name} = ${var}"
+    # test fill back 
+    eval "var_data_tmp=\"\${${var_name_arg}}\""
+    echo "INFO >> ${prefix} >> using variable = ${var_name_arg} as ${var_name_tmp} = ${var_data_tmp}"
     return 0
 }
 
