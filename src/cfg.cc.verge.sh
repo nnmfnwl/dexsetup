@@ -35,10 +35,6 @@ cc_make_depends="bdb"
 cc_command_configure_debian12="${cc_make_depends}"
 cc_command_configure_debian13="${cc_make_depends}"
 
-cc_command_configure_ubuntu="bdb boost"
-cc_command_configure_ubuntu24="${cc_make_depends}"
-cc_command_configure_ubuntu25="${cc_make_depends}"
-
 cc_command_configure='
 ./configure
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
@@ -50,6 +46,12 @@ CXXFLAGS="-O3 -march=native"
 '
 cc_command_configure_debian12="${cc_command_configure}"
 cc_command_configure_debian13="${cc_command_configure}"
+
+
+
+cc_command_configure_ubuntu="bdb boost"
+cc_command_configure_ubuntu24="${cc_make_depends}"
+cc_command_configure_ubuntu25="${cc_make_depends}"
 
 cc_command_configure_ubuntu='
 ./configure
