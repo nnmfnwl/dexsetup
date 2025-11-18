@@ -24,7 +24,6 @@ cc_git_src_branch="v0.21.4"
 cc_git_commit_id="beae01d62292a0aab363b7a4d3f606708cea7260"
 
 cc_make_depends="bdb"
-cc_make_depends_ubuntu="bdb boost"
 cc_make_depends_debian12="${cc_make_depends}"
 cc_make_depends_debian13="${cc_make_depends}"
 cc_make_depends_ubuntu24="${cc_make_depends}"
@@ -35,17 +34,6 @@ cc_command_configure='
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
---disable-bench --disable-gui-tests --disable-tests
---enable-reduce-exports --without-miniupnpc --without-zmq
---with-gui=auto
-'
-
-cc_command_configure_ubuntu='
-./configure --quiet
-LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
-CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
-CXXFLAGS="-O3 -march=native"
---with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
 --disable-bench --disable-gui-tests --disable-tests
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
