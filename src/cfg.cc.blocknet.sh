@@ -76,8 +76,8 @@ CXXFLAGS="-O3 -march=native"
 --with-gui=auto
 '
 cc_command_configure_debian13="${cc_command_configure}"
-cc_command_configure_ubuntu25="${cc_command_configure}"
 cc_command_configure_ubuntu24="${cc_command_configure}"
+cc_command_configure_ubuntu25="${cc_command_configure}"
 
 cc_make_depends_debian12="bdb boost"
 
