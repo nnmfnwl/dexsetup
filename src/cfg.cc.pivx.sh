@@ -58,13 +58,14 @@ whitelist ${HOME}/.pivx-params
 
 cc_git_src_url="https://github.com/PIVX-Project/PIVX.git"
 cc_git_src_branch="v5.6.1"
-cc_git_commit_id="af60f19642c6356061049df253e8036e81879f4e"
+cc_git_src_branch="2e9ce171d00ece29a73a75d037a0867c3b2fc83d"
+cc_git_commit_id="2e9ce171d00ece29a73a75d037a0867c3b2fc83d"
 
 cc_make_depends="bdb"
 cc_make_depends_debian12="${cc_make_depends}"
 cc_make_depends_debian13="${cc_make_depends}"
 
-cc_make_depends_ubuntu="bdb"
+cc_make_depends_ubuntu="bdb boost"
 cc_make_depends_ubuntu24="${cc_make_depends_ubuntu}"
 cc_make_depends_ubuntu25="${cc_make_depends_ubuntu}"
 
@@ -85,6 +86,7 @@ cc_command_configure_ubuntu='
 LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
 CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
 CXXFLAGS="-O3 -march=native"
+--with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
 --disable-bench --disable-gui-tests --disable-tests
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
