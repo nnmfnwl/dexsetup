@@ -98,6 +98,12 @@ tool_cp ${cc_firejail_profile_template_path} ${cc_firejail_profile_path}
 # copy all data needed newly created profile
 tool_cp_dir_recursive cc_bin_path cc_profile_data_path_bin "copy torbrowser bin files"
 
+# prepare download data path to make it accessible easy by symlink
+cc_download_data_path=${cc_profile_data_path_bin}"/Browser/Downloads"
+tool_make_and_check_dir_path cc_download_data_path "torbrowser profile Downloads data path"
+cc_download_data_ln_path=${cc_install_dir_path}"/downloads."${cc_firejail_profile_name}
+ln -s ${cc_download_data_path} ${cc_download_data_ln_path}
+
 tool_time_finish_print
 
 exit 0
