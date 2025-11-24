@@ -25,8 +25,8 @@ cc_firejail_profile_add='
 cc_git_src_url="https://github.com/dashpay/dash.git"
 #~ cc_git_src_branch="v19.2.0"
 #~ cc_git_commit_id="549e347b742cb4dc63807a292729e658218d7d0f"
-cc_git_src_branch="v20.1.1"
-cc_git_commit_id="19512988c6e6e8641245bd9c5fab21dd737561f0"
+cc_git_src_branch="v23.0.0"
+cc_git_commit_id="b380d4837c376e2f2cfa53e47f56a263f5bd2e06"
 
 cc_make_depends="bdb backtrace"
 cc_make_depends_debian13="${cc_make_depends}"
