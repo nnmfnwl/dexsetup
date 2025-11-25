@@ -64,7 +64,14 @@ CXXFLAGS="-O3 -march=native"
 
 cc_command_pre_make='
 filepath="src/qt/trafficgraphwidget.cpp" &&
-((cat ${filepath} | grep "#include <QPainterPath>") || sed -i -e "/#include <QPainter>/ a #include <QPainterPath>" ${filepath})
+strsearch="#include <QPainter>" &&
+stradd="#include <QPainterPath>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+filepath="src/qt/bitcoin.cpp" &&
+strsearch="#include <QWindow>" &&
+stradd="#include <QDebug>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
 '
 
 cc_command_post_make=''
