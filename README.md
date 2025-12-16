@@ -142,4 +142,5 @@ so here this project comes:
   * Pocketcoin wallet (core node of Bastyon decentralized social/micro-blog/article/video/audio/chat/ network) - [github](https://github.com/pocketnetteam/pocketnet.core) - [Bastyon.com](https://bastyon.com/index?sst=cbdc)
   * Particl wallet - [github](https://github.com/particl/particl-core.git)
   * Tor Browser - [main page](https://www.torproject.org/download/) - [github archive](https://archive.torproject.org/tor-package-archive/torbrowser/14.5.3/)
-  * Session privacy messaging app  - [Session privacy messenger](https://getsession.org/) - [github](https://github.com/session-foundation/session-desktop)
+  * Session no-ID privacy messaging app  - [Session privacy messenger](https://getsession.org/) - [github](https://github.com/session-foundation/session-desktop)
+  * Simplex no-ID privacy messaging app  - [Simplex privacy messenger](https://simplex.chat) - [github](https://github.com/simplex-chat)
