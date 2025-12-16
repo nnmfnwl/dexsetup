@@ -43,7 +43,7 @@ cc_reset_on_price_change_positive=0.01
 cc_reset_on_price_change_negative=0.05
 
 cc_reset_after_delay=600
-cc_reset_after_order_finish_number=3
+cc_reset_after_order_finish_number=2
 cc_reset_after_order_finish_delay=0
 
 cc_sboundary_asset="''"
@@ -51,7 +51,8 @@ cc_sboundary_max=0
 cc_sboundary_min=0
 cc_sboundary_max_track_asset="False"
 cc_sboundary_min_track_asset="False"
-cc_sboundary_max_min_reverse="True"
+cc_sboundary_price_reverse="False"
+cc_sboundary_price_reverse_opposite="True"
 cc_sboundary_max_cancel="True"
 cc_sboundary_max_exit="True"
 cc_sboundary_min_cancel="False"
