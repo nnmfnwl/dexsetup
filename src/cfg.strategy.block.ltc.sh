@@ -9,9 +9,9 @@ cc_address_funds_only="True"
 cc_address_maker_default="{cc_address_maker}"
 cc_address_taker_default="{cc_address_taker}"
 
-cc_sell_size_asset="BLOCK"
+cc_sell_size_asset="USDT"
 # opposite strategy using "*_opposite" variables if exist
-cc_sell_size_asset_opposite="BLOCK"
+cc_sell_size_asset_opposite="USDT"
 
 # automatic maker price gathering
 cc_price_redirections='"BLOCK": { "asset": "USDT", "price": 0.023777}'
@@ -23,15 +23,15 @@ cc_price_source_argval="--usecg"
 cc_flush_canceled_orders=60
 
 # first placed orders
-cc_sell_start_spread="2.1"
-cc_sell_start_spread_opposite="2.1"
-cc_sell_start="100"
-cc_sell_start_min="6"
+cc_sell_start_spread="3.1"
+cc_sell_start_spread_opposite="3.1"
+cc_sell_start="7"
+cc_sell_start_min="2"
 # last palced order
 cc_sell_end_spread="1.04"
 cc_sell_end_spread_opposite="1.04"
-cc_sell_end="10"
-cc_sell_end_min="6"
+cc_sell_end="2"
+cc_sell_end_min="2"
 
 #~ cc_max_open_orders="{cc_max_open_orders}"
 cc_max_open_orders="4"
@@ -63,7 +63,8 @@ cc_sboundary_max_track_asset="False"
 cc_sboundary_min_track_asset="False"
     
     # Enable reversed pricing as 1/X, ie BLOCK/BTC vs BTC/BLOCK pricing can set like 0.000145 on both bot trading sides, instead of 0.000145 vs 6896.55.
-cc_sboundary_max_min_reverse="True"
+cc_sboundary_price_reverse="False"
+cc_sboundary_price_reverse_opposite="True"
     
     # maximum boundary hit behavior True/False
     # cancel orders on max boundary. The reason can be user is not willing to continue selling his maker-asset once price is too high bc expected bullmarket and user rather start staking
