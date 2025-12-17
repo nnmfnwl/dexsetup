@@ -71,6 +71,11 @@ else
     exit 1
 fi
 
+cli_script_data=""
+gui_script_data=""
+stop_script_data=""
+update_script_data=""
+
 # prepare run scripts data
 gssn=${cc_instance}
 cli_script_data="
