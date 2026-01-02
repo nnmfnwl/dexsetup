@@ -8,9 +8,13 @@ cc_git_branch="v1.15.2"
 cc_git_commit_id="073ab14a5e7fbd26d80d806e5ba73c712b75a4ab"
 cc_git_build_bin_file_dir="build"
 
-cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.17.1/session-desktop-linux-amd64-1.17.1.deb"
-cc_download_sha512sum_x86_64="ac9ab66ece8a73e95a05db0b17502774c51ab5ff1ceffe681fce86d652bb89e5958c9d1cb29853f48e003c425569db5c766e730b207d4b4c1287d47a772c019b"
-cc_download_sha256sum_x86_64="79507523c0237ab9ab4833a7ef171b388f6329bfd5d4ae33aaa6402a04c80619"
+#~ cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.17.1/session-desktop-linux-amd64-1.17.1.deb"
+#~ cc_download_sha512sum_x86_64="ac9ab66ece8a73e95a05db0b17502774c51ab5ff1ceffe681fce86d652bb89e5958c9d1cb29853f48e003c425569db5c766e730b207d4b4c1287d47a772c019b"
+#~ cc_download_sha256sum_x86_64="79507523c0237ab9ab4833a7ef171b388f6329bfd5d4ae33aaa6402a04c80619"
+
+cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.17.5/session-desktop-linux-amd64-1.17.5.deb"
+cc_download_sha512sum_x86_64="d7ff0d78440943ffcb50a8acded13992160a04dc6ff5fd025b34680ce2a083c8a7c3ea03909047ac07879307296150f79c1d2dbf3a5e76a8ed93a2b4e9f72c99"
+cc_download_sha256sum_x86_64="71bd62bb6a4371c38199b0cf1a5809720e903564a28878f65e9c0cc20857241f"
 
 cc_download_extracted_bin_files_dir="/opt/Session/"
 
