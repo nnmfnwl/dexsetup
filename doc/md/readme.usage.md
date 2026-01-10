@@ -1,22 +1,22 @@
 ### 9. Environment usage
 
 **Basic Files Structure navigation**
-  * By default of this tutorial root directory where all files are stored is `~/Downloads/ccwallets/`
-    * wallet directory `./<crypto name>` ie `~/Downloads/ccwallets/blocknet/`
-      * wallet source code `./git.src/` ie `~/Downloads/ccwallets/blocknet/git.src/`
-      * wallet build binary files `./bin/` ie `~/Downloads/ccwallets/blocknet/bin/`
+  * By default of this tutorial root directory where all files are stored is `~/dexsetup/`
+    * wallet directory `./<crypto name>` ie `~/dexsetup/blocknet/`
+      * wallet source code `./git.src/` ie `~/dexsetup/blocknet/git.src/`
+      * wallet build binary files `./bin/` ie `~/dexsetup/blocknet/bin/`
       * wallet firejail custom development environment script `./firejail.<crypto name>.dev.env.sh` ie `./firejail.blocknet.dev.env.sh`
       * wallet firejail CLI run script `./firejail.<cc>.<wallet name>.cli.bin.sh` ie `./firejail.blocknet.wallet_block.cli.bin.sh`
       * wallet firejail Daemon run script `./firejail.<cc>.<wallet name>.d.bin.sh` ie `./firejail.blocknet.wallet_block.d.bin.sh`
       * wallet firejail QT run script `./firejail.<cc>.<wallet name>.qt.bin.sh` ie `./firejail.blocknet.wallet_block.cli.qt.sh`
-    * custom wallet build directories `./<crypto name>/<crypto name.version>` ie `~/Downloads/ccwallets/blocknet/blocknet.qa`
-    * DEXSETUP directory`./dexsetup/` ie `~/Downloads/ccwallets/dexsetup`
+    * custom wallet build directories `./<crypto name>/<crypto name.version>` ie `~/dexsetup/blocknet/blocknet.qa`
+    * DEXSETUP directory`./dexsetup/` ie `~/dexsetup/dexsetup`
       * generated ecosystem management screen scripts
         * `./start.screen.instance_default.cli.sh/`
         * `./start.screen.instance_default.gui.sh/`
         * `./stop.screen.instance_default.sh/`
         * `./update.screen.instance_default.sh/`
-    * DEXBOT files `./dexbot/` ie `~/Downloads/ccwallets/dexbot`
+    * DEXBOT files `./dexbot/` ie `~/dexsetup/dexbot`
       * generated DEXBOT strategies `./git.src/strategy_<cc ticker>_<cc ticker>_<strategy name>.py` ie `./git.src/strategy_BLOCK_LTC_strategy1.py` and `./git.src/strategy_LTC_BLOCK_strategy1.py`
       * generated DEXBOT strategies run scripts `./run.firejail.<cc ticker>.<cc ticker>.<strategy name>.sh` ie `./run.firejail.BLOCK.LTC.strategy1.sh` and `run.firejail.LTC.BLOCK.strategy1.sh`
 
@@ -24,8 +24,8 @@
   * best way to start whole ecosystem in Graphical desktop environment or over ssh is by generated screen script
   * In case we want to screen script just to open all screen tabs and type commands in, but everything to be manually started by ENTER button, for this case there is `norun` argument when generating screen script.
 ```
-cd ~/Downloads/ccwallets/dexsetup && `./run.instance_default.qt.sh`
-cd ~/Downloads/ccwallets/dexsetup && `./run.instance_default.d.sh`
+cd ~/dexsetup/dexsetup && `./run.instance_default.qt.sh`
+cd ~/dexsetup/dexsetup && `./run.instance_default.d.sh`
 ```
   * before entering screen, please read at least basics about navigation in GNU screen [2. Remote console management tips with Gnu Screen](./readme.remote.console.md)
   * to enter running ecosystem screen environment 
@@ -42,20 +42,20 @@ CTRL + a + "
 **Manual Environment usage without screen script**
   * to start ie: blocknet wallet daemon securely sandboxed:
 ```
-cd ~/Downloads/ccwallets/blocknet && ./firejail.blocknet.wallet_block.d.bin.sh
+cd ~/dexsetup/blocknet && ./firejail.blocknet.wallet_block.d.bin.sh
 ```
   * to start ie: blocknet cli sandbox:
 ```
-cd ~/Downloads/ccwallets/blocknet && ./firejail.blocknet.wallet_block.cli.bin.sh
+cd ~/dexsetup/blocknet && ./firejail.blocknet.wallet_block.cli.bin.sh
 ```
   * to start previously generated BLOCK.LTC trading strategy anmed strategy1 in bidirectorial way
 ```
-cd ~/Downloads/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh
-cd ~/Downloads/dexbot/ && ./run.firejail.LTC.BLOCK.strategy1.sh
+cd ~/dexsetup/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh
+cd ~/dexsetup/dexbot/ && ./run.firejail.LTC.BLOCK.strategy1.sh
 ```
   * once you stop trading strategy by CTRL+C, you need to clean up orders manually by
 ```
-cd ~/Downloads/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh --canceladdress
+cd ~/dexsetup/dexbot/ && ./run.firejail.BLOCK.LTC.strategy1.sh --canceladdress
 ```
   * for more details about usage you can also type
 ```

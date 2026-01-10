@@ -22,10 +22,10 @@
   * successful result of above command is
     * generated ecosystem management scripts `/<DEXSETUP root>/<start|stop|update>.screen.instance_<instance name>.<|qt|d>.sh`
     * for example:
-      * `~/Downloads/ccwallets/dexsetup/start.screen.instance_default.cli.sh/` to start in graphical user interface mode
-      * `~/Downloads/ccwallets/dexsetup/start.screen.instance_default.gui.sh/` to start in console user interface mode
-      * `~/Downloads/ccwallets/dexsetup/stop.screen.instance_default.sh/` to stop
-      * `~/Downloads/ccwallets/dexsetup/update.screen.instance_default.sh/` to update
+      * `~/dexsetup/dexsetup/start.screen.instance_default.cli.sh/` to start in graphical user interface mode
+      * `~/dexsetup/dexsetup/start.screen.instance_default.gui.sh/` to start in console user interface mode
+      * `~/dexsetup/dexsetup/stop.screen.instance_default.sh/` to stop
+      * `~/dexsetup/dexsetup/update.screen.instance_default.sh/` to update
   * QT(GUI) script needs to be run from inside running GRAPHICAL USER INTERFACE SESSION OR INSIDE ie VNC SESSION. So should not be called within classic SSH session because that not having exported GUI environment variables so will not be able to detect display used for GUI apps.
   
   * generated screen start instance with default options contains:
@@ -48,7 +48,7 @@
        * any manual edits on strategy options would be removed
     * `screen` regenerate screen start script
     * `yes` don't ask, just say yes to all questions
-    * `once|daemon` run only once or in loop as daemon
+    * `daemon` run only once or in loop as daemon
   
 **More Help**
   * for all details about screen setup script and generated start/stop/update scripts usage please read help

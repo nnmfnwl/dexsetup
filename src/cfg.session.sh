@@ -1,0 +1,183 @@
+cc_setup_helper_version="20210827"
+
+# path here is relative to dexsetup root directory default("~/dexsetup/dexsetup/")
+cc_install_dir_path_default="session/latest"
+cc_git_src_url="https://github.com/oxen-io/session-desktop.git"
+cc_git_src_branch_master=
+cc_git_branch="v1.15.2"
+cc_git_commit_id="073ab14a5e7fbd26d80d806e5ba73c712b75a4ab"
+cc_git_build_bin_file_dir="build"
+
+#~ cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.17.1/session-desktop-linux-amd64-1.17.1.deb"
+#~ cc_download_sha512sum_x86_64="ac9ab66ece8a73e95a05db0b17502774c51ab5ff1ceffe681fce86d652bb89e5958c9d1cb29853f48e003c425569db5c766e730b207d4b4c1287d47a772c019b"
+#~ cc_download_sha256sum_x86_64="79507523c0237ab9ab4833a7ef171b388f6329bfd5d4ae33aaa6402a04c80619"
+
+cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.17.5/session-desktop-linux-amd64-1.17.5.deb"
+cc_download_sha512sum_x86_64="d7ff0d78440943ffcb50a8acded13992160a04dc6ff5fd025b34680ce2a083c8a7c3ea03909047ac07879307296150f79c1d2dbf3a5e76a8ed93a2b4e9f72c99"
+cc_download_sha256sum_x86_64="71bd62bb6a4371c38199b0cf1a5809720e903564a28878f65e9c0cc20857241f"
+
+cc_download_extracted_bin_files_dir="/opt/Session/"
+
+cc_firejail_make_args=""
+
+cc_proxychains_cfg='
+# proxychains.conf  VER 4.x
+#
+#        HTTP, SOCKS4a, SOCKS5 tunneling proxifier with DNS.
+
+
+# The option below identifies how the ProxyList is treated.
+# only one option should be uncommented at time,
+# otherwise the last appearing option will be accepted
+#
+#dynamic_chain
+#
+# Dynamic - Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# at least one proxy must be online to play in chain
+# (dead proxies are skipped)
+# otherwise EINTR is returned to the app
+#
+strict_chain
+#
+# Strict - Each connection will be done via chained proxies
+# all proxies chained in the order as they appear in the list
+# all proxies must be online to play in chain
+# otherwise EINTR is returned to the app
+#
+#round_robin_chain
+#
+# Round Robin - Each connection will be done via chained proxies
+# of chain_len length
+# all proxies chained in the order as they appear in the list
+# at least one proxy must be online to play in chain
+# (dead proxies are skipped).
+# the start of the current proxy chain is the proxy after the last
+# proxy in the previously invoked proxy chain.
+# if the end of the proxy chain is reached while looking for proxies
+# start at the beginning again.
+# otherwise EINTR is returned to the app
+# These semantics are not guaranteed in a multithreaded environment.
+#
+#random_chain
+#
+# Random - Each connection will be done via random proxy
+# (or proxy chain, see  chain_len) from the list.
+# this option is good to test your IDS :)
+
+# Make sense only if random_chain or round_robin_chain
+#chain_len = 2
+
+# Quiet mode (no output from library)
+#quiet_mode
+
+## Proxy DNS requests - no leak for DNS data
+# (disable all of the 3 items below to not proxy your DNS requests)
+
+# method 1. this uses the proxychains4 style method to do remote dns:
+# a thread is spawned that serves DNS requests and hands down an ip
+# assigned from an internal list (via remote_dns_subset).
+# this is the easiest (setup-wise) and fastest method, however on
+# systems with buggy libcs and very complex software like webbrosers
+# this might not work and/or cause crashes.
+proxy_dns
+
+# method 2. use the old proxyresolv script to proxy DNS requests
+# in proxychains 3.1 style. requires "proxyresolv" in $PATH
+# plus a dynamically linked "dig" binary.
+# this is a lot slower than "proxy_dns", does not support .onion URLs,
+# but might be more compatible with complex software like webbrowsers.
+#proxy_dns_old
+
+# method 3. use proxychains4-daemon process to serve remote DNS requests.
+# this is similar to the threaded "proxy_dns" method, however it requires
+# that proxychains4-daemon is already running on the specified address.
+# on the plus side it does not do malloc/threads so it should be quite
+# compatible with complex, async-unsafe software.
+# note that if you do not start proxychains4-daemon before using this,
+# the process will simply hang.
+#proxy_dns_daemon 127.0.0.1:1053
+
+# set the class A subnet number to use for the internal remote DNS mapping
+# we use the reserved 224.x.x.x range by default,
+# if the proxified app does a DNS request, we will return an IP from that range.
+# on further accesses to this ip we will send the saved DNS name to the proxy.
+# in case some control-freak app checks the returned ip, and denies to 
+# connect, you can use another subnet, e.g. 10.x.x.x or 127.x.x.x.
+# of course you should make sure that the proxified app does not need
+# *real* access to this subnet. 
+# i.e. dont use the same subnet then in the localnet section
+#remote_dns_subnet 127 
+#remote_dns_subnet 10
+remote_dns_subnet 224
+
+# Some timeouts in milliseconds
+tcp_read_time_out 15000
+tcp_connect_time_out 8000
+
+### Examples for localnet exclusion
+## localnet ranges will *not* use a proxy to connect.
+## note that localnet works only when plain IPv4 addresses are passed to the app,
+## the hostname resolves via /etc/hosts, or proxy_dns is disabled or proxy_dns_old used.
+
+## Exclude connections to 192.168.1.0/24 with port 80
+# localnet 192.168.1.0:80/255.255.255.0
+
+## Exclude connections to 192.168.100.0/24
+# localnet 192.168.100.0/255.255.255.0
+
+## Exclude connections to ANYwhere with port 80
+# localnet 0.0.0.0:80/0.0.0.0
+
+## RFC5735 Loopback address range
+## if you enable this, you have to make sure remote_dns_subnet is not 127
+## you will need to enable it if you want to use an application that 
+## connects to localhost.
+#localnet 127.0.0.0/255.0.0.0
+
+## RFC1918 Private Address Ranges
+# localnet 10.0.0.0/255.0.0.0
+# localnet 172.16.0.0/255.240.0.0
+# localnet 192.168.0.0/255.255.0.0
+
+### Examples for dnat
+## Trying to proxy connections to destinations which are dnatted,
+## will result in proxying connections to the new given destinations.
+## Whenever I connect to 1.1.1.1 on port 1234 actually connect to 1.1.1.2 on port 443
+# dnat 1.1.1.1:1234  1.1.1.2:443
+
+## Whenever I connect to 1.1.1.1 on port 443 actually connect to 1.1.1.2 on port 443
+## (no need to write :443 again)
+# dnat 1.1.1.2:443  1.1.1.2
+
+## No matter what port I connect to on 1.1.1.1 port actually connect to 1.1.1.2 on port 443
+# dnat 1.1.1.1  1.1.1.2:443
+
+## Always, instead of connecting to 1.1.1.1, connect to 1.1.1.2
+# dnat 1.1.1.1  1.1.1.2
+
+# ProxyList format
+#       type  ip  port [user pass]
+#       (values separated by "tab" or "blank")
+#
+#       only numeric ipv4 addresses are valid
+#
+#
+#        Examples:
+#
+#              socks5   192.168.67.78  1080  lamer secret
+#     http  192.168.89.3   8080  justu hidden
+#     socks4   192.168.1.49   1080
+#          http   192.168.39.93  8080  
+#     
+#
+#       proxy types: http, socks4, socks5, raw
+#         * raw: The traffic is simply forwarded to the proxy without modification.
+#        ( auth types supported: "basic"-http  "user/pass"-socks )
+#
+[ProxyList]
+# add proxy here ...
+# meanwile
+# defaults set to "tor"
+socks5  127.0.0.1 9050
+'

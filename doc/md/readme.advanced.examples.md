@@ -5,14 +5,14 @@
   * `first pivx wallet for staking` will be using custom blockchain directory "~/.pivx_staking" and wallet dat file "wallet_pivx_staking" and firejail run script named with suffix "_staking"
   * `second pivx wallet for blockdx` liquidity will be using default blockchain directory "~/.pivx/" and wallet.dat file as "wallet_pivx_blockdx" and firejail run script named with suffix "_blockdx"
 ```
-cd ~/Downloads/ccwallets/dexsetup/
-./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/.pivx/ wallet_pivx_blockdx
-./setup.cc.firejail.sh ./src/cfg.cc.pivx.sh ~/.pivx_staking/ wallet_pivx_staking
+cd ~/dexsetup/dexsetup/
+./setup.cc.wallet.profile.sh ./src/cfg.cc.pivx.sh ~/dexsetup/pivx/ ~/.pivx/ wallet_pivx_blockdx
+./setup.cc.wallet.profile.sh ./src/cfg.cc.pivx.sh ~/dexsetup/pivx/ ~/.pivx_staking/ wallet_pivx_staking
 ```
 
   * after generating run script, to run GUI/DAEMON/CLI for staking wallet:
 ```
-cd ~/Downloads/ccwallets/pivx/
+cd ~/dexsetup/pivx/
 ./firejail.pivx.wallet_pivx_staking.qt.bin.sh
 ./firejail.pivx.wallet_pivx_staking.d.bin.sh
 ./firejail.pivx.wallet_pivx_staking.cli.bin.sh
@@ -20,7 +20,7 @@ cd ~/Downloads/ccwallets/pivx/
 
   * after generating run script, to run GUI/DAEMON/CLI for blockdx liquidity wallet:
 ```
-cd ~/Downloads/ccwallets/pivx/
+cd ~/dexsetup/pivx/
 ./firejail.pivx.wallet_pivx_blockdx.qt.bin.sh
 ./firejail.pivx.wallet_pivx_blockdx.d.bin.sh
 ./firejail.pivx.wallet_pivx_blockdx.cli.bin.sh
