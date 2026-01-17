@@ -16,8 +16,9 @@ cc_sell_size_asset_opposite="USDT"
 # automatic maker price gathering
 cc_price_redirections=' '
 cc_maker_price=0
-#~ cc_price_source_argval=" "
-cc_price_source_argval="--usecg"
+cc_price_provider="cg"
+cc_price_acceptable_outage=0
+cc_price_outage_extra_slide=1.5
 
 # flush all canceled orders every 60 seconds
 cc_flush_canceled_orders=60
