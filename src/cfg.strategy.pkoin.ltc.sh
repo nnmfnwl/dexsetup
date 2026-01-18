@@ -97,5 +97,10 @@ cc_balance_save_percent=0
 cc_im_really_sure_what_im_doing_argval=" "
 cc_im_really_sure_what_im_doing_argval="--imreallysurewhatimdoing 0"
 
+# user could let automatically include custom additional permanent configuration,
+# useful when user do not want to always rewrite base strategy configuration or write whole new one
+cc_additional_cfg=$(dirname "${BASH_SOURCE[0]}")/cfg.strategy.pkoin.ltc.add.sh
+(test -f ${cc_additional_cfg}) && echo "including additional strategy configuration ${cc_additional_cfg}" && source ${cc_additional_cfg}
+
 # include default help for variables that will be loaded when not already set
 source "$(dirname "${BASH_SOURCE[0]}")/cfg.strategy.default_help.sh" || exit 1
