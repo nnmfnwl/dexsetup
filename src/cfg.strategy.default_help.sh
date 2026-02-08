@@ -1,14 +1,14 @@
 cc_max_open_orders_help_text="
->> number of orders that could DEXBOT let opened at same time for ${cc_ticker_maker}/${cc_ticker_taker}
+>> number of orders that could DEXBOT let opened at same time for ${cc_maker_ticker}/${cc_taker_ticker}
 ${cc_max_open_orders_help_text}"
 
 cc_max_open_orders_help_text_opposite="
->> number of orders that could DEXBOT let opened at same time for ${cc_ticker_taker}/${cc_ticker_maker}
+>> number of orders that could DEXBOT let opened at same time for ${cc_taker_ticker}/${cc_maker_ticker}
 ${cc_max_open_orders_help_text}"
 
 # TODO remove all next lines by replacing them with default help that match configuration variable like already above lines already done
 
-(test "${cc_delay_internal}" = "") && cc_delay_internal=2.3
+(test "${cc_delay_internal_op}" = "") && cc_delay_internal=2.3
 (test "${cc_delay_check_price}" = "") && cc_delay_check_price=180
 (test "${cc_delay_internal_error}" = "") && cc_delay_internal_error=10
 (test "${cc_delay_internal_cycle}" = "") && cc_delay_internal_cycle=8
@@ -16,8 +16,8 @@ ${cc_max_open_orders_help_text}"
 #~ cc_setup_helper_version="20210827"
 
 #~ cc_dexbot_naming_suffix_default="default"
-#~ cc_ticker_maker="DOGE"
-#~ cc_ticker_taker="LTC"
+#~ cc_maker_ticker="DOGE"
+#~ cc_taker_ticker="LTC"
 
 #~ cc_address_funds_only="True"
 
@@ -32,9 +32,9 @@ ${cc_max_open_orders_help_text}"
 #~ cc_price_source_argval="--usecg"
 
 #~ # first placed orders
-#~ cc_sell_start_spread="1.99"
-#~ cc_sell_start_spread_opposite="1.99"
-#~ cc_sell_start="15"
+#~ cc_sell_start_slide="1.99"
+#~ cc_sell_start_slide_opposite="1.99"
+#~ cc_sell_start_max="15"
 #~ cc_sell_start_min="12"
 #~ # last palced order
 #~ cc_sell_end_spread="1.03"
@@ -79,7 +79,7 @@ ${cc_max_open_orders_help_text}"
 #~ cc_slide_dyn_asset="BLOCK"
 #~ cc_slide_dyn_asset_track="True"
 #~ cc_slide_dyn_zero_type="relative"
-#~ cc_slide_dyn_zero="-2"
+#~ cc_slide_dyn_zero_value="-2"
 #~ cc_slide_dyn_type="static"
 
 #~ cc_slide_dyn_sell_ignore=10
@@ -97,5 +97,5 @@ ${cc_max_open_orders_help_text}"
 #~ cc_balance_save_number=0
 #~ cc_balance_save_percent=0
 
-#~ cc_im_really_sure_what_im_doing_argval=" "
-#~ cc_im_really_sure_what_im_doing_argval="--imreallysurewhatimdoing 0"
+#~ cc_im_really_sure_what_im_doing=" "
+#~ cc_im_really_sure_what_im_doing="0"

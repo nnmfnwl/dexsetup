@@ -1,8 +1,8 @@
 cc_setup_helper_version="20210827"
 
 cc_dexbot_naming_suffix_default="default"
-cc_ticker_maker="BTC"
-cc_ticker_taker="LTC"
+cc_maker_ticker="BTC"
+cc_taker_ticker="LTC"
 
 cc_address_funds_only="True"
 
@@ -23,9 +23,9 @@ cc_price_outage_extra_slide=1.5
 cc_flush_canceled_orders=60
 
 # first placed orders
-cc_sell_start_spread="1.70"
-cc_sell_start_spread_opposite="3.44"
-cc_sell_start="300"
+cc_sell_start_slide="1.70"
+cc_sell_start_slide_opposite="3.44"
+cc_sell_start_max="300"
 cc_sell_start_min="200"
 # last palced order
 cc_sell_end_spread="1.06" # BTC maker pays at least 12$ USD in txfee
@@ -78,7 +78,7 @@ cc_slide_dyn_asset=${cc_sell_size_asset}
 cc_slide_dyn_asset_opposite=${cc_sell_size_asset_opposite}
 cc_slide_dyn_asset_track="False"
 cc_slide_dyn_zero_type="static"
-cc_slide_dyn_zero="-2"
+cc_slide_dyn_zero_value="-2"
 cc_slide_dyn_type="static"
 
 cc_slide_dyn_sell_ignore=0
@@ -96,8 +96,8 @@ cc_slide_dyn_buy_max=0.5
 cc_balance_save_number=0
 cc_balance_save_percent=0
 
-cc_im_really_sure_what_im_doing_argval=" "
-cc_im_really_sure_what_im_doing_argval="--imreallysurewhatimdoing 0"
+cc_im_really_sure_what_im_doing=" "
+cc_im_really_sure_what_im_doing="0"
 
 # user could let automatically include custom additional permanent configuration,
 # useful when user do not want to always rewrite base strategy configuration or write whole new one

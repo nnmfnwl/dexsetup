@@ -1,8 +1,8 @@
 cc_setup_helper_version="20210827"
 
 cc_dexbot_naming_suffix_default="default"
-cc_ticker_maker="BLOCK"
-cc_ticker_taker="PKOIN"
+cc_maker_ticker="BLOCK"
+cc_taker_ticker="PKOIN"
 
 cc_address_funds_only="True"
 
@@ -25,9 +25,9 @@ cc_price_outage_extra_slide=1.5
 cc_flush_canceled_orders=60
 
 # first placed orders
-cc_sell_start_spread="3.1"
-cc_sell_start_spread_opposite="3.1"
-cc_sell_start="7"
+cc_sell_start_slide="3.1"
+cc_sell_start_slide_opposite="3.1"
+cc_sell_start_max="7"
 cc_sell_start_min="2"
 # last palced order
 cc_sell_end_spread="1.04"
@@ -116,13 +116,13 @@ cc_slide_dyn_asset=${cc_sell_size_asset}
 cc_slide_dyn_asset_opposite=${cc_sell_size_asset_opposite}
 cc_slide_dyn_asset_track="False"
 cc_slide_dyn_zero_type="static"
-cc_slide_dyn_zero="-2"
+cc_slide_dyn_zero_value="-2"
 cc_slide_dyn_type="static"
 
 # for better understanding of below dynamic slide parameters this, here simple example:
 
 # lets say BLOCK/LTC DX BOT started first time with balance 100 BLOCK
-# so orders would be created first order at cc_sell_start_spread
+# so orders would be created first order at cc_sell_start_slide
 #                               1.order 10 (2.1 * actual price)
 #                            second order must be spaced equally > compute from parameters > (2.1-(((2.1-1.04)/(2+1))x1)) = 1.746666667
 #                               2.order 10 (1.746666667 * actual price) >> 
@@ -165,8 +165,8 @@ cc_slide_dyn_buy_max=3
 cc_balance_save_number=0
 cc_balance_save_percent=0
 
-cc_im_really_sure_what_im_doing_argval=" "
-cc_im_really_sure_what_im_doing_argval="--imreallysurewhatimdoing 0"
+cc_im_really_sure_what_im_doing=" "
+cc_im_really_sure_what_im_doing="0"
 
 # user could let automatically include custom additional permanent configuration,
 # useful when user do not want to always rewrite base strategy configuration or write whole new one
