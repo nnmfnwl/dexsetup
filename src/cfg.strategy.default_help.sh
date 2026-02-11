@@ -8,10 +8,17 @@ ${cc_max_open_orders_help_text}"
 
 # TODO remove all next lines by replacing them with default help that match configuration variable like already above lines already done
 
-(test "${cc_delay_internal_op}" = "") && cc_delay_internal=2.3
+(test "${cc_delay_internal_op}" = "") && cc_delay_internal_op=2.3
 (test "${cc_delay_check_price}" = "") && cc_delay_check_price=180
 (test "${cc_delay_internal_error}" = "") && cc_delay_internal_error=10
 (test "${cc_delay_internal_cycle}" = "") && cc_delay_internal_cycle=8
+(test "${cc_balance_save_asset}" = "") && cc_balance_save_asset=${cc_maker_ticker}
+(test "${cc_balance_save_asset_track}" = "") && cc_balance_save_asset_track="False"
+(test "${cc_sell_random}" = "") && cc_sell_random="False"
+(test "${cc_sell_type}" = "") && cc_sell_type="0"
+(test "${cc_pump_slide}" = "") && cc_pump_slide="0"
+(test "${cc_pump_amount_max}" = "") && cc_pump_amount_max="0"
+
 
 #~ cc_setup_helper_version="20210827"
 
