@@ -28,9 +28,9 @@ cc_sell_start_slide_opposite="3.44"
 cc_sell_start_max="300"
 cc_sell_start_min="200"
 # last palced order
-cc_sell_end_spread="1.06" # BTC maker pays at least 12$ USD in txfee
-cc_sell_end_spread_opposite="1.017" # LTC maker pays little fee, but has to pay some BTC maker fee also
-cc_sell_end="200"
+cc_sell_end_slide="1.06" # BTC maker pays at least 12$ USD in txfee
+cc_sell_end_slide_opposite="1.017" # LTC maker pays little fee, but has to pay some BTC maker fee also
+cc_sell_end_max="200"
 cc_sell_end_min="200"
 
 cc_max_open_orders="2"

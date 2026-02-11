@@ -30,9 +30,9 @@ cc_sell_start_slide_opposite="2.1"
 cc_sell_start_max="15"
 cc_sell_start_min="10"
 # last palced order
-cc_sell_end_spread="1.04"
-cc_sell_end_spread_opposite="1.04"
-cc_sell_end="15"
+cc_sell_end_slide="1.04"
+cc_sell_end_slide_opposite="1.04"
+cc_sell_end_max="15"
 cc_sell_end_min="10"
 
 #~ cc_max_open_orders="{cc_max_open_orders}"
@@ -128,7 +128,7 @@ cc_slide_dyn_type="static"
 #                               2.order 10 (1.746666667 * actual price) >> 
 #                            third order must be space equally > compute from parameters > (2.1-(((2.1-1.04)/(2+1))x2)) = 1.393333333
 #                               3.order 10 (1.393333333 * actual price)
-#                            last order at cc_sell_end_spread
+#                            last order at cc_sell_end_slide
 #                               4.order 10 (1.04 * actual price)
 
 # lets say 5 of 100 BLOCK has been sold by bot, but cc_slide_dyn_sell_threshold = cc_sell_end_min = 6
