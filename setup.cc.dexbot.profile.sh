@@ -62,11 +62,11 @@ tool_variable_check_load_default cc_rpcport_block_bak cc_rpcport
 
 # update maker blockchain and xbridge configuration
 tool_dexbot_update_cc_cfg_xb_cfg ${cc_script_cfg_path_maker} "maker"
-cc_ticker_maker_check=${cc_ticker}
+cc_maker_ticker_check=${cc_ticker}
 
 # update taker blockchain and xbridge configuration
 tool_dexbot_update_cc_cfg_xb_cfg ${cc_script_cfg_path_taker} "taker"
-cc_ticker_taker_check=${cc_ticker}
+cc_taker_ticker_check=${cc_ticker}
 
 
 
@@ -144,19 +144,19 @@ tool_variable_check_load_default cc_address_maker cc_address_maker_default "dexb
 tool_variable_check_load_default cc_address_taker cc_address_taker_default "dexbot strategy cfg"
 
 # check if tickers from maker taker configuration vs dexbot strategy configuration match
-tool_cmp ${cc_ticker_maker} ${cc_ticker_maker_check}
-tool_cmp ${cc_ticker_taker} ${cc_ticker_taker_check}
+tool_compare cc_maker_ticker cc_maker_ticker_check
+tool_compare cc_taker_ticker cc_taker_ticker_check
 
 # copy dexbot strategy template, update template, create run scripts
 
 # prepare maker/taker strategy and runscript name and path
-cc_dexbot_strategy_maker_file_name="strategy_${cc_ticker_maker}_${cc_ticker_taker}_${cc_dexbot_naming_suffix}"
-cc_dexbot_strategy_taker_file_name="strategy_${cc_ticker_taker}_${cc_ticker_maker}_${cc_dexbot_naming_suffix}"
+cc_dexbot_strategy_maker_file_name="strategy_${cc_maker_ticker}_${cc_taker_ticker}_${cc_dexbot_naming_suffix}"
+cc_dexbot_strategy_taker_file_name="strategy_${cc_taker_ticker}_${cc_maker_ticker}_${cc_dexbot_naming_suffix}"
 cc_dexbot_strategy_maker_file_path=${cc_dexbot_git_src_path}"/"${cc_dexbot_strategy_maker_file_name}".py"
 cc_dexbot_strategy_taker_file_path=${cc_dexbot_git_src_path}"/"${cc_dexbot_strategy_taker_file_name}".py"
 
-cc_dexbot_run_strategy_maker_name="run.firejail.${cc_ticker_maker}.${cc_ticker_taker}.${cc_dexbot_naming_suffix}.sh"
-cc_dexbot_run_strategy_taker_name="run.firejail.${cc_ticker_taker}.${cc_ticker_maker}.${cc_dexbot_naming_suffix}.sh"
+cc_dexbot_run_strategy_maker_name="run.firejail.${cc_maker_ticker}.${cc_taker_ticker}.${cc_dexbot_naming_suffix}.sh"
+cc_dexbot_run_strategy_taker_name="run.firejail.${cc_taker_ticker}.${cc_maker_ticker}.${cc_dexbot_naming_suffix}.sh"
 
 # check if files not already exists to not be overwritten
 if [ "${cc_action_strategy}" != "update" ]; then
@@ -180,8 +180,8 @@ cc_rpc_port=${cc_rpcport_block_bak}
 # try to match and replace dexbot strategy template file with dexbot strategy config variable values
 tool_dexbot_strategy_template_update ${cc_dexbot_strategy_maker_file_path}
 
-cc_ticker_maker=${cc_ticker_taker_check}
-cc_ticker_taker=${cc_ticker_maker_check}
+cc_maker_ticker=${cc_taker_ticker_check}
+cc_taker_ticker=${cc_maker_ticker_check}
 
 cc_address_maker_bak=${cc_address_maker}
 cc_address_taker_bak=${cc_address_taker}
