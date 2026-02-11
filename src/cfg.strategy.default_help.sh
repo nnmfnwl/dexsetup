@@ -37,8 +37,8 @@ ${cc_max_open_orders_help_text}"
 #~ cc_sell_start_max="15"
 #~ cc_sell_start_min="12"
 #~ # last palced order
-#~ cc_sell_end_spread="1.03"
-#~ cc_sell_end="15"
+#~ cc_sell_end_slide="1.03"
+#~ cc_sell_end_max="15"
 #~ cc_sell_end_min="12"
 
 #~ cc_max_open_orders="5"

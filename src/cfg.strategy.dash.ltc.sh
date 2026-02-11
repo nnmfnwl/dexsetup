@@ -28,8 +28,8 @@ cc_sell_start_slide_opposite="1.99"
 cc_sell_start_max="15"
 cc_sell_start_min="10"
 # last palced order
-cc_sell_end_spread="1.03"
-cc_sell_end="15"
+cc_sell_end_slide="1.03"
+cc_sell_end_max="15"
 cc_sell_end_min="10"
 
 cc_max_open_orders="5"
