@@ -24,6 +24,10 @@ cc_price_outage_extra_slide=1.5
 # flush all canceled orders every 60 seconds
 cc_flush_canceled_orders=60
 
+# added fixed fee to buy amount
+cc_fixed_fee_asset="USDT"
+cc_fixed_fee_value="0"
+
 # first placed orders
 cc_sell_start_slide="3.1"
 cc_sell_start_slide_opposite="3.1"
