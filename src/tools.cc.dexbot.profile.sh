@@ -423,14 +423,18 @@ function tool_dexbot_strategy_template_update() {  #strategy.file.path #opposite
             read -p "Please enter variable value or press enter to skip: " variable_value
         fi
         
-        if [ "${variable_value}" != "" ]; then
+        if [ "${variable_value}" == " " ]; then
+            variable_value=""
+        fi
+        
+        #~ if [ "${variable_value}" != "" ]; then
             echo "FOR INFO >> processing dexbot strategy conf to update template variable >> ${variable_name} >> ${variable_value}"
             strategy_file=$(
             echo "$strategy_file" | sed \
                 -e "s/{${variable_name}}/${variable_value}/g"
             )
             (test $? != 0) && echo "ERROR >> update dexbot template >> {${variable_name}} >> ${variable_value} >> failed" && exit 1
-        fi
+        #~ fi
     done
 
     # 
