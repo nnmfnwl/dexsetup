@@ -52,7 +52,7 @@ cc_reset_after_delay=600
 cc_reset_after_order_finish_number=2
 cc_reset_after_order_finish_delay=0
 
-cc_sboundary_asset="''"
+cc_sboundary_asset=" "
 cc_sboundary_max=0
 cc_sboundary_min=0
 cc_sboundary_max_track_asset="False"
@@ -64,7 +64,7 @@ cc_sboundary_max_exit="True"
 cc_sboundary_min_cancel="False"
 cc_sboundary_min_exit="False"
 
-cc_rboundary_asset="''"
+cc_rboundary_asset=" "
 cc_rboundary_price_initial=0
 cc_rboundary_max="1.5"
 cc_rboundary_min="0.9"
