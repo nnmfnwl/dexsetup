@@ -59,7 +59,7 @@ cc_reset_after_order_finish_delay=0
 # static boundaries configuration:
     # set boundaries in specific asset rather than taker
 #~ cc_sboundary_asset="USDT"
-cc_sboundary_asset=""
+cc_sboundary_asset=" "
     # boundary set in static specific price
 cc_sboundary_max=0
 cc_sboundary_min=0
@@ -85,7 +85,7 @@ cc_sboundary_min_exit="False"
 # set relative maximum and minimum maker price boundaries
     # set relative boundary values in specific asset
     # ie.: Static boundary with maker/taker BLOCK/BTC and boundary_asset is USDT, so possible boundary min 1.5 and max 3 USD (default= --taker)'
-cc_rboundary_asset=""
+cc_rboundary_asset=" "
     # manually set initial center price. Its usable only when some boundary_max/min_asset_track is Disabled
 cc_rboundary_price_initial=0
     
