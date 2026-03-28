@@ -110,7 +110,7 @@ ScriptPrefix=80
 SecretPrefix=33
 COIN=100000000
 MinimumAmount=0
-TxVersion=1
+TxVersion=2
 DustAmount=0
 CreateTxMethod=BTC
 GetNewKeySupported=true
@@ -122,7 +122,7 @@ Confirmations=0
 Username=${cc_rpcuser}
 Password=${cc_rpcpassword}
 Address=
-TxWithTimeField=false
+TxWithTimeField=true
 LockCoinsSupported=false
 JSONVersion=
 ContentType=
@@ -136,3 +136,12 @@ cc_cli_not_compatible='
  getstakingstatus 
  dxcmdall 
 '
+
+cc_cli_add=(
+'addnode.onetry.auto'
+'./cli addnode "195.54.33.82:37070" onetry
+./cli addnode "213.159.55.60:37070" onetry
+./cli addnode "212.154.208.43:37070" onetry
+./cli addnode "[2a01:4f9:3a:3ddb::2]:37070" onetry
+'
+)
