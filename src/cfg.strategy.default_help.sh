@@ -16,9 +16,6 @@ ${cc_max_open_orders_help_text}"
 (test "${cc_balance_save_asset_track}" = "") && cc_balance_save_asset_track="False"
 (test "${cc_sell_random}" = "") && cc_sell_random="False"
 (test "${cc_sell_type}" = "") && cc_sell_type="0"
-(test "${cc_pump_slide}" = "") && cc_pump_slide="0"
-(test "${cc_pump_amount_max}" = "") && cc_pump_amount_max="0"
-(test "${cc_pump_amount_min}" = "") && cc_pump_amount_min="0"
 
 
 #~ cc_setup_helper_version="20210827"
