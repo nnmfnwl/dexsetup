@@ -9,7 +9,7 @@ cc_git_commit_id="c56574a86d5ca2127efe6c0118efbe334a5c1970"
 cc_git_build_bin_file_dir="build"
 
 cc_download_url_x86_64="https://github.com/simplex-chat/simplex-chat/releases/download/v6.5.0-beta.7.1/simplex-desktop-ubuntu-22_04-x86_64.deb"
-cc_download_sha512sum_x86_64=""
+cc_download_sha512sum_x86_64="d57d5b509136cd9ae52c9bf10992a342ac8f0dcdd3f5484bdc5afa9f3a2301d5fc4e79b991e4464537b09c4b4eb6b1e12f0262e9ffdb55eed65f814238be1e1e"
 cc_download_sha256sum_x86_64="39f5eb051f6fb73a8659a835acbb8cb0fbbb149b0fdd26ae9ba5fd9a855357c7"
 
 cc_download_extracted_bin_files_dir="/opt/simplex/"
