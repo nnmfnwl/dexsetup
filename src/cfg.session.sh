@@ -13,7 +13,7 @@ cc_git_build_bin_file_dir="build"
 #~ cc_download_sha256sum_x86_64="79507523c0237ab9ab4833a7ef171b388f6329bfd5d4ae33aaa6402a04c80619"
 
 cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.18.0/session-desktop-linux-amd64-1.18.0.deb"
-cc_download_sha512sum_x86_64=""
+cc_download_sha512sum_x86_64="5341709f5a715cce0b7b669552c86e4596c31202e0782c4f087227ac9c8bed8e1a805b4a4085eb3bdaec87c9f5b76aa0cf5d73be8a931f231503baa6c1c3abe2"
 cc_download_sha256sum_x86_64="1db21c24ce708e016715625be4f2d27c5611e66371414c5cb2a54416beda610e"
 
 cc_download_extracted_bin_files_dir="/opt/Session/"
