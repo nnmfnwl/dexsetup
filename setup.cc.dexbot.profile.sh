@@ -150,8 +150,8 @@ tool_compare cc_taker_ticker cc_taker_ticker_check
 # copy dexbot strategy template, update template, create run scripts
 
 # prepare maker/taker strategy and runscript name and path
-cc_dexbot_strategy_maker_screen_name="${cc_maker_ticker} ${cc_taker_ticker} ${cc_dexbot_naming_suffix}"
-cc_dexbot_strategy_taker_screen_name="${cc_taker_ticker} ${cc_maker_ticker} ${cc_dexbot_naming_suffix}"
+cc_dexbot_strategy_maker_screen_name="${cc_maker_ticker} ${cc_taker_ticker}   ${cc_dexbot_naming_suffix}"
+cc_dexbot_strategy_taker_screen_name="${cc_maker_ticker} ${cc_taker_ticker} 2 ${cc_dexbot_naming_suffix}"
 cc_dexbot_strategy_maker_file_name="strategy_${cc_maker_ticker}_${cc_taker_ticker}_${cc_dexbot_naming_suffix}"
 cc_dexbot_strategy_taker_file_name="strategy_${cc_taker_ticker}_${cc_maker_ticker}_${cc_dexbot_naming_suffix}"
 cc_dexbot_strategy_maker_file_path=${cc_dexbot_git_src_path}"/"${cc_dexbot_strategy_maker_file_name}".py"
