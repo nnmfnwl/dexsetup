@@ -77,9 +77,10 @@ cc_rboundary_min_exit="False"
 
 cc_takerbot="0"
 
-cc_slide_dyn_asset="BLOCK"
-cc_slide_dyn_asset_track="True"
-cc_slide_dyn_zero_type="relative"
+cc_slide_dyn_asset=${cc_sell_size_asset}
+cc_slide_dyn_asset_opposite=${cc_sell_size_asset_opposite}
+cc_slide_dyn_asset_track="False"
+cc_slide_dyn_zero_type="static"
 cc_slide_dyn_zero_value="-2"
 cc_slide_dyn_type="static"
 
