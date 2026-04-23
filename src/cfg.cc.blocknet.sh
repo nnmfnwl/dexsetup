@@ -156,8 +156,8 @@ cc_command_post_make=''
 # conf file will scanned and comment existing conflist lines
 # config to add be be line by line evaluated and added
 
-cc_port=41412
-cc_rpcport=41414
+cc_port=41442
+cc_rpcport=41444
 cc_rpcuser="BlockDXBlocknet"
 #~ cc_rpcpassword=`cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n 1`
 cc_rpcpassword=`tr -dc A-Za-z0-9 </dev/urandom | head -c 32`
@@ -199,10 +199,16 @@ dxnowallets=1
 classic=1
 staking=0
 
+rpcthreads=16
 rpcworkqueue=256
 
 #rpcxbridgetimeout - Timeout for internal XBridge RPC calls (default: 120 seconds)
 rpcxbridgetimeout=210
+
+servicenode=0
+enableexchange=0
+xrouter=0
+# externalip=
 '
 
 cc_xbridge_cfg_add='
@@ -233,6 +239,12 @@ ContentType=
 CashAddrPrefix=
 '
 
+# commands will be executed line by line to first fail which means return non 0
+cc_command_list_post_profile=(
+'chance directory to same directory'
+'cd .'
+)
+
 # list of incompatible CLI commands surrounded with spaces
 cc_cli_not_compatible='
  unlock.new 
@@ -249,4 +261,22 @@ cc_cli_add=(
 
 'dxSplitAddress'
 './cli dxSplitAddress \$@'
+
+'servicenodecreateinputs'
+'./cli servicenodecreateinputs \$@'
+
+'servicenodegenkey'
+'./cli servicenodegenkey \$@'
+
+'servicenoderegister'
+'./cli servicenoderegister \$@'
+
+'servicenodelist'
+'./cli servicenodelist \$@'
+
+'servicenodelist.filter'
+'./cli servicenodelist | grep -e address -e status -e \$@'
+
+'servicenodesendping'
+'./cli servicenodesendping \$@'
 )
