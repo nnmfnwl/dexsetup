@@ -282,6 +282,8 @@ cc_cli_add=(
 
 'servicenodesetup.manual'
 '
+echo "Here is step by step Blocknet service node registration manual:"
+echo ""
 echo "1. Create or have fresh address to be used as <snode-address>:"
 echo "./getnewaddress.default"
 echo ""
