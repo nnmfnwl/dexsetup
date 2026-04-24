@@ -279,4 +279,35 @@ cc_cli_add=(
 
 'servicenodesendping'
 './cli servicenodesendping \$@'
+
+'servicenodesetup.manual'
+'
+echo "1. Create or have fresh address to be used as snode-address"
+echo " - Use command and save snode address:"
+echo "./getnewaddress.default"
+echo ""
+echo "2. You have fill address with at least 5002 BLOCK coins"
+echo " - Hopefully you know how to do it"
+echo ""
+echo "3. After some confirmations create snode transaction inputs"
+echo " - Use command with snode address from previous step"
+echo "./servicenodecreateinputs <snode address>"
+echo ""
+echo "4. Generate service node private key and save output of command. it will be used later"
+echo " - Use command:"
+echo "./servicenodegenkey"
+echo ""
+echo "5. Add line into servicenode.conf file as following:"
+echo " - <snode-name-by-your-choice> SPV <private key from previous step> <snode-adddress>"
+echo ""
+echo "6. Register named service node on the network"
+echo " - ./servicenoderegister <snode name here>"
+echo ""
+echo "8. Wait a while and try to ping service node availability with command:"
+echo "./servicenodesendping"
+echo ""
+echo "7. Check if snode registered on network and status is running:"
+echo "./servicenodelist.filter"
+echo ""
+'
 )
