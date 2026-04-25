@@ -17,7 +17,7 @@ cc_command_list_post_profile=(
 'sudo -v; (test $? != 0) && su_cmd=\"echo \\\"Please enter ROOT password\\\"; su -c\" || su_cmd=\"echo \\\"Please enter ${USER} sudo password\\\"; sudo sh -c\";'
 
 'administration password needed >> updating system >> installing tor >> setting up snode onion hidden service domain name >> adding domain name into blocknet configuration file >> process could take a minute...'
-'${su_cmd} -c \"apt update && apt install tor && cat ${torrc} | grep -q ohs_blocknet_snode || (echo \\\"HiddenServiceDir /var/lib/tor/ohs_blocknet_snode/\\\" >> ${torrc} && echo \\\"HiddenServiceVersion 3\\\" >> ${torrc} && echo \\\"HiddenServicePort ${cc_port} 127.0.0.1:${cc_port}\\\" >> ${torrc} && service tor@default restart && sleep 6 && ohsdn=$(cat /var/lib/tor/ohs_blocknet_snode/hostname) && echo \\\"externalip=\${ohsdn}\\\" >> ${cc_main_cfg_path})\"'
+'${su_cmd} -c \"apt update && apt install tor && cat ${torrc} | grep -q ohs_blocknet_snode || (echo \\\"HiddenServiceDir /var/lib/tor/ohs_blocknet_snode/\\\" >> ${torrc} && echo \\\"HiddenServiceVersion 3\\\" >> ${torrc} && echo \\\"HiddenServicePort ${cc_port} 127.0.0.1:${cc_port}\\\" >> ${torrc} && service tor@default restart && sleep 6 && ohsdn=\$(cat /var/lib/tor/ohs_blocknet_snode/hostname) && echo \\\"externalip=\${ohsdn}\\\" >> ${cc_main_cfg_path})\"'
 )
 
 # lines will eval before add
