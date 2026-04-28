@@ -112,6 +112,13 @@ if [ "${cc_action_source}" = "update" ]; then
     (test $? != 0) && echo "update dexbot by git failed. try again later" && exit 1
 fi
 
+# if dexbot update
+if [ "${cc_action_source}" = "update" ]; then
+    echo "INFO >> git pull updating existing cc_dexbot_git_src_path >> ${cc_dexbot_git_src_path}"
+    ${cc_proxychains} git pull
+    (test $? != 0) && echo "update dexbot by git failed. try again later" && exit 1
+fi
+
 # dexbot checkout branch
 echo "INFO >> dexbot >> git checkout >> cc_dexbot_git_branch >> ${cc_dexbot_git_branch}"
 ${cc_proxychains} git checkout ${cc_dexbot_git_branch}
