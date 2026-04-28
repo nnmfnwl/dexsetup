@@ -8,7 +8,7 @@ ${cc_max_open_orders_help_text}"
 
 # TODO remove all next lines by replacing them with default help that match configuration variable like already above lines already done
 
-(test "${cc_delay_internal_op}" = "") && cc_delay_internal_op=2.3
+(test "${cc_delay_internal_op}" = "") && cc_delay_internal_op=0.7
 (test "${cc_delay_check_price}" = "") && cc_delay_check_price=180
 (test "${cc_delay_internal_error}" = "") && cc_delay_internal_error=10
 (test "${cc_delay_internal_cycle}" = "") && cc_delay_internal_cycle=8
