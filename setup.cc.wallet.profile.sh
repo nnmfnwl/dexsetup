@@ -164,7 +164,7 @@ done
 
 # make cli command directory and generate all supported commands
 
-function tool_firejail_mk_cli_script() {  #var name filename #var name cmd
+function tool_firejail_mk_cli_script() {   #var name filename #var name cmd
     (test "${1}" != "" ) && local filename=`eval echo "\\${${1}}"`
     (test "${2}" != "" ) && local cmd=`eval echo \"\\${${2}}\"`
     
@@ -492,6 +492,44 @@ ${cli_cmd}"
     
     # make command file
     tool_firejail_mk_cli_script cli_file cli_cmd
+done
+
+
+# run custom post profile commands from cc_command_list_post_profile
+tool_cd ${cc_install_dir_path} "cc_install_dir_path"
+# cross all post profile specific commands eval them and run them
+i=0
+while :
+do
+    # load command description and command data itself
+    cmd_descr=${cc_command_list_post_profile[i]}
+    ((i++))
+    cmd_data="${cc_command_list_post_profile[i]}"
+    ((i++))
+    
+    # verify loaded variables
+    if [[ "${cmd_descr}" == '' ]]; then
+        break
+    fi
+    
+    if [[ "${cmd_data}" == '' ]]; then
+        break
+    fi
+    
+    # evaluate command
+    tool_eval_arg cmd_data
+    
+    # log information
+    tool_variable_info cmd_descr "command name to be executed"
+    tool_variable_info cmd_data "command content to be executed"
+    
+    #~ echo "${cmd_data}"
+    
+    # run command
+    eval ${cmd_data}
+    (test $? != 0) && echo "ERROR >> ${cmd_descr} >> last profile specific command failed" && exit 1
+    echo "Success"
+    echo ""
 done
 
 # list of generated scripts

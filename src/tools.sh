@@ -67,7 +67,7 @@ function tool_eval_arg() { #var.name.to.eval #prefix.info
     eval "${1}=\"${tmp1}\"" && eval "tmp2=\"${tmp1}\""
     (test $? != 0) && echo "ERROR >> ${prefix} >> ${1} = eval save failed" && exit 1
     
-    echo "INFO >> ${prefix} >> expand >> ${1} >> ${tmp1} >> ${tmp2} >> success"
+    echo "INFO >> ${prefix} >> expand >> ${1} >> ${tmp1} >>>>>> ${tmp2} >> success"
 }
 
 #
