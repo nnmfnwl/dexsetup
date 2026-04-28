@@ -523,10 +523,13 @@ do
     tool_variable_info cmd_descr "command name to be executed"
     tool_variable_info cmd_data "command content to be executed"
     
-    # run command
-    #~ eval ${cmd_data}
-    (test $? != 0) && echo "ERROR >> ${cmd_descr} >> last profile specific command failed" && exit 1
+    #~ echo "${cmd_data}"
     
+    # run command
+    eval ${cmd_data}
+    (test $? != 0) && echo "ERROR >> ${cmd_descr} >> last profile specific command failed" && exit 1
+    echo "Success"
+    echo ""
 done
 
 # list of generated scripts
