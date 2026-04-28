@@ -61,8 +61,8 @@ onion=127.0.0.1:9050
 bind=127.0.0.1
 bantime=180
 
-maxconnections=7
-maxuploadtarget=777
+maxconnections=32
+maxuploadtarget=2777
 
 txindex=1
 
