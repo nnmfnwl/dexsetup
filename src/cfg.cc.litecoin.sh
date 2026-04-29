@@ -20,8 +20,8 @@ cc_firejail_make_args=''
 cc_firejail_profile_add=''
 
 cc_git_src_url="https://github.com/litecoin-project/litecoin.git"
-cc_git_src_branch="v0.21.4"
-cc_git_commit_id="beae01d62292a0aab363b7a4d3f606708cea7260"
+cc_git_src_branch="v0.21.5.4"
+cc_git_commit_id="940c89ad7190d49383f70f17f0b8c8e82f310b50"
 
 cc_make_depends="bdb"
 cc_make_depends_debian12="${cc_make_depends}"
