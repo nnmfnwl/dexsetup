@@ -208,8 +208,8 @@ cd ${cc_dexbot_git_src_path} || exit 1
 
 screen -X title \"${cc_dexbot_strategy_maker_screen_name}\"
 
-(test \"\${1}\" == \"--configaction\") && configaction1=\"--read-write=${cc_dexbot_strategy_maker_file_name}.py\"
 (test \"\${1}\" == \"--configaction\" && test ! -f \"${cc_dexbot_strategy_maker_file_name}.py\") && touch \"${cc_dexbot_strategy_maker_file_name}.py\"
+test ! -d \"cfg_backup\") && mkdir -p \"./cfg_backup\"
 
 firejail \\
 --name=${cc_dexbot_strategy_maker_file_name} \\
@@ -219,7 +219,8 @@ firejail \\
 --read-write=\`pwd\`/${cc_dexbot_strategy_maker_file_name}.tmp.cfg \\
 --mkfile=\`pwd\`/${cc_dexbot_strategy_maker_file_name}.tmp.pricing \\
 --read-write=\`pwd\`/${cc_dexbot_strategy_maker_file_name}.tmp.pricing \\
-${configaction1} \\
+--read-write=\`pwd\`/${cc_dexbot_strategy_maker_file_name}.py \\
+--read-write=\`pwd\`/cfg_backup \\
 --whitelist=\${HOME}/.proxychains \\
 --read-only=\${HOME}/.proxychains \\
 --whitelist=\${HOME}/.local/bin \\
@@ -240,8 +241,8 @@ cd ${cc_dexbot_git_src_path} || exit 1
 
 screen -X title \"${cc_dexbot_strategy_taker_screen_name}\"
 
-(test \"\${1}\" == \"--configaction\") && configaction1=\"--read-write=${cc_dexbot_strategy_taker_file_name}.py\"
 (test \"\${1}\" == \"--configaction\" && test ! -f \"${cc_dexbot_strategy_taker_file_name}.py\") && touch \"${cc_dexbot_strategy_taker_file_name}.py\"
+test ! -d \"cfg_backup\") && mkdir -p \"./cfg_backup\"
 
 firejail \\
 --name=${cc_dexbot_strategy_taker_file_name} \\
@@ -251,7 +252,8 @@ firejail \\
 --read-write=\`pwd\`/${cc_dexbot_strategy_taker_file_name}.tmp.cfg \\
 --mkfile=\`pwd\`/${cc_dexbot_strategy_taker_file_name}.tmp.pricing \\
 --read-write=\`pwd\`/${cc_dexbot_strategy_taker_file_name}.tmp.pricing \\
-${configaction1} \\
+--read-write=\`pwd\`/${cc_dexbot_strategy_taker_file_name}.py \\
+--read-write=\`pwd\`/cfg_backup \\
 --whitelist=\${HOME}/.proxychains \\
 --read-only=\${HOME}/.proxychains \\
 --whitelist=\${HOME}/.local/bin \\
