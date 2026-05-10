@@ -24,8 +24,8 @@ cc_git_src_url="https://github.com/pocketnetteam/pocketnet.core.git"
 cc_git_src_branch_master="0.22"
 #~ cc_git_src_branch="feature/sqlite"
 #~ cc_git_commit_id="cb78e60beef40e0293b1ed1b5b70a8782c0ee5ec"
-cc_git_src_branch="0.22.20"
-cc_git_commit_id="fe9ab947f7d6e0050ef018d07169cf88182908fd"
+cc_git_src_branch="0.22.21"
+cc_git_commit_id="278b26204e872840b8e708691afdc21c2564cd00"
 #~ cc_git_src_branch="fix/stake_worker_wallet_access"
 #~ cc_git_commit_id="1530f7e3cfdcde83790284d0cadf1111ad143a63"
 
@@ -134,7 +134,6 @@ cc_cli_not_compatible='
  unlock.new 
  unlock.staking.only 
  getstakingstatus 
- dxcmdall 
 '
 
 cc_cli_add=(
@@ -144,4 +143,14 @@ cc_cli_add=(
 ./cli addnode "212.154.208.43:37070" onetry
 ./cli addnode "[2a01:4f9:3a:3ddb::2]:37070" onetry
 '
+
+'getstakinginfo'
+'./cli getstakinginfo'
+
+'getstakereport.full'
+'./cli getstakereport'
+
+'getstakereport.last'
+'./cli getstakereport | grep -e Last'
+
 )
