@@ -248,8 +248,6 @@ cc_command_list_post_profile=(
 # list of incompatible CLI commands surrounded with spaces
 cc_cli_not_compatible='
  unlock.new 
- getstakinginfo 
- getstakereport
 '
 
 cc_cli_add=(
@@ -258,6 +256,18 @@ cc_cli_add=(
 ./cli addnode "134.195.198.209:41412" onetry
 ./cli addnode "86.48.2.51:41412" onetry
 '
+
+'dxGetLocalTokens'
+'./cli dxGetLocalTokens'
+
+'dxGetTokenBalances'
+'./cli dxGetTokenBalances'
+
+'dxGetMyOrders'
+'./cli dxGetMyOrders'
+
+'dxGetNetworkTokens'
+'./cli dxGetNetworkTokens'
 
 'dxSplitAddress'
 './cli dxSplitAddress \$@'
