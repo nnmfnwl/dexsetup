@@ -330,26 +330,6 @@ if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
     tool_firejail_mk_cli_script cli_file cli_cmd_full
 fi
 
-# gen getstakinginfo for PKOIN
-cli_file="getstakinginfo"
-cli_id="getstakinginfo"
-cli_cmd_full="#!/bin/bash
-./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} getstakinginfo 
-"
-if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
-    tool_firejail_mk_cli_script cli_file cli_cmd_full
-fi
-
-# gen getstakereport for PKOIN
-cli_file="getstakereport"
-cli_id="getstakereport"
-cli_cmd_full="#!/bin/bash
-./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} getstakereport 
-"
-if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
-    tool_firejail_mk_cli_script cli_file cli_cmd_full
-fi
-
 # gen getblockchaininfo
 cli_file="getblockchaininfo"
 cli_id="getblockchaininfo"
@@ -445,16 +425,6 @@ cli_file="listreceivedbyaddress.basic"
 cli_id="listreceivedbyaddress"
 cli_cmd_full="#!/bin/bash
 ./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} listreceivedbyaddress 0 true | grep -e address -e label -e amount
-"
-if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
-    tool_firejail_mk_cli_script cli_file cli_cmd_full
-fi
-
-# gen list UTXOs
-cli_file="dxGetTokenBalances"
-cli_id="dxcmdall"
-cli_cmd_full="#!/bin/bash
-./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} dxGetTokenBalances
 "
 if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
     tool_firejail_mk_cli_script cli_file cli_cmd_full
