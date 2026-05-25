@@ -1020,8 +1020,8 @@ cli_script_data_add='
 screen -drS \"${gssn}\" -X screen -t \"${gswt}\"
 sleep 0.1
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"cd ~/dexsetup/dexbot/\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BTC.LTC.strategy1.sh\\ --canceladdress\\ --exitonerror\\ 1\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BTC.LTC.strategy1.sh\\  --action\\ reset\\n\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BTC.LTC.strategy1.sh --canceladdress --exitonerror 1\\n\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BTC.LTC.strategy1.sh --action reset\\n\"
 '
 gui_script_data_add=${cli_script_data_add}
  
