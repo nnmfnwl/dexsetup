@@ -1034,69 +1034,71 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff \"^D\"
 '
 
 gswt='bot reserved1'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved2'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved3'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved4'
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved5'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved6'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved7'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved8'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved9'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved10'
-cli_script_data_add=`eval echo ${cli_script_data_add}`
-gui_script_data_add=`eval echo ${gui_script_data_add}`
+cli_script_data_add=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add=`eval "echo \"${gui_script_data_add}\""`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
