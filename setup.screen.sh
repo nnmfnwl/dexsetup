@@ -970,13 +970,17 @@ cli_script_data=${cli_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
 screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/dexbot/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.BLOCK.LTC.strategy1.sh'
+screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.BLOCK.LTC.strategy1.sh\\ --canceladdress\\ --exitonerror 1\n'
+screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.BLOCK.LTC.strategy1.sh\\ --action\\ reset\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.BLOCK.LTC.strategy1.sh --action reset'
 "
 gui_script_data=${gui_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
 screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/dexbot/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.BLOCK.LTC.strategy1.sh'
+screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.BLOCK.LTC.strategy1.sh\\ --canceladdress\\ --exitonerror 1\n'
+screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.BLOCK.LTC.strategy1.sh\\ --action\\ reset\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.BLOCK.LTC.strategy1.sh --action reset'
 "
 stop_script_data=${stop_script_data}"
 screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
@@ -991,56 +995,61 @@ cli_script_data=${cli_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
 screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/dexbot/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.LTC.BLOCK.strategy1.sh'
+screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.LTC.BLOCK.strategy1.sh\\ --canceladdress\\ --exitonerror 1\n'
+screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.LTC.BLOCK.strategy1.sh\\ --action\\ reset\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.LTC.BLOCK.strategy1.sh --action reset'
 "
 gui_script_data=${gui_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
 screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/dexbot/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.LTC.BLOCK.strategy1.sh'
+screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.LTC.BLOCK.strategy1.sh --action reset'
 "
 stop_script_data=${stop_script_data}"
-screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
-screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
-screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
-#screen -S ${gssn} -p \"${gswt}\" -X stuff './run.firejail.LTC.BLOCK.strategy1.sh --canceladdress --exitonerror 1\n'
-screen -S ${gssn} -p \"${gswt}\" -X stuff '^D'
+screen -S ${gssn} -p '${gswt}' -X stuff '^C'
+screen -S ${gssn} -p '${gswt}' -X stuff '^C'
+screen -S ${gssn} -p '${gswt}' -X stuff '^C'
+#screen -S ${gssn} -p '${gswt}' -X stuff './run.firejail.LTC.BLOCK.strategy1.sh --canceladdress --exitonerror 1\n'
+screen -S ${gssn} -p '${gswt}' -X stuff '^D'
 "
 
-cli_script_data_add="
+# a='\"$b\"\\n'; echo $a; b=ccc; d=$a; echo $d; e=`eval echo $d`; echo $e
 
-screen -drS ${gssn} -X screen -t '${gswt}'
+cli_script_data_add='
+
+screen -drS \"${gssn}\" -X screen -t \"${gswt}\"
 sleep 0.1
-screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/dexbot/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.BTC.LTC.strategy1.sh\n'
-"
-gui_script_data_add="
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"cd ~/dexsetup/dexbot/\\n\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BTC.LTC.strategy1.sh\\ --canceladdress\\ --exitonerror\\ 1\\n\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BTC.LTC.strategy1.sh\\  --action\\ reset\\n\"
+'
+gui_script_data_add=${cli_script_data_add}
+ 
+stop_script_data_add='
 
-screen -drS ${gssn} -X screen -t '${gswt}'
-sleep 0.1
-screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/dexbot/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.BTC.LTC.strategy1.sh\ --canceladdress\ --exitonerror 1\n'
-screen -S ${gssn} -p '${gswt}' -X stuff 'echo ./run.firejail.BTC.LTC.strategy1.sh\n'
-"
-stop_script_data_add="
-
-screen -S ${gssn} -p \"${gswt}\" -X stuff 'nonsense bot command enough long to fail\n'
-screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit canceladdress\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff \"nonsense bot command enough long to fail\\n\"
+screen -S ${gssn} -p \"${gswt}\" -X stuff \"exit canceladdress\\n\"
 sleep 3
-screen -S ${gssn} -p \"${gswt}\" -X stuff '^D'
-"
+screen -S ${gssn} -p \"${gswt}\" -X stuff \"^D\"
+'
 
 gswt='bot reserved1'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved2'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved3'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
@@ -1051,31 +1060,43 @@ gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved5'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved6'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved7'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved8'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved9'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
 
 gswt='bot reserved10'
+cli_script_data_add=`eval echo ${cli_script_data_add}`
+gui_script_data_add=`eval echo ${gui_script_data_add}`
 cli_script_data=${cli_script_data}${cli_script_data_add}
 gui_script_data=${gui_script_data}${gui_script_data_add}
 stop_script_data=${stop_script_data}${stop_script_data_add}
