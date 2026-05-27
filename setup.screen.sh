@@ -965,65 +965,6 @@ screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt}\" -X stuff '^D'
 "
 
-gswt='BLOCK LTC example'
-cli_script_data=${cli_script_data}'
-
-screen -drS \"${gssn}\" -X screen -t \"${gswt}\"
-sleep 0.1
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"cd ~/dexsetup/dexbot/\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BLOCK.LTC.strategy1.sh --canceladdress --exitonerror 1\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BLOCK.LTC.strategy1.sh --action reset\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"./run.firejail.BLOCK.LTC.strategy1.sh --action reset\\n\"
-'
-gui_script_data=${gui_script_data}'
-
-screen -drS \"${gssn}\" -X screen -t \"${gswt}\"
-sleep 0.1
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"cd ~/dexsetup/dexbot/\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BLOCK.LTC.strategy1.sh --canceladdress --exitonerror 1\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.BLOCK.LTC.strategy1.sh --action reset\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"./run.firejail.BLOCK.LTC.strategy1.sh --action reset\\n\"
-'
-stop_script_data=${stop_script_data}'
-
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^C\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^C\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^C\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"./run.firejail.BLOCK.LTC.strategy1.sh --canceladdress --exitonerror 1\n\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^D\"
-'
-
-gswt='LTC BLOCK example'
-cli_script_data=${cli_script_data}'
-
-screen -drS \"${gssn}\" -X screen -t \"${gswt}\"
-sleep 0.1
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"cd ~/dexsetup/dexbot/\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.LTC.BLOCK.strategy1.sh --canceladdress --exitonerror 1\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.LTC.BLOCK.strategy1.sh --action reset\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"./run.firejail.LTC.BLOCK.strategy1.sh --action reset\\n\"
-'
-gui_script_data=${gui_script_data}'
-
-screen -drS \"${gssn}\" -X screen -t \"${gswt}\"
-sleep 0.1
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"cd ~/dexsetup/dexbot/\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.LTC.BLOCK.strategy1.sh --canceladdress --exitonerror 1\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.LTC.BLOCK.strategy1.sh --action reset\\n\"
-screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"./run.firejail.LTC.BLOCK.strategy1.sh --action reset\\n\"
-'
-
-stop_script_data=${stop_script_data}'
-
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^C\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^C\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^C\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"./run.firejail.LTC.BLOCK.strategy1.sh --canceladdress --exitonerror 1\n\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^D\"
-'
-
-
-
 
 cli_script_data_add='
 
@@ -1033,16 +974,37 @@ screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"cd ~/dexsetup/dexbot/\\n\"
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo Here are example commands how to use...\\n\"
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.${coin1}.${coin2}.strategy1.sh --canceladdress --exitonerror 1\\n\"
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"echo ./run.firejail.${coin1}.${coin2}.strategy1.sh --action reset\\n\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"./run.firejail.${coin1}.${coin2}.strategy1.sh --action reset\"
 '
 gui_script_data_add=${cli_script_data_add}
  
 stop_script_data_add='
 
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"nonsense bot command enough long to fail\\n\"
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"exit\\n\"
-sleep 3
-screen -S ${gssn} -p \"${gswt}\" -X stuff \"^D\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"nonsense bot command enough long to fail\\n\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"exit\\n\"
+sleep 1.3
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^D\"
 '
+
+coin1="BLOCK"
+coin2="LTC"
+gswt='BLOCK LTC   strategy1'
+cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add2=`eval "echo \"${gui_script_data_add}\""`
+stop_script_data_add2=`eval "echo \"${stop_script_data_add}\""`
+cli_script_data=${cli_script_data}${cli_script_data_add2}
+gui_script_data=${gui_script_data}${gui_script_data_add2}
+stop_script_data=${stop_script_data}${stop_script_data_add2}
+
+coin1="LTC"
+coin2="BLOCK"
+gswt='BLOCK LTC 2 strategy1'
+cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add2=`eval "echo \"${gui_script_data_add}\""`
+stop_script_data_add2=`eval "echo \"${stop_script_data_add}\""`
+cli_script_data=${cli_script_data}${cli_script_data_add2}
+gui_script_data=${gui_script_data}${gui_script_data_add2}
+stop_script_data=${stop_script_data}${stop_script_data_add2}
 
 coin1="BTC"
 coin2="LTC"
