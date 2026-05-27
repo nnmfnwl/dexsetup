@@ -989,6 +989,8 @@ screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^C\"
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^C\"
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^C\"
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^D\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^D\"
+screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^D\"
 '
 
 coin1="BLOCK"
