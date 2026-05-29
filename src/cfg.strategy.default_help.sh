@@ -113,3 +113,6 @@ ${cc_max_open_orders_help_text}"
 
 #~ cc_im_really_sure_what_im_doing=" "
 #~ cc_im_really_sure_what_im_doing="0"
+
+# at the end of include file by command "source" the true must be returned otherwise it could fail in some cases
+true
