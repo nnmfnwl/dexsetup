@@ -380,6 +380,46 @@ else
     echo "I >> DEXBOTAUTORUN >> Disabled"
 fi
 
+wallet="block_snode"
+gswt=${wallet}
+gswt_tmp=${gswt}
+cli_script_data=${cli_script_data}"
+screen -drS ${gssn} -X screen -t \"${gswt}\"
+sleep 0.1
+screen -S ${gssn} -p \"${gswt}\" -X stuff 'cd ~/dexsetup/blocknet/\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff './firejail.blocknet.wallet_${wallet}.d.bin.sh'
+"
+gui_script_data=${gui_script_data}"
+screen -drS ${gssn} -X screen -t \"${gswt}\"
+sleep 0.1
+screen -S ${gssn} -p \"${gswt}\" -X stuff 'cd ~/dexsetup/blocknet/\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff './firejail.blocknet.wallet_${wallet}.qt.bin.sh'
+"
+
+gswt=${wallet}'_cli'
+cli_script_data=${cli_script_data}"
+screen -drS ${gssn} -X screen -t '${gswt}'
+sleep 0.1
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/blocknet/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.blocknet.wallet_${wallet}.cli.bin.sh\n'
+"
+gui_script_data=${gui_script_data}"
+screen -drS ${gssn} -X screen -t '${gswt}'
+sleep 0.1
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/blocknet/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.blocknet.wallet_${wallet}.cli.bin.sh\n'
+"
+stop_script_data=${stop_script_data}"
+screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
+screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
+screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff $'\003'
+screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
+"
 
 wallet="block_dao"
 gswt=${wallet}
