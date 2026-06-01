@@ -140,3 +140,11 @@ cc_cli_not_compatible='
  getstakingstatus 
  getstakereport 
 '
+
+cc_cli_add=(
+'unlock.full'
+'./cli walletpassphrase \"\$(read -sp pwd:\  undo; echo \$undo;undo=)\" 9999999999'
+
+'unlock.staking.only'
+'./cli walletpassphrase \"\$(read -sp pwd:\  undo; echo \$undo;undo=)\" 9999999999 true'
+)
