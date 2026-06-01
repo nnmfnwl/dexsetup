@@ -260,31 +260,11 @@ if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
     tool_firejail_mk_cli_script cli_file cli_cmd_full
 fi
 
-# gen unlock unlock wallet old style
-cli_file="unlock.full"
-cli_id="unlock.old"
-cli_cmd_full="#!/bin/bash
-./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} walletpassphrase \"\$(read -sp 'pwd: ' undo; echo \$undo;undo=)\" 9999999999
-"
-if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
-    tool_firejail_mk_cli_script cli_file cli_cmd_full
-fi
-
-# gen unlock unlock wallet new style
+# gen unlock wallet in new BTC stdin style
 cli_file="unlock.full"
 cli_id="unlock.new"
 cli_cmd_full="#!/bin/bash
 ./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} -stdinwalletpassphrase walletpassphrase 9999999999
-"
-if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
-    tool_firejail_mk_cli_script cli_file cli_cmd_full
-fi
-
-# gen unlock unlock wallet for staking only
-cli_file="unlock.staking.only"
-cli_id="unlock.staking.only"
-cli_cmd_full="#!/bin/bash
-./../bin/${cc_bin_file_name_prefix}.cli.bin -datadir=${cc_chain_dir_path} walletpassphrase \"\$(read -sp 'pwd: ' undo; echo \$undo;undo=)\" 9999999999 true
 "
 if [[ "${cc_cli_not_compatible}" != *" ${cli_id} "* ]] ;then
     tool_firejail_mk_cli_script cli_file cli_cmd_full
