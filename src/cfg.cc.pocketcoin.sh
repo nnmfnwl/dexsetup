@@ -132,11 +132,13 @@ CashAddrPrefix=
 # list of incompatible CLI commands surrounded with spaces
 cc_cli_not_compatible='
  unlock.new 
- unlock.staking.only 
  getstakingstatus 
 '
 
 cc_cli_add=(
+'unlock.full'
+'./cli walletpassphrase \"\$(read -sp pwd:\  undo; echo \$undo;undo=)\" 9999999999'
+
 'addnode.onetry.auto'
 './cli addnode "195.54.33.82:37070" onetry
 ./cli addnode "109.235.247.26:37070" onetry
