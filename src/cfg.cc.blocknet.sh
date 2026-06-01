@@ -251,6 +251,12 @@ cc_cli_not_compatible='
 '
 
 cc_cli_add=(
+'unlock.full'
+'./cli walletpassphrase \"\$(read -sp pwd:\  undo; echo \$undo;undo=)\" 9999999999'
+
+'unlock.staking.only'
+'./cli walletpassphrase \"\$(read -sp pwd:\  undo; echo \$undo;undo=)\" 9999999999 true'
+
 'addnode.onetry.auto'
 './cli addnode "185.231.155.27:41412" onetry
 ./cli addnode "134.195.198.209:41412" onetry
