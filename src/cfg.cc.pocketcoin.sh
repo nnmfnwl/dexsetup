@@ -139,9 +139,10 @@ cc_cli_not_compatible='
 cc_cli_add=(
 'addnode.onetry.auto'
 './cli addnode "195.54.33.82:37070" onetry
-./cli addnode "213.159.55.60:37070" onetry
+./cli addnode "109.235.247.26:37070" onetry
 ./cli addnode "212.154.208.43:37070" onetry
 ./cli addnode "[2a01:4f9:3a:3ddb::2]:37070" onetry
+./cli addnode "qsmrbtrluvwo7u546icyodkmrru3hxbrrvhenrhkfw6o7np5gcvgtqyd.onion:37070" onetry
 '
 
 'getstakinginfo'
