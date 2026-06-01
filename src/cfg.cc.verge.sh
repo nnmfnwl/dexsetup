@@ -161,6 +161,9 @@ cc_cli_not_compatible='
 '
 
 cc_cli_add=(
+'unlock.full'
+'./cli walletpassphrase \"\$(read -sp pwd:\  undo; echo \$undo;undo=)\" 9999999999'
+
 'addnode.onetry.auto'
 './cli addnode "p4vjqpnqslrc2gniopxgu75t2hwdjrhr56unzxyjmlvxh7l6dk33tlqd.onion:21102" onetry
 ./cli addnode "5ia5cridzvmrfn6jrc7yegxdiqsn23yr3gf2b3ru54zopbv5crwt7nad.onion:21102" onetry
