@@ -255,6 +255,8 @@ cc_cli_add=(
 './cli addnode "185.231.155.27:41412" onetry
 ./cli addnode "134.195.198.209:41412" onetry
 ./cli addnode "86.48.2.51:41412" onetry
+./cli addnode [2a01:4f9:6a:1a5a:216:3eff:fe9d:9237]:41412 onetry
+./cli addnode 103.114.41.101:41412 onetry
 '
 
 'dxGetLocalTokens'
