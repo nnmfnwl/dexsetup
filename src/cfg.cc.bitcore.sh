@@ -88,6 +88,8 @@ CXXFLAGS="-O3 -march=native"
 # --enable-debug
 
 cc_command_pre_make='
+filepath="src/httpserver.cpp" &&
+((cat ${filepath} | grep "#include <deque>") || sed -i -e "/#include <ui_interface.h>/ a #include <deque>" ${filepath})
 '
 
 cc_command_post_make=''
