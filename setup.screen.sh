@@ -865,33 +865,33 @@ screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
 "
 
-gswt='lbc_dex'
+gswt='btx_dex'
 gswt_tmp=${gswt}
 cli_script_data=${cli_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
-screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/lbrycrd/sqlite/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './firejail.lbrycrd.wallet_lbc_dex.d.bin.sh'
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/bitcore/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.bitcore.wallet_btx_dex.d.bin.sh'
 "
 gui_script_data=${gui_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
-screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/lbrycrd/sqlite/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './firejail.lbrycrd.wallet_lbc_dex.qt.bin.sh'
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/bitcore/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.bitcore.wallet_btx_dex.qt.bin.sh'
 "
 
-gswt='lbc_dex_cli'
+gswt='btx_dex_cli'
 cli_script_data=${cli_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
-screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/lbrycrd/sqlite/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './firejail.lbrycrd.wallet_lbc_dex.cli.bin.sh\n'
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/bitcore/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.bitcore.wallet_btx_dex.cli.bin.sh\n'
 "
 gui_script_data=${gui_script_data}"
 screen -drS ${gssn} -X screen -t '${gswt}'
 sleep 0.1
-screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/lbrycrd/sqlite/\n'
-screen -S ${gssn} -p '${gswt}' -X stuff './firejail.lbrycrd.wallet_lbc_dex.cli.bin.sh\n'
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/bitcore/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.bitcore.wallet_btx_dex.cli.bin.sh\n'
 "
 stop_script_data=${stop_script_data}"
 screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
