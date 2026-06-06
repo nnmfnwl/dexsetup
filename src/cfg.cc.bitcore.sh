@@ -48,6 +48,10 @@ cc_git_src_branch="0.90.9.10"
 cc_git_commit_id="4e66aaf6757b16092ab516b85eca14a5b70432f8"
 
 cc_command_pre_depends='
+filepath="depends/packages/bdb.mk" &&
+strsearch="_config_opts_linux" &&
+stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
 '
 
 cc_make_depends="bdb"
