@@ -51,11 +51,145 @@ cc_command_pre_depends='
 filepath="depends/packages/bdb.mk" &&
 strsearch="_config_opts_linux" &&
 stradd="\$(package)_cflags+=-Wno-error=implicit-function-declaration" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+
+filepath="src/qt/sendcoinsdialog.cpp" &&
+strsearch="#include <QTextDocument>" &&
+stradd="#include <array>" &&
+((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath}) &&
+
+
+filepath="src/validation.cpp" &&
+strsearch=" _1" &&
+stradd=" std::placeholders::_1" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/validation.cpp" &&
+strsearch=" _2" &&
+stradd=" std::placeholders::_2" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+
+filepath="src/validationinterface.cpp" &&
+strsearch=" _1" &&
+stradd=" std::placeholders::_1" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/validationinterface.cpp" &&
+strsearch=" _2" &&
+stradd=" std::placeholders::_2" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/validationinterface.cpp" &&
+strsearch=" _3" &&
+stradd=" std::placeholders::_3" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+
+filepath="src/qt/bitcoingui.cpp" &&
+strsearch=" _1" &&
+stradd=" std::placeholders::_1" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/bitcoingui.cpp" &&
+strsearch=" _2" &&
+stradd=" std::placeholders::_2" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/bitcoingui.cpp" &&
+strsearch=" _3" &&
+stradd=" std::placeholders::_3" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/bitcoingui.cpp" &&
+strsearch=" _4" &&
+stradd=" std::placeholders::_4" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+
+filepath="src/qt/clientmodel.cpp" &&
+strsearch=" _1" &&
+stradd=" std::placeholders::_1" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/clientmodel.cpp" &&
+strsearch=" _2" &&
+stradd=" std::placeholders::_2" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/clientmodel.cpp" &&
+strsearch=" _3" &&
+stradd=" std::placeholders::_3" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/clientmodel.cpp" &&
+strsearch=" _4" &&
+stradd=" std::placeholders::_4" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+
+filepath="src/qt/splashscreen.cpp" &&
+strsearch=" _1" &&
+stradd=" std::placeholders::_1" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/splashscreen.cpp" &&
+strsearch=" _2" &&
+stradd=" std::placeholders::_2" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/splashscreen.cpp" &&
+strsearch=" _3" &&
+stradd=" std::placeholders::_3" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+
+filepath="src/qt/transactiontablemodel.cpp" &&
+strsearch=" _1" &&
+stradd=" std::placeholders::_1" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/transactiontablemodel.cpp" &&
+strsearch=" _2" &&
+stradd=" std::placeholders::_2" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+
+filepath="src/qt/walletmodel.cpp" &&
+strsearch=" _1" &&
+stradd=" std::placeholders::_1" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/walletmodel.cpp" &&
+strsearch=" _2" &&
+stradd=" std::placeholders::_2" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/walletmodel.cpp" &&
+strsearch=" _3" &&
+stradd=" std::placeholders::_3" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/walletmodel.cpp" &&
+strsearch=" _4" &&
+stradd=" std::placeholders::_4" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+filepath="src/qt/walletmodel.cpp" &&
+strsearch=" _5" &&
+stradd=" std::placeholders::_5" &&
+(sed -i -e "s#${strsearch}#${stradd}#g" ${filepath}) &&
+
+
+filepath="src/support/lockedpool.cpp" &&
+strsearch="#include <algorithm>" &&
+stradd="#include <stdexcept>" &&
 ((cat ${filepath} | grep "${stradd}") || sed -i -e "/${strsearch}/ a ${stradd}" ${filepath})
 '
 
 cc_make_depends="bdb"
-cc_make_depends_debian12="bdb boost"
+cc_make_depends_debian12="${cc_make_depends}"
 cc_make_depends_debian13="${cc_make_depends}"
 cc_make_depends_ubuntu24="${cc_make_depends}"
 cc_make_depends_ubuntu25="${cc_make_depends}"
@@ -69,20 +203,11 @@ CXXFLAGS="-O3 -march=native"
 --enable-reduce-exports --without-miniupnpc --without-zmq
 --with-gui=auto
 '
+
+cc_command_configure_debian12="${cc_command_configure}"
 cc_command_configure_debian13="${cc_command_configure}"
 cc_command_configure_ubuntu24="${cc_command_configure}"
 cc_command_configure_ubuntu25="${cc_command_configure}"
-
-cc_command_configure_debian12='
-./configure --quiet
-LDFLAGS="-L`pwd`/depends/${cc_archdir}/lib/"
-CPPFLAGS="-I`pwd`/depends/${cc_archdir}/include/"
-CXXFLAGS="-O3 -march=native"
---with-boost-libdir=`pwd`/depends/${cc_archdir}/lib/
---disable-bench --disable-gui-tests --disable-tests
---enable-reduce-exports --without-miniupnpc --without-zmq
---with-gui=auto
-'
 
 # HINT >> add to above configure parameter to compile with debug symbols >>
 # --enable-debug
