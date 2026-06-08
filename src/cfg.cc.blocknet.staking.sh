@@ -12,4 +12,5 @@ cc_rpcport=41424
 cc_main_cfg_add='
 classic=1
 staking=1
+dxnowallets=0
 '${cc_main_cfg_add}
