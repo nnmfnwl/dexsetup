@@ -5,7 +5,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/cfg.cc.defaults.sh" || exit 1
 
 cc_ticker="BTX"
 cc_bin_file_name_prefix="bitcore"
-cc_gui_cfg_dir_name="Bitcore"
+cc_gui_cfg_dir_name="BitCore"
 
 cc_install_dir_path_default="bitcore"
 cc_chain_dir_path_default="~/.bitcore"
