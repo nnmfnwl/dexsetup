@@ -177,6 +177,7 @@ rpcpassword=${cc_rpcpassword}
 
 #Automatically create Tor hidden service (default: 1)
 listenonion=0
+
 #~ onlynet=<net>
 # Make outgoing connections only through network <net> (ipv4, ipv6 or
 # onion). Incoming connections are not affected by this option.
@@ -184,26 +185,27 @@ listenonion=0
 onlynet=ipv6
 onlynet=ipv4=multi
 onlynet=onion=multi
+
 #proxy=127.0.0.1:9050
 onion=127.0.0.1:9050
 bind=127.0.0.1
 bantime=180
 
-maxconnections=7
-maxuploadtarget=777
+maxconnections=13
+maxuploadtarget=1200
 
 txindex=1
 
-dxnowallets=1
-
 classic=1
-staking=0
+staking=1
 
-rpcthreads=16
-rpcworkqueue=256
+rpcthreads=12
+rpcworkqueue=128
 
 #rpcxbridgetimeout - Timeout for internal XBridge RPC calls (default: 120 seconds)
 rpcxbridgetimeout=210
+
+dxnowallets=1
 
 servicenode=0
 enableexchange=0
