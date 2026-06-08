@@ -1,5 +1,8 @@
 
 cd {cc_install_dir_path} || exit 1
+
+mkdir -p {cc_chain_dir_path} || exit 1
+
 firejail \
 --profile=./firejail.{cc_firejail_profile_middlename}.d.bin.profile \
 {cc_proxychains} \
