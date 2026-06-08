@@ -36,49 +36,17 @@ echo \"su_cmd \${su_cmd}\"
 
 # lines will eval before add
 cc_main_cfg_add='
-#Accept connections from outside (default: 1 if no -proxy or -connect)
-listen=1
-server=1
-port=${cc_port}
-
-rpcbind=127.0.0.1
-rpcallowip=127.0.0.1
-rpcport=${cc_rpcport}
-rpcuser=${cc_rpcuser}
-rpcpassword=${cc_rpcpassword}
-
-#Automatically create Tor hidden service (default: 1)
-listenonion=0
-#~ onlynet=<net>
-# Make outgoing connections only through network <net> (ipv4, ipv6 or
-# onion). Incoming connections are not affected by this option.
-# This option can be specified multiple times to allow multiple networks.
-onlynet=ipv6
-onlynet=ipv4=multi
-onlynet=onion=multi
-#proxy=127.0.0.1:9050
-onion=127.0.0.1:9050
-bind=127.0.0.1
-bantime=180
-
-maxconnections=32
+maxconnections=21
 maxuploadtarget=2777
 
-txindex=1
+rpcthreads=16
+rpcworkqueue=128
 
 dxnowallets=1
-
-classic=1
-staking=1
-
-rpcthreads=16
-rpcworkqueue=256
-
-#rpcxbridgetimeout - Timeout for internal XBridge RPC calls (default: 120 seconds)
-rpcxbridgetimeout=210
 
 servicenode=1
 enableexchange=1
 xrouter=0
 # externalip=${cc_snode_hostname}
-'
+'${cc_main_cfg_add}
+
