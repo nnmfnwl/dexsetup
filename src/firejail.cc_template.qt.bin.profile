@@ -17,7 +17,6 @@ whitelist ${HOME}/.proxychains
 read-only ${HOME}/.proxychains
 
 ### home directory whitelisting to prevent whole home directory tree reveal
-mkdir {cc_chain_dir_path}
 noblacklist {cc_chain_dir_path}
 whitelist {cc_chain_dir_path}
 
