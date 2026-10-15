@@ -22,10 +22,24 @@ ${cc_max_open_orders_help_text}"
 (test "${cc_log_balance}" = "") && cc_log_balance="True"
 (test "${cc_log_order}" = "") && cc_log_order="True"
 (test "${cc_log_debug}" = "") && cc_log_debug="False"
+(test "${cc_log_trace}" = "") && cc_log_trace="False"
 (test "${cc_log_hint}" = "") && cc_log_hint="True"
 (test "${cc_log_fatal}" = "") && cc_log_fatal="True"
 (test "${cc_log_error}" = "") && cc_log_error="True"
 (test "${cc_log_warning}" = "") && cc_log_warning="True"
+
+# coin market capitalization API key is mandatory for using this module.
+(test "${cc_cmcmod_apikey}" = "") && cc_cmcmod_apikey=" "
+# coinpaprika has highest free limits
+(test "${cc_cpmod_apikey}" = "") && cc_cpmod_apikey=" "
+# coin gecko has some low free limits, but having also two types of API keys.
+(test "${cc_cgmod_free_apikey}" = "") && cc_cgmod_free_apikey=" "
+(test "${cc_cgmod_pro_apikey}" = "") && cc_cgmod_pro_apikey=" "
+# proxy client mod use proxy pricing cache server, that help all bots to share same pricing data.
+(test "${cc_proxymod_provider}" = "") && cc_proxymod_provider="cp"
+# proxy mod send to proxy on/off to try also other possible reachable pricing external sources
+# some low liquidity coins like BLOCK could have inaccurate price on other modules so stay aware
+(test "${cc_proxymod_autotry}" = "") && cc_proxymod_autotry="on"
 
 #~ cc_setup_helper_version="20210827"
 
