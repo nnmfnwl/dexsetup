@@ -4,6 +4,20 @@ cc_dexbot_naming_suffix_default="default"
 cc_maker_ticker="BLOCK"
 cc_taker_ticker="BCH"
 
+# coin market capitalization API key is mandatory for using this cmc module.
+# Blocknet coins works best with cmc API, so please get one API key for free at https://coinmarketcap.com/api/dashboard/api-keys/
+cc_cmcmod_apikey=" "
+# coinpaprika has highest free limits
+cc_cpmod_apikey=" "
+# coin gecko has some low free limits, but having also two types of API keys.
+cc_cgmod_free_apikey=" "
+cc_cgmod_pro_apikey=" "
+# proxy client mod use proxy pricing cache server, that help all bots to share same pricing data.
+cc_proxymod_provider="cmc"
+# proxy mod send to proxy on/off to try also other possible reachable pricing external sources
+# some low liquidity coins like BLOCK could have inaccurate price on other modules so stay aware
+cc_proxymod_autotry="off"
+
 cc_address_funds_only="True"
 
 cc_address_maker_default="{cc_address_maker}"
@@ -14,10 +28,11 @@ cc_sell_size_asset="USDT"
 cc_sell_size_asset_opposite="USDT"
 
 # automatic maker price gathering
-cc_price_redirections='"BLOCK": { "asset": "USDT", "price": 0.023777}'
+#~ cc_price_redirections='"BLOCK": { "asset": "USDT", "price": 0.023777}'
+cc_price_redirections=" "
 cc_maker_price=0
 cc_maker_price_opposite=0
-cc_price_provider="cg"
+cc_price_provider="proxy"
 cc_price_acceptable_outage=0
 cc_price_outage_extra_slide=1.5
 
