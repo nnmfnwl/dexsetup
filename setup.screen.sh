@@ -945,6 +945,46 @@ screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
 screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
 "
 
+gswt='scc_dex'
+gswt_tmp=${gswt}
+cli_script_data=${cli_script_data}"
+screen -drS ${gssn} -X screen -t '${gswt}'
+sleep 0.1
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/stakecubecoin/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.stakecubecoin.wallet_scc_dex.d.bin.sh'
+"
+gui_script_data=${gui_script_data}"
+screen -drS ${gssn} -X screen -t '${gswt}'
+sleep 0.1
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/stakecubecoin/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.stakecubecoin.wallet_scc_dex.qt.bin.sh'
+"
+
+gswt='scc_dex_cli'
+cli_script_data=${cli_script_data}"
+screen -drS ${gssn} -X screen -t '${gswt}'
+sleep 0.1
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/stakecubecoin/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.stakecubecoin.wallet_scc_dex.cli.bin.sh\n'
+"
+gui_script_data=${gui_script_data}"
+screen -drS ${gssn} -X screen -t '${gswt}'
+sleep 0.1
+screen -S ${gssn} -p '${gswt}' -X stuff 'cd ~/dexsetup/stakecubecoin/\n'
+screen -S ${gssn} -p '${gswt}' -X stuff './firejail.stakecubecoin.wallet_scc_dex.cli.bin.sh\n'
+"
+stop_script_data=${stop_script_data}"
+screen -S ${gssn} -p \"${gswt}\" -X stuff '^C'
+screen -S ${gssn} -p \"${gswt}\" -X stuff './lock\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff './stop\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
+screen -S ${gssn} -p \"${gswt}\" -X stuff 'exit\n'
+while :; do ps aux | grep -v grep | grep ^${USER}\  | grep ${gswt_tmp} && (echo waiting && sleep 1) || break; done
+screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff ';^C'
+screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff '^C'
+screen -S ${gssn} -p \"${gswt_tmp}\" -X stuff 'exit\n'
+"
+
 gswt='part_dex'
 gswt_tmp=${gswt}
 cli_script_data=${cli_script_data}"
