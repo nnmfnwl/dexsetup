@@ -275,12 +275,18 @@ if [ ! -f "${cc_dexbot_run_proxy_cache_file_name}" ]; then
 # run proxy script generated with ./setup.cc.dexbot.profile.sh --help
 
 cd ${cc_dexbot_git_src_path} || exit 1
+
+(test ! -f \"proxy_configuration.py\") && touch \"proxy_configuration.py\"
+(test ! -f \"proxy_tmp_pricing\") && touch \"proxy_tmp_pricing\"
+
 firejail \\
 --name=proxy_server_cachce \\
 --whitelist=\`pwd\` \\
 --read-only=\`pwd\` \\
---mkfile=\`pwd\`/proxy.tmp.pricing \\
---read-write=\`pwd\`/proxy.tmp.pricing \\
+--whitelist=\`pwd\`/proxy_tmp_pricing \\
+--read-write=\`pwd\`/proxy_tmp_pricing \\
+--whitelist=\`pwd\`/proxy_configuration.py \\
+--read-write=\`pwd\`/proxy_configuration.py \\
 --whitelist=\${HOME}/.proxychains \\
 --read-only=\${HOME}/.proxychains \\
 --whitelist=\${HOME}/.local/bin \\
