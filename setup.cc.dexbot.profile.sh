@@ -278,6 +278,7 @@ cd ${cc_dexbot_git_src_path} || exit 1
 
 (test ! -f \"proxy_configuration.py\") && touch \"proxy_configuration.py\"
 (test ! -f \"proxy_tmp_pricing\") && touch \"proxy_tmp_pricing\"
+(test ! -d \"cfg_backup\") && mkdir -p \"./cfg_backup\"
 
 firejail \\
 --name=proxy_server_cachce \\
@@ -287,6 +288,8 @@ firejail \\
 --read-write=\`pwd\`/proxy_tmp_pricing \\
 --whitelist=\`pwd\`/proxy_configuration.py \\
 --read-write=\`pwd\`/proxy_configuration.py \\
+--whitelist=\`pwd\`/cfg_backup \\
+--read-write=\`pwd\`/cfg_backup \\
 --whitelist=\${HOME}/.proxychains \\
 --read-only=\${HOME}/.proxychains \\
 --whitelist=\${HOME}/.local/bin \\
