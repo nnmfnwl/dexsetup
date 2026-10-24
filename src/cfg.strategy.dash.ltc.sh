@@ -1,6 +1,7 @@
 cc_setup_helper_version="20210827"
 
 cc_dexbot_naming_suffix_default="default"
+
 cc_maker_ticker="DASH"
 cc_taker_ticker="LTC"
 
@@ -9,22 +10,28 @@ cc_address_funds_only="True"
 cc_address_maker_default="{cc_address_maker}"
 cc_address_taker_default="{cc_address_taker}"
 
-cc_sell_size_asset="USDT"
-cc_sell_size_asset_opposite="USDT"
-
 # automatic maker price gathering
 cc_price_redirections=' '
 cc_maker_price=0
+cc_maker_price_opposite=0
 cc_price_provider="proxy"
 cc_price_acceptable_outage=0
 cc_price_outage_extra_slide=1.5
+
+cc_proxymod_provider="cp"
+cc_proxymod_autotry="on"
 
 # flush all canceled orders every 60 seconds
 cc_flush_canceled_orders=60
 
 # added fixed fee to buy amount
 cc_fixed_fee_asset="USDT"
-cc_fixed_fee_value="0"
+cc_fixed_fee_value="0.13"
+cc_fixed_fee_value_opposite="0.13"
+
+# opposite strategy using "*_opposite" variables if exist
+cc_sell_size_asset="USDT"
+cc_sell_size_asset_opposite="USDT"
 
 # first placed orders
 cc_sell_start_slide="1.99"
@@ -32,7 +39,8 @@ cc_sell_start_slide_opposite="1.99"
 cc_sell_start_max="15"
 cc_sell_start_min="10"
 # last palced order
-cc_sell_end_slide="1.03"
+cc_sell_end_slide="1.00"
+#~ cc_sell_end_slide_opposite="1.00"
 cc_sell_end_max="15"
 cc_sell_end_min="10"
 
@@ -72,7 +80,7 @@ cc_rboundary_min_track_asset="False"
 cc_rboundary_price_reverse="False"
 cc_rboundary_max_cancel="True"
 cc_rboundary_max_exit="True"
-cc_rboundary_min_cancel="True"
+cc_rboundary_min_cancel="False"
 cc_rboundary_min_exit="False"
 
 cc_takerbot="0"
@@ -100,7 +108,7 @@ cc_balance_save_number=0
 cc_balance_save_percent=0
 
 cc_im_really_sure_what_im_doing=" "
-cc_im_really_sure_what_im_doing="0"
+cc_im_really_sure_what_im_doing="1"
 
 # user could let automatically include custom additional permanent configuration,
 # useful when user do not want to always rewrite base strategy configuration or write whole new one
