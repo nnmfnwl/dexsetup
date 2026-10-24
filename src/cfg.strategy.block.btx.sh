@@ -1,8 +1,14 @@
 cc_setup_helper_version="20210827"
 
 cc_dexbot_naming_suffix_default="default"
+
 cc_maker_ticker="BLOCK"
 cc_taker_ticker="BTX"
+
+cc_address_maker_default="{cc_address_maker}"
+cc_address_taker_default="{cc_address_taker}"
+
+cc_address_funds_only="True"
 
 # coin market capitalization API key is mandatory for using this cmc module.
 # Blocknet coins works best with cmc API, so please get one API key for free at https://coinmarketcap.com/api/dashboard/api-keys/
@@ -18,17 +24,8 @@ cc_proxymod_provider="cmc"
 # some low liquidity coins like BLOCK could have inaccurate price on other modules so stay aware
 cc_proxymod_autotry="off"
 
-cc_address_funds_only="True"
-
-cc_address_maker_default="{cc_address_maker}"
-cc_address_taker_default="{cc_address_taker}"
-
-cc_sell_size_asset="USDT"
-# opposite strategy using "*_opposite" variables if exist
-cc_sell_size_asset_opposite="USDT"
-
 # automatic maker price gathering
-#~ cc_price_redirections='"BLOCK": { "asset": "USDT", "price": 0.023777}'
+#~ cc_price_redirections='"BLOCK": { "asset": { "ticker": "USDT"}, "price": 0.023777}'
 cc_price_redirections=" "
 cc_maker_price=0
 cc_maker_price_opposite=0
@@ -42,6 +39,10 @@ cc_flush_canceled_orders=60
 # added fixed fee to buy amount
 cc_fixed_fee_asset="USDT"
 cc_fixed_fee_value="0"
+
+# opposite strategy using "*_opposite" variables if exist
+cc_sell_size_asset="USDT"
+cc_sell_size_asset_opposite="USDT"
 
 # first placed orders
 cc_sell_start_slide="3.1"
