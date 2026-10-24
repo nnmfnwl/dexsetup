@@ -8,9 +8,9 @@ cc_git_branch="v6.4.7"
 cc_git_commit_id="c56574a86d5ca2127efe6c0118efbe334a5c1970"
 cc_git_build_bin_file_dir="build"
 
-cc_download_url_x86_64="https://github.com/simplex-chat/simplex-chat/releases/download/v6.5.4/simplex-desktop-ubuntu-24_04-x86_64.deb"
-cc_download_sha512sum_x86_64="ece0523c2e80a111845f5108924721593b435872b9acb1ac509fab6cc9f7ee520ed93697410aacb14856ea1220b129d2bbca0da60dd6bbf7c0c7f2dff3cb5da1"
-cc_download_sha256sum_x86_64="ccd538f7a65d6f7a5f32e5e4a149ad243efcdc79b0f1d2b449949d5ca4471223"
+cc_download_url_x86_64="https://github.com/simplex-chat/simplex-chat/releases/download/v7.1.0-beta.7/simplex-desktop-ubuntu-24_04-x86_64.deb"
+cc_download_sha512sum_x86_64="e55f164121dfa04a10e6ff36b35ffc6114731a71a320b1f4698eac483a9bd6a91b19a74e9b9e5bddf29c4528fe499f46807cf8c4c7d6fe1f92ec9c210618d062"
+cc_download_sha256sum_x86_64="c5ff3dd9585b80c325342474d287b87e61b0883f929495e0f03dbd9ebe95146c"
 
 cc_download_extracted_bin_files_dir="/opt/simplex/"
 
