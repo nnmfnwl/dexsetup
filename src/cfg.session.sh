@@ -12,9 +12,13 @@ cc_git_build_bin_file_dir="build"
 #~ cc_download_sha512sum_x86_64="ac9ab66ece8a73e95a05db0b17502774c51ab5ff1ceffe681fce86d652bb89e5958c9d1cb29853f48e003c425569db5c766e730b207d4b4c1287d47a772c019b"
 #~ cc_download_sha256sum_x86_64="79507523c0237ab9ab4833a7ef171b388f6329bfd5d4ae33aaa6402a04c80619"
 
-cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.18.0/session-desktop-linux-amd64-1.18.0.deb"
-cc_download_sha512sum_x86_64="5341709f5a715cce0b7b669552c86e4596c31202e0782c4f087227ac9c8bed8e1a805b4a4085eb3bdaec87c9f5b76aa0cf5d73be8a931f231503baa6c1c3abe2"
-cc_download_sha256sum_x86_64="1db21c24ce708e016715625be4f2d27c5611e66371414c5cb2a54416beda610e"
+#~ cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.18.0/session-desktop-linux-amd64-1.18.0.deb"
+#~ cc_download_sha512sum_x86_64="5341709f5a715cce0b7b669552c86e4596c31202e0782c4f087227ac9c8bed8e1a805b4a4085eb3bdaec87c9f5b76aa0cf5d73be8a931f231503baa6c1c3abe2"
+#~ cc_download_sha256sum_x86_64="1db21c24ce708e016715625be4f2d27c5611e66371414c5cb2a54416beda610e"
+
+cc_download_url_x86_64="https://github.com/session-foundation/session-desktop/releases/download/v1.18.3/session-desktop-linux-amd64-1.18.3.deb"
+cc_download_sha512sum_x86_64="3d9c7a2600f61eb9524c03ac858c079997bbec016e8457c314f77c34affd30e836526eeb5ea9c59a432a9e23fe0cb36b50ea6044727a38d4422b90f19c954077"
+cc_download_sha256sum_x86_64="49c59e7ec3539fda8292352e13bfdd92416c70c8dfd5e023057840e66112ea08"
 
 cc_download_extracted_bin_files_dir="/opt/Session/"
 
