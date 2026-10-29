@@ -18,8 +18,8 @@ cc_price_provider="proxy"
 cc_price_acceptable_outage=0
 cc_price_outage_extra_slide=1.5
 
-cc_proxymod_provider="cp"
-cc_proxymod_autotry="on"
+cc_proxymod_provider="cmc"
+cc_proxymod_autotry="off"
 
 # flush all canceled orders every 60 seconds
 cc_flush_canceled_orders=60
