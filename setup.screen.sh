@@ -1115,6 +1115,7 @@ screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^D\"
 screen -S \"${gssn}\" -p \"${gswt}\" -X stuff \"^D\"
 '
 
+
 coin1="BLOCK"
 coin2="LTC"
 gswt="${coin1} ${coin2}   strategy1"
@@ -1147,6 +1148,27 @@ gui_script_data=${gui_script_data}${gui_script_data_add2}
 stop_script_data=${stop_script_data}${stop_script_data_add2}
 
 coin1="DASH"
+coin2="BLOCK"
+gswt="${coin2} ${coin1} 2 strategy1"
+cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add2=`eval "echo \"${gui_script_data_add}\""`
+stop_script_data_add2=`eval "echo \"${stop_script_data_add}\""`
+cli_script_data=${cli_script_data}${cli_script_data_add2}
+gui_script_data=${gui_script_data}${gui_script_data_add2}
+stop_script_data=${stop_script_data}${stop_script_data_add2}
+
+
+coin1="BLOCK"
+coin2="BCH"
+gswt="${coin1} ${coin2}   strategy1"
+cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add2=`eval "echo \"${gui_script_data_add}\""`
+stop_script_data_add2=`eval "echo \"${stop_script_data_add}\""`
+cli_script_data=${cli_script_data}${cli_script_data_add2}
+gui_script_data=${gui_script_data}${gui_script_data_add2}
+stop_script_data=${stop_script_data}${stop_script_data_add2}
+
+coin1="BCH"
 coin2="BLOCK"
 gswt="${coin2} ${coin1} 2 strategy1"
 cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
@@ -1256,6 +1278,27 @@ stop_script_data=${stop_script_data}${stop_script_data_add2}
 
 coin1="LTC"
 coin2="DASH"
+gswt="${coin2} ${coin1} 2 strategy1"
+cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add2=`eval "echo \"${gui_script_data_add}\""`
+stop_script_data_add2=`eval "echo \"${stop_script_data_add}\""`
+cli_script_data=${cli_script_data}${cli_script_data_add2}
+gui_script_data=${gui_script_data}${gui_script_data_add2}
+stop_script_data=${stop_script_data}${stop_script_data_add2}
+
+
+coin1="BCH"
+coin2="LTC"
+gswt="${coin1} ${coin2}   strategy1"
+cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
+gui_script_data_add2=`eval "echo \"${gui_script_data_add}\""`
+stop_script_data_add2=`eval "echo \"${stop_script_data_add}\""`
+cli_script_data=${cli_script_data}${cli_script_data_add2}
+gui_script_data=${gui_script_data}${gui_script_data_add2}
+stop_script_data=${stop_script_data}${stop_script_data_add2}
+
+coin1="LTC"
+coin2="BCH"
 gswt="${coin2} ${coin1} 2 strategy1"
 cli_script_data_add2=`eval "echo \"${cli_script_data_add}\""`
 gui_script_data_add2=`eval "echo \"${gui_script_data_add}\""`
