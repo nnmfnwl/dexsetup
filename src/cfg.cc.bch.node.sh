@@ -17,9 +17,9 @@ cc_git_src_branch_master="master"
 cc_git_src_branch="v28.0.1"
 cc_git_commit_id="631badbf64766fa8c2d38f099e937f8c6cb19014"
 
-cc_download_url_x86_64="https://github.com/bitcoin-cash-node/bitcoin-cash-node/releases/download/v28.0.1/bitcoin-cash-node-28.0.1-x86_64-linux-gnu.tar.gz"
-cc_download_sha512sum_x86_64="fad15a4f6352715a9dbbb0e288f8a1e96c6a24e3389d49975dc0663e20b9048437f2f0532f50b808526b061ebe68849d9d032e698541f2c53c3e4dc02eeca32c"
-cc_download_sha256sum_x86_64="d69ee632147f886ca540cecdff5b1b85512612b4c005e86b09083a63c35b64fa"
+cc_download_url_x86_64="https://github.com/bitcoin-cash-node/bitcoin-cash-node/releases/download/v29.2.0/bitcoin-cash-node-29.2.0-x86_64-linux-gnu.tar.gz"
+cc_download_sha512sum_x86_64="def934f1f7f681e447fb61d963016d5deaefb2da888e3e5263a68748a63737a44ce738e8dc18374a47129c2258d6f283375fcbb88997cde491489e2d641e2ba7"
+cc_download_sha256sum_x86_64="23bbe9ff749136a9b832a2a59023ce76a5391322c1ea2f4f24b5b91f035081bc"
 
 cc_download_url_i686=""
 cc_download_sha512sum_i686=""
